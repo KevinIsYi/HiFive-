@@ -67,7 +67,16 @@
 }
 /* ***** HEADER ***** */
 
-.back-image {
+.back-img {
     background-image: url("../images/banner-01.jpg");
-    height: 520px;
+    background-position: center center;
+    background-size: cover;
+    height: 70vh;
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    .back-img {
+        background-image: url("../images/banner-01-resp.jpg");
+    }
 }
