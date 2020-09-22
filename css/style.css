@@ -1,3 +1,6 @@
+:root {
+    --red-color: #fe1818;
+}
 .container {
     width: 90%;
 }
@@ -5,6 +8,21 @@
 .center-horizontal {
     margin: auto;
 }
+
+.btn {
+    background-color: white;
+    border-radius: 50px;
+    border-style: none;
+    color: var(--red-color);
+    font-family: 'Roboto', sans-serif;
+    padding: 10px 20px;
+}
+
+.btn:hover {
+    background-color: var(--red-color);
+    color: white;
+}
+
 
 /* ***** HEADER ***** */
 .header-container {
@@ -65,8 +83,8 @@
         display: none;
     }
 }
-/* ***** HEADER ***** */
 
+/* ***** BACKGROUND IMAGE ***** */
 .back-img {
     background-image: url("../images/banner-01.jpg");
     background-position: center center;
@@ -80,3 +98,69 @@
         background-image: url("../images/banner-01-resp.jpg");
     }
 }
+
+/* ***** BACKGROUND IMAGE INFO ***** */
+.arrows {
+    align-items: center;
+    display: flex;
+    height: 80vh;
+    justify-content: space-between;
+}
+
+.arrows i {
+    color: white;
+    font-size: 60px;
+    padding: 0 50px;
+}
+
+.arrows i:hover {
+    color: var(--red-color);
+    cursor: pointer;
+    opacity: 0.75;
+}
+
+
+.center-img-text {
+    align-items: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.center-img-text h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    margin: 0;
+    text-align: center;
+}
+
+.center-img-text h1 {
+    text-align: center;
+    text-transform: uppercase;
+    margin: 10px 0;
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 50px;
+}
+
+
+@media (max-width: 768px) {
+    .arrows i {
+        font-size: 40px;
+        padding: 0 25px;
+    }
+    .center-img-text h3 {
+        font-size: 20px;
+    }
+    .center-img-text h1 {
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .arrows i {
+        font-size: 30px;
+        padding: 0 10px;
+    }
+}
+
+/* ***** Cards ***** */
