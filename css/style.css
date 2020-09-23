@@ -234,17 +234,17 @@ ul {
 }
 
 .sign-up {
+    font-family: 'Roboto', sans-serif;
+    left: 50%;
     position: absolute;
     top: 50%;
-    left: 50%;
     transform: translate(-50%, -50%);
-    font-family: 'Roboto', sans-serif;
 }
 
 .sign-up h1{
-    padding: 0;
-    margin: 0;
     font-size: 5vw;
+    margin: 0;
+    padding: 0;
 }
 
 .sign-up p {
@@ -252,10 +252,10 @@ ul {
 }
 
 .btn-sign-up {
-    width: 100%;
     background-color: black;
     color: white;
     font-size: 3vw;
+    width: 100%;
 }
 
 @media (min-width: 480px) {
@@ -276,11 +276,69 @@ ul {
         font-size: 2vw;
     }
     .sign-up p {
-        font-size: 1.5vw;
+        font-size: 1.2vw;
     }
     .btn-sign-up {
         font-size: 1.2vw;
     }
 }
 
+/* ***** Featured ***** */
+.arrows-featured {
+    font-size: 30px;
+}
+.featured-section {
+    width: 95%;
+}
 
+.featured-section h1 {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+.featured {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.featured-products img {
+    max-width: 100%;
+    width: 260px;
+}
+
+.featured-products {
+    position: relative;
+}
+
+.featured-products p {
+    background-color: #87F4BC;
+    border-radius: 50px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    left: 5%;
+    padding: 5px 10px;
+    position: absolute;
+    top: 0%;
+}
+
+.btn-add-cart {
+    bottom: 30px;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+}
+
+.fa-heart {
+    color: var(--red-color);
+    font-size: 25px;
+    position: absolute;
+    right: 25px;
+    top: 18px;
+}
+
+.fa-heart:hover {
+    cursor: pointer;
+    font-size: 30px;
+}
