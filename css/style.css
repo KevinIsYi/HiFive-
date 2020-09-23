@@ -189,8 +189,6 @@ ul {
 }
 
 /* ***** Cards ***** */
-
-
 .cards-container {
     margin: 50px 0;
     padding: 10px;
@@ -198,13 +196,12 @@ ul {
 }
 
 .cards li{
-    padding: 10px;
     float: left;
+    padding: 10px;
 }
 
 .card {
     position: relative;
-    overflow: hidden;
 }
 
 .card img {
@@ -222,3 +219,68 @@ ul {
         width: 33.3%;
     }   
 }
+
+.btn-card {
+    border-color: var(--red-color);
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1.5px;
+    bottom: 15%;
+    left: 50%;
+    position: absolute;
+    text-transform: uppercase;
+    transform: translateX(-50%);
+    width: 50%;
+}
+
+.sign-up {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Roboto', sans-serif;
+}
+
+.sign-up h1{
+    padding: 0;
+    margin: 0;
+    font-size: 5vw;
+}
+
+.sign-up p {
+    font-size: 4vw;
+}
+
+.btn-sign-up {
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-size: 3vw;
+}
+
+@media (min-width: 480px) {
+    .sign-up h1 {
+        font-size: 3vw;
+    }
+    .sign-up p {
+        font-size: 2vw;
+    }
+    .btn-sign-up {
+        font-size: 2vw;
+    }
+}
+
+
+@media (min-width: 768px) {
+    .sign-up h1 {
+        font-size: 2vw;
+    }
+    .sign-up p {
+        font-size: 1.5vw;
+    }
+    .btn-sign-up {
+        font-size: 1.2vw;
+    }
+}
+
+
