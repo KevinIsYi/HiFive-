@@ -1,6 +1,31 @@
 :root {
     --red-color: #fe1818;
 }
+
+html {
+    box-sizing: border-box; 
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.clearfix:after {
+    clear: both;
+  }
+
 .container {
     width: 90%;
 }
@@ -69,7 +94,6 @@
 .shopping-bag {
     height: 40px;
     padding: 0 15px;
-    width: 40px;
 }
 
 .burguer-menu {
@@ -166,51 +190,35 @@
 
 /* ***** Cards ***** */
 
-.cards {
-    display: grid;
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    height: 1072px;
-    width: 1300px;
+
+.cards-container {
+    margin: 50px 0;
+    padding: 10px;
+    text-align: center;
+}
+
+.cards li{
+    padding: 10px;
+    float: left;
 }
 
 .card {
     position: relative;
+    overflow: hidden;
 }
 
-.card-container {
-    margin-top: 100px;
-    width: 80%;
+.card img {
+    max-width: 100%;
 }
 
-.img {
-    width: 420px;
+@media (min-width: 480px) {
+    .cards li {
+        width: 50%;
+    }   
 }
 
-.square {
-    background-image: url("../images/card-04.jpg");
-    background-position: center;
-    height: 360px;
-}
-.rect {
-    background-image: url("../images/card-01.jpg");
-    background-position: center;
-    height: 692px;
-}
-.last {
-    position: relative;
-    top: -332px;
-}
-
-
-.card-btn {
-    border-radius: 5px;
-    bottom: 50px;
-    left: 50%;
-    padding: 15px 0;
-    position: absolute;
-    transform: translateX(-50%);
-    width: 75%;
+@media (min-width: 768px) {
+    .cards li {
+        width: 33.3%;
+    }   
 }
