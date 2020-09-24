@@ -572,6 +572,8 @@ ul {
     font-family: 'Roboto', sans-serif;
     font-size: 30px;
     width: 70%;
+    margin-top: -50px 0;
+    padding-bottom: 50px;
 }
 
 .each-description {
@@ -581,6 +583,10 @@ ul {
 .last-description {
     font-family: 'Quicksand', sans-serif;
     font-size: 15px;
+}
+
+.last-description a {
+    color: black;
 }
 
 .line {
