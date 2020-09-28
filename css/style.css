@@ -69,6 +69,10 @@ ul {
     margin: 50px 0;
 }
 
+.text-shadow-red {
+    text-shadow: 5px 0 5px var(--red-color), -5px 0 5px var(--red-color), 0 5px 5px var(--red-color), 0 -5px 5px var(--red-color);
+}
+
 
 /* ***** HEADER ***** */
 .header-container {
@@ -136,7 +140,7 @@ ul {
 }
 
 /* ***** BACKGROUND IMAGE ***** */
-.banner-url {
+.back-img {
     background-image: url("../images/banner-01.jpg");
 }
 
@@ -390,7 +394,7 @@ ul {
 
 /* **** COUNTER **** */
 .counter {
-    background-image: url(../images/banner-02.jpg);
+    background-image: url(../images/next-event.jpg);
     position: relative;
     margin-top: 100px;
 }
@@ -408,7 +412,6 @@ ul {
     font-size: 5vw;
     margin: 0;
     text-align: center;
-    text-shadow: 5px 0 5px var(--red-color), -5px 0 5px var(--red-color), 0 5px 5px var(--red-color), 0 -5px 5px var(--red-color);
     text-transform: capitalize;
 }
 
