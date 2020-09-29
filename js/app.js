@@ -6,13 +6,26 @@ const headerImages = [
 ];
 
 const arrowsHeader = document.querySelectorAll('.arrows i');
+
+const days = document.getElementById('days');
+const hours = document.getElementById('hours');
+const minutes = document.getElementById('minutes');
+const seconds = document.getElementById('seconds');
+
 let currImgIndex = 0, featuredImgIndex = 0;
 
 const eventListeners = () => {
 
     document.addEventListener('DOMContentLoaded', () => {
+        const date = new Date();
+
         setBackImage(0);
         placeFeaturedImages();
+
+        days.textContent = date.getDay();
+        hours.textContent = date.getHours() + 1;
+        minutes.textContent = date.getMinutes() + 1;
+        seconds.textContent = date.getSeconds() + 1;
     });
 
     window.addEventListener('resize', () => {
@@ -76,7 +89,31 @@ const cleanFeaturedArea = (featured = document.querySelector('.featured')) => {
     while(featured.firstChild) {
         featured.removeChild(featured.firstChild);
     }
-    console.log("Se llama");
 }
+
+const clockEvents = setInterval(() => {
+    
+    seconds.textContent--;
+
+    if (seconds.textContent == 0 && minutes.textContent > 0) {
+        seconds.textContent = 59;
+        minutes.textContent--;
+
+        if (minutes.textContent == 0 && hours.textContent > 0) {
+            minutes.textContent = 59;
+            hours.textContent--;
+        }
+        if (hours.textContent == 0 && days.textContent > 0) {
+            hours.textContent = 23;
+            days.textContent--;
+        }
+    }
+    else {
+        if (seconds.textContent == 0) {
+            clearInterval(clockEvents);
+        }
+    }
+
+}, 1000);
 
 eventListeners();
