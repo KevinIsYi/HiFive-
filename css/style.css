@@ -423,10 +423,6 @@ ul {
 
 .count {
     align-items: center;
-    border-color: white;
-    border-radius: 5px;
-    border-style: solid;
-    border-width: 5px;
     color: var(--red-color);
     display: flex;
     flex-direction: column;
@@ -447,32 +443,30 @@ ul {
         font-size: 10vw;
     }
     .count {
-        font-size: 2vw;
+        font-size: 2.5vw;
         padding: 0 3px;
         width: auto;
     }
     .count p:last-child {
-        font-size: 5vw;
+        font-size: 10vw;
     }
 }
 
 @media (min-width: 768px) {
     .next-event-header {
-        font-size: 8vw;
+        font-size: 6vw;
     }
-    .count {
-        font-size: 2vw;
+    .count { 
+        border-color: white;
+        border-radius: 5px;
+        border-style: solid;
+        border-width: 5px;
+        font-size: 1.5vw;
         padding: 0 3px;
         width: 170px;
     }
-}
-
-@media (min-width: 768px) {
-    .next-event-header {
-        font-size: 7vw;
-    }
-    .count {
-        font-size: 1.5vw;
+    .count p:last-child {
+        font-size: 5vw;
     }
 }
 

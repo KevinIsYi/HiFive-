@@ -18,8 +18,6 @@ const eventListeners = () => {
 
     document.addEventListener('DOMContentLoaded', () => {
         const date = new Date();
-
-        setBackImage(0);
         placeFeaturedImages();
 
         days.textContent = date.getDay();
