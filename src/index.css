@@ -6,7 +6,7 @@
   --alfa-slab-one: 'Alfa Slab One', cursive;
 }
 
-h1, h2, h3, h4, h5, p, .icons {
+h1, h2, h3, h4, h5, p, button, .icons {
   color: var(--gray-color);
   font-family: var(--roboto);
   margin: 0;
@@ -15,4 +15,21 @@ h1, h2, h3, h4, h5, p, .icons {
 
 .center {
   margin: 0 auto;
+}
+
+.text-shadow-red {
+  text-shadow: 5px 0 5px var(--red-color), -5px 0 5px var(--red-color), 0 5px 5px var(--red-color), 0 -5px 5px var(--red-color);
+}
+
+.btn {
+  border-radius: 50px;
+  border-style: solid;
+  border-width: 3px;
+  text-transform: capitalize;
+  padding: 10px 30px;
+  transition: all ease-in 0.3s;
+}
+
+.btn:hover {
+  filter: brightness(1.5);
 }
