@@ -1,0 +1,41 @@
+
+.footer {
+    background-color: var(--gray-color);
+    padding: 50px 0;
+    width: 100%;
+}
+
+.footer-container {
+    display: grid;
+    grid-row-gap: 10px;
+    grid-column-gap: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(158px, 1fr));
+    margin: auto;
+    width: 85%;
+}
+
+.info-section {
+    color: white;
+}
+
+.info-section h1 {
+    color: white;
+    margin: 0 0 10px 0;
+    font-family: var(--roboto);
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.info-section p {
+    text-transform: capitalize;
+}
+
+.link p {
+    transition: all ease-in 0.3s;
+}
+
+.link p:hover {
+    color: var(--orange-color);
+    cursor: pointer;
+}

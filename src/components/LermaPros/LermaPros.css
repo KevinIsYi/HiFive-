@@ -1,0 +1,47 @@
+.lerma-pros {
+    display: grid;
+    grid-row-gap: 25px;
+    margin: 30px auto;
+    text-align: center;
+    width: 90%;
+}
+
+.each-pro {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+.lerma-pro-icon {
+    color: var(--orange-color);
+    font-size: 50px;
+    text-align: center;
+    width: 40%;
+}
+
+.pros {
+    width: 100%;
+    font-family: var(--roboto);
+    color: var(--gray-color);
+}
+
+.pros h1 {
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    .lerma-pros {
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 50px;
+        text-align: left;
+    }
+    .lerma-pro-icon {
+        margin-right: 10px;
+    }
+}
+
+@media (min-width: 900px) {
+    .lerma-pro-icon {
+        margin-right: 50px;
+    }
+}

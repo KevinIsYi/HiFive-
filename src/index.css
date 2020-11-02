@@ -1,35 +1,51 @@
-
 :root {
-  --red-color: #FE1818;
   --gray-color: #252525;
   --roboto: 'Roboto', sans-serif;
-  --alfa-slab-one: 'Alfa Slab One', cursive;
+  --alfa: 'Alfa Slab One', cursive;
+  --red-color: #fe1818;
 }
 
-h1, h2, h3, h4, h5, p, button, .icons {
+a {
+  text-decoration: none;
   color: var(--gray-color);
-  font-family: var(--roboto);
+}
+
+h1, h2, h3, h4, h5, p {
   margin: 0;
   padding: 0;
 }
 
-.center {
-  margin: 0 auto;
+button {
+  border-style: none;
+  font-weight: bold;
 }
 
-.text-shadow-red {
-  text-shadow: 5px 0 5px var(--red-color), -5px 0 5px var(--red-color), 0 5px 5px var(--red-color), 0 -5px 5px var(--red-color);
+.container {
+  width: 80%;
 }
 
 .btn {
-  border-radius: 50px;
-  border-style: solid;
-  border-width: 3px;
-  text-transform: capitalize;
-  padding: 10px 30px;
-  transition: all ease-in 0.3s;
+  font-weight: bold;
 }
 
-.btn:hover {
-  filter: brightness(1.5);
+.center {
+  margin: auto;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.black-border {
+  text-shadow: 3px 0px 5px black,
+              -3px 0 5px black,
+              0 3px 5px black,
+              0 -3px 5px black;
+}
+
+.red-border {
+  text-shadow: 1px 0px var(--red-color),
+              -1px 0 var(--red-color),
+              0 1px var(--red-color),
+              0 -1px var(--red-color);
 }

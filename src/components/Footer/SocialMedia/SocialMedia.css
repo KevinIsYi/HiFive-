@@ -1,0 +1,15 @@
+.social-media {
+    
+}
+
+.social-media-icon {
+    color: white;
+    font-size: 25px;
+    margin: 5px 25px 0 0;
+    transition: all ease-in 0.3s;
+}
+
+.social-media-icon:hover {
+    color: var(--orange-color);
+    cursor: pointer;
+}

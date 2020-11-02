@@ -1,0 +1,240 @@
+[33mcommit 345106e502a12eb2f08df038889844022edd260c[m[33m ([m[1;36mHEAD -> [m[1;32mdepartment-layout[m[33m)[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Tue Oct 27 11:12:10 2020 -0600
+
+    Added filter by name
+
+[33mcommit 87d095d9094e6bb981fbaad3323cbbbcb0a154e8[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Mon Oct 26 18:24:27 2020 -0600
+
+    Added the sort by section with its classes in the css file
+
+[33mcommit 1f318526cbd5e9905da76904b6f5441846874cdc[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Mon Oct 26 14:08:53 2020 -0600
+
+    reorder imports in files and moved usercontext to hooks folder
+
+[33mcommit 11fd39c07d9e25b9bcc83cb36763131a7f345882[m
+Merge: 45722d9 1b1c880
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Mon Oct 26 13:50:14 2020 -0600
+
+    Merge branch 'router' into main
+
+[33mcommit 45722d9f7567655a685b89fb08325b5acd6f0efb[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Mon Oct 26 13:50:09 2020 -0600
+
+    Fixed an error on folder names
+
+[33mcommit 1b1c880d8e19f2d71c5f6c2b09d2ec90e2437177[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Mon Oct 26 13:46:26 2020 -0600
+
+    Filter section is fully functional
+
+[33mcommit 2e6638a811ba44a1efce5439d5017d077107c010[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Mon Oct 26 09:24:05 2020 -0600
+
+    fixed an error with the folder name
+
+[33mcommit 7a0c12267a2bab219e45ad040c83dbce34312ea6[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Sun Oct 25 16:54:56 2020 -0600
+
+    Fixed the typo in the loginscreen
+
+[33mcommit 5a554cea8a5ca2cb99206b5e35ef3f0c87967845[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Sun Oct 25 16:16:57 2020 -0600
+
+    Input area will cover all available space
+
+[33mcommit 3b78e869c4e27a8b5953ff93c50d840da2bad8cb[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Sun Oct 25 16:16:24 2020 -0600
+
+    User can login and changed the logincomponent to do the input area bigger
+
+[33mcommit 9bf2c8c14d3602a241101e8b0bb9ed045c21d603[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Sun Oct 25 13:49:23 2020 -0600
+
+    login-landing
+
+[33mcommit b3d19579d4fd3afe230525f155140f67b5bc6636[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Sun Oct 25 11:42:51 2020 -0600
+
+    Added router
+
+[33mcommit 1eb3761042780e8196d52c169e00a0087c55503d[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Sat Oct 24 16:42:26 2020 -0500
+
+    fixed the slider height and change the margin in the banner image
+
+[33mcommit e0090c46ced2c1d2f44a7e035f456039bc30c955[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Sat Oct 24 16:19:47 2020 -0500
+
+    Finished with login and signin page
+
+[33mcommit b2c71c9650d0a8569650c5e2075de3c793796f4d[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Sat Oct 24 13:54:59 2020 -0500
+
+    Finished with categories section and changed images
+
+[33mcommit 00ef66ff343006f29672c5ec28c270872476139e[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Fri Oct 23 19:54:42 2020 -0500
+
+    Started with the filters page, add header, footer and the background image
+
+[33mcommit 10bdec75f9b496a6d540abaa23f4597d73282dce[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Fri Oct 23 15:44:11 2020 -0500
+
+    Finished with the landing page, full responsive
+
+[33mcommit 98d908845ab782a565298446ac4a1d5a17b84621[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Fri Oct 23 15:04:24 2020 -0500
+
+    Media querys on header and made landing page banner image responsive
+
+[33mcommit 606fee39acc29dc0e65447209b0a8d22e952665b[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Fri Oct 23 13:12:21 2020 -0500
+
+    Changes on props in BannerImage component
+
+[33mcommit 0d6184a1084e0714b1aef578ea428bb3aab9bbb3[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Fri Oct 23 11:40:28 2020 -0500
+
+    BannerImage component now receives an url as parameter
+
+[33mcommit 7a4b7f58e0e19dc300eb52a47815177729038f4a[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Thu Oct 22 18:43:17 2020 -0500
+
+    Finished with landing page, not responsive
+
+[33mcommit 1e32f8f2cf903357bf508672f7f51fcaadc41ec7[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Thu Oct 22 14:16:39 2020 -0500
+
+    Added todays deal section
+
+[33mcommit 6e67306510282ac41ad2043928616c02d2f42fc9[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Thu Oct 22 12:00:11 2020 -0500
+
+    Added our departments section
+
+[33mcommit e15abe4b4b180cbd141bca08a2808172dc39c368[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Wed Oct 21 17:25:06 2020 -0500
+
+    Header, search bar and banner image
+
+[33mcommit 0c062a8d198cf8b51bf29f46dab483a98190d435[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Sun Oct 18 15:51:30 2020 -0500
+
+    Now customer can filter by category
+
+[33mcommit 019b9d6d83ea9289be4ebad698e71a47b2219892[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Sun Oct 18 14:36:31 2020 -0500
+
+    Fixed responsivesness in categories.html
+
+[33mcommit 32f18398e2f555f5feeab36b4d020d77258b711d[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Sun Oct 18 11:44:04 2020 -0500
+
+    read json and know if created account
+
+[33mcommit 99d337704a1bcf22d98046cf7b7eb1f5f291cf81[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Sat Oct 17 19:17:43 2020 -0500
+
+    Added function that reads a json
+
+[33mcommit 2cd170852f0fc181e3baf9ebabf3b1120d915e15[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Sat Oct 17 16:32:10 2020 -0500
+
+    Added items images and categories page
+
+[33mcommit 57736c57b5ff91be6fec4dd0b74e17c4400cb6e9[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Fri Oct 16 17:12:42 2020 -0500
+
+    Added create account section
+
+[33mcommit 6926493241376313513c02228c6bd6450fd1f6ce[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Fri Oct 16 15:00:51 2020 -0500
+
+    Added signin page
+
+[33mcommit dd31adc903a353d48b69f6d155ee18b8692f0612[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Fri Oct 16 12:17:13 2020 -0500
+
+    Added animation when click on menu bars
+
+[33mcommit ea26631536f9b20e84246bdde36bb0b673d00790[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Thu Oct 15 18:02:30 2020 -0500
+
+    Change desktop icons color and reorder css
+
+[33mcommit 1ed953555c319e715f1952bd736f5c3248129fc3[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Thu Oct 15 17:11:10 2020 -0500
+
+    landing page is now full responsive
+
+[33mcommit b518cbbf80802b2cdead850a37e879e368afbfd8[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Thu Oct 15 12:35:24 2020 -0500
+
+    Added animations to buttons, links and changed text in html
+
+[33mcommit bbf39ff480fe52896499604edfb096631f336bc0[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Thu Oct 15 10:08:04 2020 -0500
+
+    Design is now responsive
+
+[33mcommit f73e390765b6163320e18713c370c394b4b3915e[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Thu Oct 15 09:00:39 2020 -0500
+
+    re order css alphabetically
+
+[33mcommit 902f00566c2df507189d6ded2d021385adbc43b3[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Wed Oct 14 18:37:25 2020 -0500
+
+    Finished with landing page (mobile version, not responsive)
+
+[33mcommit a490c61b539ab8004a800f7d3a3a47c3d535b537[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Wed Oct 14 13:12:08 2020 -0500
+
+    header, back-image, departments and clock
+
+[33mcommit 701bf87b9f1c77ee6be7045d4ff2940dcf0b8974[m
+Author: Kevin Rodriguez <rodriguezkevin95g@gmail.com>
+Date:   Wed Oct 14 08:27:11 2020 -0500
+
+    First commit
