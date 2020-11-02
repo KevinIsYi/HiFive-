@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
-import { featured } from '../../data/featured';
-import './Featured.css';
-import { FeaturedCard } from './FeaturedCard/FeaturedCard';
+import React from 'react';
 import Media from 'react-media';
+
+import { FeaturedCard } from './FeaturedCard/FeaturedCard';
+
+import { featured } from '../../data/featured';
+
+import './Featured.css';
 
 export const Featured = () => {
 

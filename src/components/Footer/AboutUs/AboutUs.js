@@ -19,7 +19,7 @@ export const AboutUs = () => {
 
     return (
         <div className='info-section'>
-            <img src={ './assets/icons/hifive-white.png' } alt="hifive-white"/>
+            <img src={ './assets/icons/hifive-logo.png' } alt="hifive-logo"/>
             {
                 data.map(({ p, span }) => (
                     <p key={ p }>{ p }: <span>{ span }</span></p>

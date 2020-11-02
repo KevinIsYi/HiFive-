@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { cards} from '../../data/cards';
 import { Card } from '../Card/Card';
+import { cards} from '../../data/cards';
 
 import './Cards.css';
 

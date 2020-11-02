@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 
 import { Items } from './Items/Items';
 
+import { getDataByCategory } from '../../selectors/getDataByCategory';
 import { categories } from '../../data/categories';
 import { data } from '../../data/data';
-import { getDataByCategory } from '../../selectors/getDataByCategory';
 
 import './DepartmentsFilter.css';
 

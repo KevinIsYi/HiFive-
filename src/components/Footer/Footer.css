@@ -1,6 +1,6 @@
 
 .footer {
-    background-color: var(--gray-color);
+    background-color: #D7D7D7;
     padding: 50px 0;
     width: 100%;
 }
@@ -15,7 +15,7 @@
 }
 
 .info-section {
-    color: white;
+    color: var(--gray-color);
 }
 
 .info-section img {
@@ -23,7 +23,7 @@
 }
 
 .info-section h1 {
-    color: white;
+    color: var(--gray-color);
     margin: 0 0 10px 0;
     font-family: var(--roboto);
     font-size: 25px;
