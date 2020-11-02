@@ -18,6 +18,10 @@
     color: white;
 }
 
+.info-section img {
+    margin: 0 0 10px 0;
+}
+
 .info-section h1 {
     color: white;
     margin: 0 0 10px 0;
@@ -29,6 +33,7 @@
 
 .info-section p {
     text-transform: capitalize;
+    margin-bottom: 10px;
 }
 
 .link p {
@@ -36,6 +41,6 @@
 }
 
 .link p:hover {
-    color: var(--orange-color);
+    color: var(--red-color);
     cursor: pointer;
 }

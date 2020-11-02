@@ -1,7 +1,3 @@
-.social-media {
-    
-}
-
 .social-media-icon {
     color: white;
     font-size: 25px;
@@ -10,6 +6,6 @@
 }
 
 .social-media-icon:hover {
-    color: var(--orange-color);
+    color: var(--red-color);
     cursor: pointer;
 }

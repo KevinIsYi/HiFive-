@@ -1,0 +1,44 @@
+.hifive-pros {
+    display: grid;
+    grid-row-gap: 25px;
+    margin: 30px auto 50px auto;
+    text-align: center;
+    width: 90%;
+}
+
+.pros {
+    width: 100%;
+    font-family: var(--roboto);
+    color: var(--gray-color);
+}
+
+.pros h1 {
+    margin: 0;
+}
+.pros p {
+    text-align: center;
+}
+
+.line-division {
+    background-color: var(--gray-color);
+    height: 2px;
+    width: 90%;
+    border-radius: 5px;
+    margin: auto;
+}
+
+@media (min-width: 900px) {
+    .hifive-pros {
+        display: flex;
+    }
+    .line-division {
+        height: 50px;
+        width: 3px;
+    }
+}
+
+@media (min-width: 900px) {
+    .lerma-pro-icon {
+        margin-right: 50px;
+    }
+}

@@ -1,11 +1,10 @@
 import React from 'react';
 
-import { Background } from '../Background/Background';
 import { BannerImage } from '../BannerImage/BannerImage';
 import { BlogSection } from '../BlogSection/BlogSection';
 import { Cards } from '../Cards/Cards';
 import { Featured } from '../Featured/Featured';
-import { LermaPros } from '../LermaPros/LermaPros';
+import { HiFivePros } from '../HiFivePros/HiFivePros';
 
 export const LandingScreen = () => {
     return (
@@ -14,6 +13,7 @@ export const LandingScreen = () => {
             <Cards />
             <Featured />
             <BlogSection />
+            <HiFivePros />
         </>
     )
 }

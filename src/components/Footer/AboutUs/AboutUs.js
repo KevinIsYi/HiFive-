@@ -18,8 +18,8 @@ export const AboutUs = () => {
     ];
 
     return (
-        <div className='info-section lerma-info'>
-            <img src={ './assets/icons/lerma-logo-white.png' } alt="lerma-logo-white"/>
+        <div className='info-section'>
+            <img src={ './assets/icons/hifive-white.png' } alt="hifive-white"/>
             {
                 data.map(({ p, span }) => (
                     <p key={ p }>{ p }: <span>{ span }</span></p>
