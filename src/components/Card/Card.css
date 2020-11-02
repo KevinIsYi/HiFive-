@@ -8,29 +8,33 @@
     width: 100%;
 }
 
-.btn-card {
-    border-radius: 5px;
-    font-size: 15px;
+.in-middle {
     left: 50%;
-    padding: 15px 0;
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
+}
+
+.btn-card {
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 15px 0;
     width: 60%;
 }
 
 .btn-card {
-    background-color: var(--orange-color);
+    background-color: white;
     border-width: 3px;
-    border-color: var(--gray-color);
+    border-color: var(--red-color);
     border-style: solid;
+    color: var(--red-color);
     font-family: var(--roboto);
     transition: all ease-in 0.3s;
 }
 
 .btn-card:hover {
-    background-color: var(--gray-color);
-    border-color: var(--orange-color);
-    color: var(--orange-color);
+    background-color: var(--red-color);
+    border-color: white;
+    color: white;
     cursor: pointer;
 }

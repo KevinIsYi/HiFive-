@@ -8,8 +8,8 @@ export const Card = ({ card }) => {
     
     return (
         <div className="card">
-            <img src={ `./assets/${ image }.jpg` } alt={`${ image } `} />
-            <button className="btn btn-card">{ name }</button>
+            <img src={ `./assets/cards/${ image }.jpg` } alt={`${ image } `} />
+            <button className="btn in-middle btn-card">{ name }</button>
         </div>
     )
 }

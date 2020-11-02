@@ -1,26 +1,26 @@
 export const cards = [
     {
-        name: 'Books',
-        image: 'card-books'
+        name: 'Dresses',
+        image: 'card-01'
     },
     {
-        name: 'Electronics',
-        image: 'card-electronics'
+        name: 'Watched',
+        image: 'card-02'
     },
     {
-        name: 'Foods & Drinks',
-        image: 'card-food'
+        name: 'Bags',
+        image: 'card-03'
     },
     {
-        name: 'Home & Kitchen',
-        image: 'card-kitchen'
+        name: 'Sunglasses',
+        image: 'card-04'
     },
     {
-        name: 'Sports & Outdoors',
-        image: 'card-sports'
+        name: 'Footwear',
+        image: 'card-05'
     },
     {
-        name: 'Pets',
-        image: 'card-pets'
-    },
+        name: 'Accessories',
+        image: 'card-06'
+    }
 ];

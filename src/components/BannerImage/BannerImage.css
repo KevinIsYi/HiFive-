@@ -40,3 +40,9 @@
     font-family: var(--roboto);
     font-size: 30px;
 }
+
+@media (min-width: 900px) {
+    .inside-img h1 {
+        font-size: 65px;
+    }
+}

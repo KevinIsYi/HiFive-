@@ -14,7 +14,7 @@ export const Cards = () => {
             {
                 cards.map(card => (
                     <Card 
-                        key = { card.name }
+                        key = { card.image }
                         card = { card }
                     />
                 ))
