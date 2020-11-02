@@ -9,7 +9,7 @@ export const Cards = () => {
 
     return (
         <>
-            <h1 className="departments-h1 center-text">Our Deparments</h1>
+            <h1 className="departments-h1 center-text">Our departments</h1>
             <div className="landing-cards">
             {
                 cards.map(card => (

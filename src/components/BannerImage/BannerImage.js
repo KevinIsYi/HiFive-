@@ -13,7 +13,7 @@ export const BannerImage = ({ image, openingText, mainText, buttonText }) => {
         backgroundPosition: 'top center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
-        height: '70vh',
+        height: '60vh',
         marginBottom: '40px',
         position: 'relative',
         textAlign: 'center'
