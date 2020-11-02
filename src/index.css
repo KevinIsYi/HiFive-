@@ -44,8 +44,8 @@ button {
 }
 
 .red-border {
-  text-shadow: 1px 0px var(--red-color),
-              -1px 0 var(--red-color),
-              0 1px var(--red-color),
-              0 -1px var(--red-color);
+  text-shadow: 5px 0px 5px var(--red-color),
+              -5px 0 5px var(--red-color),
+              0 5px 5px var(--red-color),
+              0 -5px 5px var(--red-color);
 }

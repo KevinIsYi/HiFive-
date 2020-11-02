@@ -25,11 +25,11 @@ export const Header = () => {
                             ?
                                 <>
                                     <GoThreeBars className="icon" />
-                                    <img src={ `./assets/icons/${ logoImageName }.png` } alt={ logoImageName } />
+                                    <img className="hifive-logo" src={ `./assets/icons/${ logoImageName }.png` } alt={ logoImageName } />
                                 </>
                             :
                                 <>
-                                    <img src={ `./assets/icons/${ logoImageName }.png` } alt={ logoImageName } />
+                                    <img className="hifive-logo" src={ `./assets/icons/${ logoImageName }.png` } alt={ logoImageName } />
                                     <nav className="nav-options">
                                         <p>Home</p>
                                         <p>Shop</p>

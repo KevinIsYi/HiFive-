@@ -6,6 +6,9 @@
     width: 95%;
 }
 
+.hifive-logo {
+    height: 30px;
+}
 .nav-options {
     display: flex;
     justify-content: space-around;
