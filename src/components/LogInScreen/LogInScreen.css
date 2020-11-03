@@ -13,9 +13,9 @@ legend {
 }
 
 .login-container label {
-    font-family: var(--anton);
+    color: var(--red-color);
+    font-family: var(--alfa);
     font-size: 30px;
-    color: var(--gray-color);
 }
 
 .user-log-data {
@@ -29,7 +29,7 @@ legend {
 .login-input {
     align-items: center;
     background-color: white;
-    border-color: var(--orange-color);
+    border-color: var(--red-color);
     border-radius: 5px;
     border-style: solid;
     border-width: 1px;
@@ -52,12 +52,14 @@ legend {
 }
 
 .btn-login {
-    background-color: var(--orange-color);
+    background-color: white;
+    border-color: var(--red-color);
     border-radius: 50px;
-    border-style: none;
-    color: var(--gray-color);
+    border-style: solid;
+    border-width: 3px;
+    color: var(--red-color);
     font-family: var(--roboto);
-    font-size: 20px;
+    font-size: 17.5px;
     margin-bottom: 20px;
     transition: all ease-in 0.3s;
     padding: 10px;
@@ -65,8 +67,8 @@ legend {
 }
 
 .btn-login:hover {
-    background-color: var(--gray-color);
-    color: var(--orange-color);
+    background-color: var(--red-color);
+    color: white;
 }
 
 .extra-signin-options {
@@ -87,10 +89,10 @@ legend {
 }
 
 .sign-in-line {
-    background-color: var(--orange-color);
+    background-color: var(--red-color);
     border-radius: 5px;
     height: 5px;
-    margin: auto;
+    margin: 15px auto;
     opacity: 0.5;
     width: 90%;
 }
@@ -98,6 +100,7 @@ legend {
 .terms-conditions,
 .sign-in-create-acc {
     font-family: var(--roboto);
+    text-align: center;
 }
 
 .terms-conditions span,
@@ -112,9 +115,9 @@ legend {
 
 @media (min-width: 480px) {
     .login-container {
-        border-color: var(--orange-color);
+        border-color: var(--red-color);
         border-style: solid;
-        border-color: var(--orange-color);
+        border-color: var(--red-color);
         width: 500px;
     }  
     legend img {

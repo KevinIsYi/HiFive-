@@ -56,7 +56,7 @@ export const LogInScreen = ({ history }) => {
                 isLogged && <Redirect to="/" />
             }
             <fieldset className="login-container">
-                <Link to="/"><legend><img src="./assets/icons/lerma-logo.png" alt="lerma-logo"/></legend></Link>
+                <Link to="/"><legend><img src="./assets/icons/hifive-logo.png" alt="hifive-logo"/></legend></Link>
                 
                 <label>{ text[position][0] } </label>
 

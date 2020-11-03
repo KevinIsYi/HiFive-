@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { blogData } from '../../data/blogData';
 
 import './BlogSection.css';

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Card } from '../Card/Card';
+
 import { cards} from '../../data/cards';
 
 import './Cards.css';
