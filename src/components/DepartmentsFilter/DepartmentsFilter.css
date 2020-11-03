@@ -5,7 +5,6 @@
     min-width: 270px;
 }
 
-
 .filter-section {
     color: var(--gray-color);
     font-family: var(--roboto);
@@ -17,11 +16,12 @@
 }
 
 .filter-section p {
+    margin: 15px 0;
     transition: all ease-in 0.3s;
 }
 
 .filter-section p:hover {
-    color: var(--orange-color);
+    color: var(--red-color);
     cursor: pointer;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .slider::-webkit-slider-thumb {
-    background: var(--orange-color);
+    background: var(--red-color);
     transition: all ease-in 0.25s;    
 }
 
@@ -55,7 +55,7 @@
 }
 
 .slider::-moz-range-thumb {
-    background: var(--orange-color);
+    background: var(--red-color);
     border-style: none;
     border-radius: 50%;
     cursor: pointer;
@@ -75,7 +75,7 @@
 }
 
 .filter-price-slider-options button {
-    background-color: var(--orange-color);
+    background-color: var(--red-color);
     margin: 10px 0px;
     padding: 10px 30px;
     border-radius: 50px;
@@ -86,8 +86,8 @@
 }
 
 .filter-price-slider-options button:hover {
-    background-color: var(--gray-color);
-    color: var(--orange-color);
+    background-color: var(--red-color);
+    color: var(--red-color);
 }
 
 
@@ -105,19 +105,20 @@
     border-radius: 50px;
     border-style: solid;
     border-width: 3px;
+    color: var(--red-color);
     outline: none;
     padding: 10px;
 }
 
 .sort-focus {
-    background-color: var(--gray-color);
-    border-color: var(--orange-color);
-    color: var(--orange-color);
+    background-color: var(--red-color);
+    border-color: white;
+    color: white;
 }
 
 .sort-no-focus {
-    background-color: var(--orange-color);
-    border-color: var(--gray-color);
+    background-color: white;
+    border-color: var(--red-color);
 }
 
 .btn-sort:hover {

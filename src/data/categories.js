@@ -5,26 +5,26 @@ export const categories = [
     },
     {
         id: 'L',
-        category: 'Books'
+        category: 'Dresses'
     },
     {
         id: 'E',
-        category: 'Electronics'
+        category: 'Watches'
     },
     {
         id: 'A',
-        category: 'Foods & Drinks'
+        category: 'Bags'
     },
     {
         id: 'H',
-        category: 'Home & Kitchen'
+        category: 'Sunglasses'
     },
     {
         id: 'D',
-        category: 'Sports & Outdoors'
+        category: 'Footwear'
     },
     {
         id: 'P',
-        category: 'Pets'
+        category: 'Accesories'
     }
 ];

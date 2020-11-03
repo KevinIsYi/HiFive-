@@ -34,6 +34,7 @@
     font-size: 50px;
     font-weight: bold;
     margin: 10px 0;
+    text-transform: capitalize;
 }
 
 .inside-img h5 {

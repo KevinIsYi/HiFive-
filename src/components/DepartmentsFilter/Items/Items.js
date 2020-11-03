@@ -12,7 +12,7 @@ export const Items = ({ items = []}) => {
                         <img src={ `./assets/items/${ id }.jpg` } alt={ id }/>
                         <h1>{ name }</h1>
                         <div className="price-see">
-                            <p>${ price }</p>
+                            <p>${ price.toFixed(2) }</p>
                             <p>See</p>
                         </div>
                     </div>

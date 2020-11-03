@@ -17,7 +17,7 @@ export const DepartmentsFilter = () => {
     const [ ascendant, descendant ] = selectedButton;
     const [ values, setValues ] = useState({
         text: '',
-        sliderValue: 15000,
+        sliderValue: 3000,
         currentKey: '0'
     });
 
@@ -72,7 +72,7 @@ export const DepartmentsFilter = () => {
                 </div>
                 <div className="filter-section">
                     <h1>Filter by Price</h1>
-                    <input className="slider" type="range" min="0" max="15000" name="sliderValue" value={ sliderValue } onChange={ changeInput }/>
+                    <input className="slider" type="range" min="0" max="3000" name="sliderValue" value={ sliderValue } onChange={ changeInput }/>
                     <div className="filter-price-slider-options">
                         <p>Range: $0 - ${ sliderValue }</p>
                     </div>
@@ -99,7 +99,7 @@ export const DepartmentsFilter = () => {
                     <input 
                         className="filter-by-name"
                         type="text" 
-                        placeholder="Love Lerma"
+                        placeholder="Love HiFive!"
                         name="text"
                         value={ text }
                         onChange={ changeInput }

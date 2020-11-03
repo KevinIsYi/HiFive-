@@ -9,8 +9,8 @@ export const FilterCategoriesScreen = () => {
         <>
             <BannerImage
                 image="categories-banner"
-                imageText="New Pets Items"
-                botonText="Shop"
+                mainText="Prepare for a new Cycle"
+                buttonText="Shop"
             />
             <DepartmentsFilter />
         </>

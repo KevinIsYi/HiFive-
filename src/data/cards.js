@@ -4,7 +4,7 @@ export const cards = [
         image: 'card-01'
     },
     {
-        name: 'Watched',
+        name: 'Watches',
         image: 'card-02'
     },
     {
