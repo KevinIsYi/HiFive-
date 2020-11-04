@@ -8,6 +8,7 @@ import {
 
 import { FilterCategoriesScreen } from '../components/FilterCategoriesScreen/FilterCategoriesScreen';
 import { LandingScreen } from '../components/LandingScreen/LandingScreen';
+import { CartScreen } from '../components/CartScreen/CartScreen';
 
 import { Header } from '../components/Header/Header';
 import { Footer } from '../components/Footer/Footer';
@@ -25,6 +26,7 @@ export const LandingPageRouter = () => {
                     <Switch>
                         <Route path="/ " component={ LandingScreen } />
                         <Route exact path="/categories" component={ FilterCategoriesScreen } />
+                        <Route exact path="/cart" component={ CartScreen } />
 
                         <Redirect to="/ " />
                     </Switch>

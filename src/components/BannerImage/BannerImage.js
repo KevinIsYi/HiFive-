@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './BannerImage.css';
 import { Link } from 'react-router-dom';
 
-export const BannerImage = ({ image, openingText, mainText, buttonText }) => {
+export const BannerImage = ({ image, openingText, mainText, buttonText, height }) => {
 
     const backImage = (image === undefined) ? 'var(--red-color)' : require(`./${ image }.jpg`);
 
@@ -14,7 +14,7 @@ export const BannerImage = ({ image, openingText, mainText, buttonText }) => {
         backgroundPosition: 'top center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
-        height: '60vh',
+        height: `${ height }vh`,
         marginBottom: '40px',
         position: 'relative',
         textAlign: 'center'
@@ -27,7 +27,7 @@ export const BannerImage = ({ image, openingText, mainText, buttonText }) => {
             <div className="inside-img">
                 { openingText !== undefined && <h5 className="red-border">{ openingText }</h5> } 
                 <h1 className="red-border">{ mainText }</h1>
-                <Link to="/categories"><button className="btn center">{ buttonText }</button></Link>
+                { buttonText !== undefined && <Link to="/categories"><button className="btn center">{ buttonText }</button></Link> }
             </div>
         </div>
     )
@@ -35,5 +35,5 @@ export const BannerImage = ({ image, openingText, mainText, buttonText }) => {
 
 BannerImage.propTypes = {
     mainText: PropTypes.string.isRequired,
-    buttonText: PropTypes.string.isRequired
+    height: PropTypes.number.isRequired
 }

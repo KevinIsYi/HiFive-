@@ -45,7 +45,7 @@ export const Header = () => {
             </Media>
 
             <div className="sign-in-section">
-                <HiOutlineShoppingBag className="icon" />
+                <Link to="/cart"><HiOutlineShoppingBag className="icon" /></Link>
                 <div className="division" />
                 <Link to="/login"><BsPerson className="icon" /></Link>
             </div>

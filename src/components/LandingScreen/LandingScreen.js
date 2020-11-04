@@ -9,7 +9,13 @@ import { HiFivePros } from '../HiFivePros/HiFivePros';
 export const LandingScreen = () => {
     return (
         <>
-            <BannerImage image="landing-banner" openingText="Back To School" mainText="New Arrivals" buttonText="Shop" />
+            <BannerImage 
+                image="landing-banner" 
+                openingText="Back To School" 
+                mainText="New Arrivals" 
+                buttonText="Shop" 
+                height={ 70 }
+            />
             <Cards />
             <Featured />
             <BlogSection />

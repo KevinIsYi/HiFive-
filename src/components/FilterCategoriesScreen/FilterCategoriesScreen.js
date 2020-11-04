@@ -11,6 +11,7 @@ export const FilterCategoriesScreen = () => {
                 image="categories-banner"
                 mainText="Prepare for a new Cycle"
                 buttonText="Shop"
+                height={ 70 }
             />
             <DepartmentsFilter />
         </>
