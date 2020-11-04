@@ -7,7 +7,7 @@ export const InfoSection = ({ h1, p }) => {
             <h1>{ h1 }</h1>
             {
                 p.map(([name, link]) => (
-                    <Link to={ `${ link }` }><p key={ name }>{ name }</p></Link>
+                    <Link to={ `${ link }` } key={ name }><p>{ name }</p></Link>
                 ))
             }
         </div>

@@ -32,11 +32,11 @@ export const Header = () => {
                                 <>
                                     <Link to="/"><img className="hifive-logo" src={ `./assets/icons/${ logoImageName }.png` } alt={ logoImageName } /></Link>
                                     <nav className="nav-options">
-                                        <Link activeClassname="active" to="/">Home</Link>
-                                        <Link activeClassName="active" exact to="/categories">Shop</Link>
-                                        <Link activeClassName="active" to="/blog">Blog</Link>
-                                        <Link activeClassName="active" to="/about">About Us</Link>
-                                        <Link activeClassName="active" to="/contact">Contact</Link>
+                                        <Link to="/">Home</Link>
+                                        <Link to="/categories">Shop</Link>
+                                        <Link to="/blog">Blog</Link>
+                                        <Link to="/about">About Us</Link>
+                                        <Link to="/contact">Contact</Link>
                                     </nav>
                                 </>
                         }

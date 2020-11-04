@@ -13,7 +13,7 @@ export const CartItems = () => {
             <p>Items</p>
             <div className="items">
                 <div className="cart-item">
-                    <img src="./assets/items/AB01.jpg" />
+                    <img src="./assets/items/AB01.jpg" alt="AB01" />
                     <div className="cart-item-description">
                         <p className="item-description">Louis Vuitton Tote Bag Onthego (White) Handbag </p>
                         <div className="price-breakdown">
@@ -26,7 +26,7 @@ export const CartItems = () => {
                 </div>
                 
                 <div className="cart-item">
-                    <img src="./assets/items/AB01.jpg" />
+                    <img src="./assets/items/AB01.jpg" alt="AB01" />
                     <div className="cart-item-description">
                         <p className="item-description">Louis Vuitton Tote Bag Onthego (White) Handbag </p>
                         <div className="price-breakdown">
