@@ -15,7 +15,6 @@ export const Footer = () => {
             <div className="footer-container">
                 <AboutUs />
                 <SocialMedia />
-
                 {
                     footerInfo.map(({ h1, p }) => (
                         <InfoSection 

@@ -15,7 +15,7 @@
     width: 50%;
 }
 
-.nav-options p {
+.nav-options a {
     border-bottom-color: white;
     border-bottom-style: solid;
     border-bottom-width: 1px;
@@ -28,7 +28,7 @@
     transition: all ease-in 0.3s;
 }
 
-.nav-options p:hover {
+.nav-options a:hover {
     border-bottom-color: var(--red-color);
     color: var(--red-color);
     cursor: pointer;
@@ -55,6 +55,14 @@
 .icon:hover {
     cursor: pointer;
     transform: scale(1.1);
+}
+
+.active {
+    color: var(--red-color);
+}
+
+.active:hover {
+    filter: brightness(1.5);
 }
 
 @media (min-width: 900px) {
