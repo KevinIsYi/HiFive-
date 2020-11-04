@@ -21,7 +21,7 @@ export const CartItems = () => {
                             <p>Unit Price: <span>$360</span></p>
                             <p>Total: <span>$1080</span></p>
                         </div>
-                        <RiDeleteBack2Line className="icon" />
+                        <RiDeleteBack2Line className="icon delete-icon" />
                     </div>
                 </div>
                 
@@ -34,7 +34,7 @@ export const CartItems = () => {
                             <p>Unit Price: <span>$360</span></p>
                             <p>Total: <span>$1080</span></p>
                         </div>
-                        <RiDeleteBack2Line className="icon" />
+                        <RiDeleteBack2Line className="icon delete-icon" />
                     </div>  
                 </div>
             </div>

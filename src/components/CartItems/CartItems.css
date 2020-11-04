@@ -26,7 +26,7 @@
 .cart-item-description {
     align-items: center;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .cart-item-description p {
@@ -35,6 +35,11 @@
 
 .price-breakdown span {
     font-weight: bold;
+}
+
+.delete-icon {
+    margin: auto;
+    color: var(--red-color);
 }
 
 @media (min-width: 480px) {
