@@ -6,9 +6,10 @@ import {
     Redirect
 } from 'react-router-dom';
 
+import { BlogScreen } from '../components/BlogScreen/BlogScreen';
+import { CartScreen } from '../components/CartScreen/CartScreen';
 import { FilterCategoriesScreen } from '../components/FilterCategoriesScreen/FilterCategoriesScreen';
 import { LandingScreen } from '../components/LandingScreen/LandingScreen';
-import { CartScreen } from '../components/CartScreen/CartScreen';
 
 import { Header } from '../components/Header/Header';
 import { Footer } from '../components/Footer/Footer';
@@ -27,6 +28,7 @@ export const LandingPageRouter = () => {
                         <Route path="/ " component={ LandingScreen } />
                         <Route exact path="/categories" component={ FilterCategoriesScreen } />
                         <Route exact path="/cart" component={ CartScreen } />
+                        <Route exact path="/blog" component={ BlogScreen } />
 
                         <Redirect to="/ " />
                     </Switch>

@@ -34,7 +34,7 @@ export const Header = () => {
                                     <nav className="nav-options">
                                         <p>Home</p>
                                         <Link to="/categories"><p>Shop</p></Link>
-                                        <p>Blog</p>
+                                        <Link to="/blog"><p>Blog</p></Link>
                                         <p>About Us</p>
                                         <p>Contact</p>
                                     </nav>
