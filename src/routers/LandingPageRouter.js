@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { 
     Switch,
@@ -12,10 +12,14 @@ import { LandingScreen } from '../components/LandingScreen/LandingScreen';
 import { Header } from '../components/Header/Header';
 import { Footer } from '../components/Footer/Footer';
 
+import { UserCategory } from '../hooks/useUserCategory';
+
 export const LandingPageRouter = () => {
 
+    const [ category, setCategory ] = useState('0');
+    
     return (
-        <>
+        <UserCategory.Provider value={{ category, setCategory }}>
             <Header />
                 <>
                     <Switch>
@@ -27,6 +31,6 @@ export const LandingPageRouter = () => {
                 </>
             
             <Footer />
-        </>
+        </UserCategory.Provider>
     )
 }

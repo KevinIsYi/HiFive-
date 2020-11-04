@@ -6,6 +6,7 @@ import { GoThreeBars } from 'react-icons/go';
 import { HiOutlineShoppingBag } from 'react-icons/hi';
 
 import './Header.css';
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
 
@@ -25,14 +26,14 @@ export const Header = () => {
                             ?
                                 <>
                                     <GoThreeBars className="icon" />
-                                    <img className="hifive-logo" src={ `./assets/icons/${ logoImageName }.png` } alt={ logoImageName } />
+                                    <Link to="/"><img className="hifive-logo" src={ `./assets/icons/${ logoImageName }.png` } alt={ logoImageName } /></Link>
                                 </>
                             :
                                 <>
-                                    <img className="hifive-logo" src={ `./assets/icons/${ logoImageName }.png` } alt={ logoImageName } />
+                                    <Link to="/"><img className="hifive-logo" src={ `./assets/icons/${ logoImageName }.png` } alt={ logoImageName } /></Link>
                                     <nav className="nav-options">
                                         <p>Home</p>
-                                        <p>Shop</p>
+                                        <Link to="/categories"><p>Shop</p></Link>
                                         <p>Blog</p>
                                         <p>About Us</p>
                                         <p>Contact</p>
@@ -46,7 +47,7 @@ export const Header = () => {
             <div className="sign-in-section">
                 <HiOutlineShoppingBag className="icon" />
                 <div className="division" />
-                <BsPerson className="icon" />
+                <Link to="/login"><BsPerson className="icon" /></Link>
             </div>
         </header>
     )

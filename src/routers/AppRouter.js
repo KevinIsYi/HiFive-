@@ -12,7 +12,7 @@ import { LogInScreen } from '../components/LogInScreen/LogInScreen';
 
 export const AppRouter = () => {
 
-    const [isLogged, setLogged] = useState(false);
+    const [ isLogged, setLogged ] = useState(false);
 
     return (
         <UserContext.Provider value={{ isLogged, setLogged }}>
