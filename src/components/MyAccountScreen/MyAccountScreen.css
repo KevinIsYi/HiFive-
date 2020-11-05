@@ -21,7 +21,7 @@
 }
 
 .btn-account:hover {
-    filter: brightness(0.9);
+    filter: opacity(0.85);
 }
 
 .active-button {
@@ -41,7 +41,7 @@
                 0 -5px 5px var(--gray-color);
     border-style: none;
     border-width: 3px;
-    margin: 50px auto
+    margin: 50px auto;
 }
 
 .account-fieldset legend {
@@ -99,4 +99,60 @@
 
 .nonactive-selection:hover {
     filter: opacity(0.5);
+}
+
+.myinfo {
+    border-bottom-style: solid;
+    border-color: var(--gray-color);
+    border-bottom-width: 3px;
+    margin: auto;
+}
+
+.myinfo:last-child {
+    border-bottom-style: none;
+}
+
+.myinfo p {
+    font-weight: bold;
+}
+
+.myinfo span {
+    font-weight: lighter;
+}
+
+.btn-edit {
+    background-color: var(--red-color);
+    border-color: var(--red-color);
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 3px;
+    color: white;
+    margin: 10px;
+    max-width: 150px;
+    padding: 10px 20px;
+    transition: all ease-in 0.3s;
+    width: 30%;
+}
+
+.btn-edit:hover {
+    background-color: white;
+    color: var(--red-color);
+}
+
+@media (min-width: 480px) {
+    .myinfo {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        justify-items: center;
+    }
+    .myinfo p {
+        width: 60%;
+    }
+}
+
+@media (min-width: 768px) {
+    .account-fieldset {
+        width: 70%;
+    }
 }

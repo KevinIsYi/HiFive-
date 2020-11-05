@@ -65,11 +65,11 @@ export const MyAccountScreen = () => {
                     My Info
                 </button>
             </div>
-
+            <fieldset className="account-fieldset">
             {
                 isOrder
                 ?
-                    <fieldset className="account-fieldset">
+                    <>
                         <legend>Your Orders</legend>
                         <div className="order-options">
                             <p 
@@ -100,11 +100,27 @@ export const MyAccountScreen = () => {
                             <h1>Total</h1>
                         </div>
                         <OrderData orderData={ orders } />
-
-                    </fieldset>
+                    </>
                 :
-                    <p>Info</p>
+                    <>
+                        <legend>My Info</legend>
+                        <div className="myinfo-section">
+                            <div className="myinfo">
+                                <p>Name: <span>Kevin Iván Rodríguez García</span></p>
+                                <button className="btn btn-edit">Edit</button>
+                            </div>
+                            <div className="myinfo">
+                                <p>Email: <span>kevin@hifive.com</span></p>
+                                <button className="btn btn-edit">Edit</button>
+                            </div>
+                            <div className="myinfo">
+                                <p>Password: <span>********</span></p>
+                                <button className="btn btn-edit">Edit</button>
+                            </div>
+                        </div>
+                    </>
             }
+            </fieldset>
 
         </div>
     )
