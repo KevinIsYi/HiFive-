@@ -1,0 +1,36 @@
+.order {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 10px;
+}
+
+.order p {
+    text-align: center;
+    font-size: 12.5px;
+    margin-bottom: 10px;
+}
+
+.order p:last-child {
+    margin-bottom: 0;
+}
+
+.order-id {
+    transition: all ease-in 0.3s;
+}
+
+.order-id:hover {
+    filter: opacity(0.5);
+    cursor: pointer;
+}
+
+@media (min-width: 480px) {
+    .order p {
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 768px) {
+    .order p {
+        font-size: 20px;
+    }
+}

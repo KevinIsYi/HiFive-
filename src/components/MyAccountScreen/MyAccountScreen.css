@@ -1,0 +1,102 @@
+.account-container {
+    width: 95%;
+}
+
+.account-buttons {
+    display: grid;
+    grid-column-gap: 5%;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    margin: 50px 0;
+}
+
+.btn-account {
+    border-color: var(--red-color);
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 3px;
+    padding: 10px;
+    transition: all ease-in 0.3s;
+    width: 50%;
+}
+
+.btn-account:hover {
+    filter: brightness(0.9);
+}
+
+.active-button {
+    background-color: var(--red-color);
+    color: white;
+}
+
+.nonactive-button {
+    background-color: white;
+    color: var(--red-color);
+}
+
+.account-fieldset {
+    box-shadow: 5px 0 5px var(--gray-color), 
+                -5px 0 5px var(--gray-color), 
+                0 5px 5px var(--gray-color), 
+                0 -5px 5px var(--gray-color);
+    border-style: none;
+    border-width: 3px;
+    margin: 50px auto
+}
+
+.account-fieldset legend {
+    background-color: var(--red-color);
+    border-radius: 5px;
+    color: white;
+    font-family: var(--alfa);
+    font-size: 30px;
+    padding: 10px 30px;
+}
+
+.line-division-orders {
+    background-color: var(--gray-color);
+    border-radius: 5px;
+    height: 3px;
+    margin: 25px auto 15px auto;
+    width: 90%;
+}
+
+.order-options {
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.order-options p {
+    font-family: var(--roboto);
+    font-size: 20px;
+    text-align: center;
+}
+
+.order-options p:hover {
+    cursor: pointer;
+}
+
+.order-info {
+    display: flex;
+    justify-content: space-around;
+}
+
+.order-info h1 {
+    text-align: center;
+    font-family: var(--roboto);
+    font-size: 20px;
+    width: 100%;
+}
+
+.active-selection {
+    color: var(--red-color);
+}
+
+.nonactive-selection {
+    transition: all ease-in 0.3s;
+}
+
+.nonactive-selection:hover {
+    filter: opacity(0.5);
+}

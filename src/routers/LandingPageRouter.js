@@ -16,6 +16,7 @@ import { Header } from '../components/Header/Header';
 import { Footer } from '../components/Footer/Footer';
 
 import { UserCategory } from '../hooks/useUserCategory';
+import { MyAccountScreen } from '../components/MyAccountScreen/MyAccountScreen';
 
 export const LandingPageRouter = () => {
 
@@ -31,6 +32,7 @@ export const LandingPageRouter = () => {
                         <Route exact path="/cart" component={ CartScreen } />
                         <Route exact path="/blog" component={ BlogScreen } />
                         <Route exact path="/about" component={ AboutUsScreen } />
+                        <Route exact path="/account" component={ MyAccountScreen } />
 
                         <Redirect to="/ " />
                     </Switch>
