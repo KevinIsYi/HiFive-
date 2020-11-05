@@ -50,7 +50,7 @@ export const MyAccountScreen = () => {
 
     return (
         <div className="account-container center">
-            {/* { !isLogged && <Redirect to="/login" />} */}
+            { !isLogged && <Redirect to="/login" />}
 
             <div className="account-buttons">
                 <button className={ `btn btn-account ${ ordersButtonClass }` }

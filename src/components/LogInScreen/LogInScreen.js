@@ -53,7 +53,7 @@ export const LogInScreen = ({ history }) => {
     return (
         <>
             {
-                isLogged && <Redirect to="/" />
+                isLogged && <Redirect to="/account" />
             }
             <fieldset className="login-container">
                 <Link to="/"><legend><img src="./assets/icons/hifive-logo.png" alt="hifive-logo"/></legend></Link>
