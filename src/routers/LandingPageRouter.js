@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { 
     Switch,
     Route,
-    Redirect
+    Redirect,
+    Router
 } from 'react-router-dom';
 
 import { AboutUsScreen } from '../components/AboutUsScreen/AboutUsScreen';
@@ -17,6 +18,7 @@ import { Footer } from '../components/Footer/Footer';
 
 import { UserCategory } from '../hooks/useUserCategory';
 import { MyAccountScreen } from '../components/MyAccountScreen/MyAccountScreen';
+import { CheckoutScreen } from '../components/CheckoutScreen/CheckoutScreen';
 
 export const LandingPageRouter = () => {
 
@@ -33,6 +35,7 @@ export const LandingPageRouter = () => {
                         <Route exact path="/blog" component={ BlogScreen } />
                         <Route exact path="/about" component={ AboutUsScreen } />
                         <Route exact path="/account" component={ MyAccountScreen } />
+                        <Route exact path="/checkout" component={ CheckoutScreen } />
 
                         <Redirect to="/ " />
                     </Switch>
