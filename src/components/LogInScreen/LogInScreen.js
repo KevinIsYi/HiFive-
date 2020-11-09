@@ -40,6 +40,7 @@ export const LogInScreen = ({ history }) => {
         if (signIn) {
             if (isValidUser(formValues)) {
                 setLogged(true);
+                history.push('/');
             }
             else {
 

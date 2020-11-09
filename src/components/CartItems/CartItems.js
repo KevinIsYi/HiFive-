@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { RiDeleteBack2Line } from 'react-icons/ri';
+import { Link } from 'react-router-dom';
 
 import './CartItems.css';
 
@@ -38,6 +39,7 @@ export const CartItems = () => {
                     </div>  
                 </div>
             </div>
+            <Link to="checkout"><button className="btn btn-checkout">Proceed to Checkout</button></Link>
         </div>
     )
 }
