@@ -41,7 +41,7 @@ export const ContactScreen = () => {
                     <textarea 
                         name="bodyMessage"
                         value={ bodyMessage }
-                        onChange={ bodyMessage }
+                        onChange={ handleInputChange }
                     />
                 </fieldset>
             </form>

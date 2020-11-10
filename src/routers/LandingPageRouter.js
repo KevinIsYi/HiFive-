@@ -3,8 +3,7 @@ import React, { useState } from 'react';
 import { 
     Switch,
     Route,
-    Redirect,
-    Router
+    Redirect
 } from 'react-router-dom';
 
 import { AboutUsScreen } from '../components/AboutUsScreen/AboutUsScreen';

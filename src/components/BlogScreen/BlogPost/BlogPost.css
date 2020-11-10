@@ -6,6 +6,11 @@
     width: 100%;
 }
 
+.blog-image img:hover {
+    filter: opacity(0.75);
+    cursor: pointer;
+}
+
 .date-square {
     background-color: var(--red-color);
     border-radius: 5px;

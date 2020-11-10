@@ -1,13 +1,15 @@
 import React from 'react';
 import { BannerImage } from '../BannerImage/BannerImage';
 
-import { blogData } from '../../data/blogData';
+import { blogData as bd } from '../../data/blogData';
 import { BlogPost } from './BlogPost/BlogPost';
-import { recentPosts } from '../../data/recentPosts';
 
 import './BlogScreen.css';
 
 export const BlogScreen = () => {
+
+    const blogData = bd.slice(0, 3);
+    const recentPosts = bd.slice(3, 8);
 
     return (
         <>
@@ -19,10 +21,11 @@ export const BlogScreen = () => {
             <section className="blog-section">
                 <div>
                     { 
-                        blogData.map((post, index) => (
+                        blogData.map((post) => (
                             <BlogPost 
-                                key={ index }
-                                data={ post } />
+                                data={ post }
+                                key={ post.id }
+                            />
                         ))
                     }
                 </div>
@@ -42,9 +45,12 @@ export const BlogScreen = () => {
                     <div className="blog-filter-section">
                         <h1>Recent Posts</h1>
                         {
-                            recentPosts.map(({ img, tittle, date }, index) => (
-                                <div className="recent-post-blog" key={ index }>
-                                    <img src={ `./assets/blog/${ img }.jpg` } alt={ img } />
+                            recentPosts.map(({ id, image, tittle, date }) => (
+                                <div 
+                                    className="recent-post-blog" 
+                                    key={ id }
+                                >
+                                    <img src={ `./assets/blog/${ image }.jpg` } alt={ image } />
                                     <div className="recent-post-info">
                                         <h2>{ tittle }</h2>
                                         <p>{ date }</p>
