@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Media from 'react-media';
 
 import { BsPerson } from 'react-icons/bs';
@@ -7,6 +7,7 @@ import { HiOutlineShoppingBag } from 'react-icons/hi';
 
 import './Header.css';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../hooks/useUserContext';
 
 export const Header = () => {
 
@@ -14,6 +15,7 @@ export const Header = () => {
     const mediaQueries = { // There are regular media querys in the CSS file
         mobile: "(max-width: 900px)"
     }
+    const { isLogged  } = useContext(UserContext);
 
     return (
         <header className="header center">
@@ -44,11 +46,18 @@ export const Header = () => {
                 )}
             </Media>
 
-            <div className="sign-in-section">
-                <Link to="/cart"><HiOutlineShoppingBag className="icon" /></Link>
-                <div className="division" />
-                <Link to="/login"><BsPerson className="icon" /></Link>
-            </div>
+            {
+                isLogged
+                ?   
+                    <Link to="/admin" className="admin-link">Admin</Link>
+                :
+                <div className="sign-in-section">
+                    <Link to="/cart"><HiOutlineShoppingBag className="icon" /></Link>
+                    <div className="division" />
+                    <Link to="/login"><BsPerson className="icon" /></Link>
+                </div>
+            }
+            
         </header>
     )
 }

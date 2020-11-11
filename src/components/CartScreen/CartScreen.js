@@ -8,9 +8,7 @@ import './CartScreen.css';
 
 export const CartScreen = () => {
 
-    const { isLogged, setLogged } = useContext(UserContext);
-
-    setLogged(true);
+    const { isLogged } = useContext(UserContext);
 
     return (
         <>

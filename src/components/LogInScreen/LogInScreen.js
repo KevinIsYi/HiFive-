@@ -11,6 +11,7 @@ import './LogInScreen.css';
 export const LogInScreen = ({ history }) => {
 
     const { isLogged, setLogged } = useContext(UserContext);
+    console.log(`Is logged: ${ isLogged }`);
 
     const text = [ 
         [ "Log In", 'Log In', "Don't have Account?", 'REGISTER HERE'], 
@@ -38,9 +39,10 @@ export const LogInScreen = ({ history }) => {
     const formSubmit = (e) => {
         e.preventDefault();
         if (signIn) {
-            if (isValidUser(formValues)) {
-                setLogged(true);
-                history.push('/');
+            const user = isValidUser(formValues);
+            if (user !== false) {
+                history.replace('/');
+                setLogged(user);
             }
             else {
 

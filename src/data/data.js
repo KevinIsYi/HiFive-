@@ -305,52 +305,62 @@ export const data = {
         {
             "email": "ANGEL.DURAN@lerma.com",
             "name": "ANGEL DURAN",
-            "password": "ANDU073"
+            "password": "ANDU073",
+            "level": "a"
         },
         {
             "email": "DIANA.ROBLES@lerma.com",
             "name": "DIANA ROBLES",
-            "password": "DIRO055"
+            "password": "DIRO055",
+            "level": "c"
         },
         {
             "email": "GERARDO.GUIJARRO@lerma.com",
             "name": "GERARDO GUIJARRO",
-            "password": "GEGU042"
+            "password": "GEGU042",
+            "level": "c"
         },
         {
             "email": "ALEJANDRO.HERNANDEZ@lerma.com",
             "name": "ALEJANDRO HERNANDEZ",
-            "password": "ALHE068"
+            "password": "ALHE068",
+            "level": "c"
         },
         {
             "email": "ISAAC.MORA@lerma.com",
             "name": "ISAAC MORA",
-            "password": "ISMO031"
+            "password": "ISMO031",
+            "level": "c"
         },
         {
             "email": "JAVIER.GALLEGOS@lerma.com",
             "name": "JAVIER GALLEGOS",
-            "password": "JAGA033"
+            "password": "JAGA033",
+            "level": "c"
         },
         {
             "email": "JESUS.GARZON@lerma.com",
             "name": "JESUS GARZON",
-            "password": "JEGA067"
+            "password": "JEGA067",
+            "level": "c"
         },
         {
             "email": "SERGIO.LOPEZ@lerma.com",
             "name": "SERGIO LOPEZ",
-            "password": "SELO003"
+            "password": "SELO003",
+            "level": "c"
         },
         {
             "email": "CRUZ.ESPINOZA@lerma.com",
             "name": "CRUZ ESPINOZA",
-            "password": "CRES023"
+            "password": "CRES023",
+            "level": "c"
         },
         {
             "email": "LUCERO.MENDEZ@lerma.com",
             "name": "LUCERO MENDEZ",
-            "password": "LUME032"
+            "password": "LUME032",
+            "level": "c"
         }
     ]
 }

@@ -3,13 +3,14 @@ import React, { useState } from 'react'
 import { 
     BrowserRouter as Router,
     Switch,
-    Route
+    Route,
+    Redirect
 } from 'react-router-dom';
 
 import { LandingPageRouter } from './LandingPageRouter';
 import { UserContext } from '../hooks/useUserContext';
 import { LogInScreen } from '../components/LogInScreen/LogInScreen';
-import { AdminRouter } from './AdminRouter';
+import { AdminScreen } from '../components/AdminScreen/AdminScreen';
 
 export const AppRouter = () => {
 
@@ -21,9 +22,10 @@ export const AppRouter = () => {
                 <>
                     <Switch>
                         <Route exact path="/login" component={ LogInScreen } />
-                        <Route exact path="/admin" component={ AdminRouter } />
+                        <Route exact path="/admin" component={ AdminScreen } />
 
                         <Route path="/" component={ LandingPageRouter }/>
+                        <Redirect to="/" />
                     </Switch>
                 </>
             </Router>

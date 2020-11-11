@@ -34,6 +34,18 @@
     cursor: pointer;
 }
 
+.admin-link {
+    font-family: var(--roboto);
+    font-size: 20px;
+    text-transform: uppercase;
+    transition: all ease-in 0.3s;
+}
+
+.admin-link:hover {
+    cursor: pointer;
+    color: var(--red-color);
+}
+
 .sign-in-section {
     align-items: center;
     display: flex;

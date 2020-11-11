@@ -1,10 +1,13 @@
 import React from 'react';
 
-import { blogData } from '../../data/blogData';
+import { blogData as bd } from '../../data/blogData';
 
 import './BlogSection.css';
 
 export const BlogSection = () => {
+
+    const blogData = bd.slice(0, 3);
+
     return (
         <section className="landing-blog">
             <h1>Our Blog</h1>

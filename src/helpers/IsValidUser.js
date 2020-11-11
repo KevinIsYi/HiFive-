@@ -4,5 +4,14 @@ export const isValidUser = (user) => {
     const { users } = data;
     const { userName, userPassword } = user;
 
-    return users.some(({ name, password }) => name === userName && password === userPassword);
+    let result = false;
+
+    users.forEach(({ name, password, level }) => {
+        console.log(name === userName, password === userPassword);
+        if (name === userName && password === userPassword) {
+            result = level;
+        }
+    });
+
+    return result;
 }
