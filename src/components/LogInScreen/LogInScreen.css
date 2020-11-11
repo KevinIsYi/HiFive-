@@ -43,6 +43,7 @@ legend {
     font-family: var(--roboto);
     font-weight: bold;
     opacity: 0.5;
+    outline: none;
     width: 100%;
 }
 

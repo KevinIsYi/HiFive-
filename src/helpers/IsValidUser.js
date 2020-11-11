@@ -7,7 +7,6 @@ export const isValidUser = (user) => {
     let result = false;
 
     users.forEach(({ name, password, level }) => {
-        console.log(name === userName, password === userPassword);
         if (name === userName && password === userPassword) {
             result = level;
         }

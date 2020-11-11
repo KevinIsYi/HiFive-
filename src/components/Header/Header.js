@@ -16,6 +16,7 @@ export const Header = () => {
         mobile: "(max-width: 900px)"
     }
     const { isLogged  } = useContext(UserContext);
+    const isAdmin = isLogged === 'a' ? true : false;
 
     return (
         <header className="header center">
@@ -47,7 +48,7 @@ export const Header = () => {
             </Media>
 
             {
-                isLogged
+                isAdmin
                 ?   
                     <Link to="/admin" className="admin-link">Admin</Link>
                 :
