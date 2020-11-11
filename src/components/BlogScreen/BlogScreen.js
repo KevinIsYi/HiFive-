@@ -1,15 +1,22 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import { BannerImage } from '../BannerImage/BannerImage';
 
 import { blogData as bd } from '../../data/blogData';
 import { BlogPost } from './BlogPost/BlogPost';
 
 import './BlogScreen.css';
+import { getDataById } from '../../selectors/getDataById';
 
 export const BlogScreen = () => {
 
     const blogData = bd.slice(0, 3);
     const recentPosts = bd.slice(3, 8);
+
+    const [ currentPost, setCurrentPost ] = useState(false);
+
+    const changeCurrentPost = (id) => {
+        setCurrentPost(getDataById(id));
+    }
 
     return (
         <>
@@ -19,16 +26,32 @@ export const BlogScreen = () => {
                 height={ 50 }
             />
             <section className="blog-section">
-                <div>
-                    { 
-                        blogData.map((post) => (
-                            <BlogPost 
-                                data={ post }
-                                key={ post.id }
+                {
+                    !currentPost
+                    ?
+                        <div>
+                        {
+                            blogData.map((post) => (
+                                <BlogPost 
+                                    data={ post }
+                                    key={ post.id }
+                                    id={ post.id }
+                                    changeCurrentPost={ changeCurrentPost }
+                                />
+                            ))
+                        }
+                        </div>
+                    : 
+                        <div>
+                            <BlogPost
+                                data={ currentPost }
+                                id={ currentPost.id }  
+                                changeCurrentPost={ changeCurrentPost }
                             />
-                        ))
-                    }
-                </div>
+
+                        </div>
+                        
+                }
                 <div className="blog-filters">
                     <div className="search-blog">
                         <input type="text" placeholder="Search Keyword"/>
@@ -36,6 +59,11 @@ export const BlogScreen = () => {
                     </div>
                     <div className="blog-filter-section">
                         <h1>Category</h1>
+                        <p
+                            onClick={ () => changeCurrentPost(false) }
+                        >
+                            All
+                        </p>
                         <p>Restaurant Food</p>
                         <p>Travel</p>
                         <p>Trending</p>
@@ -50,7 +78,10 @@ export const BlogScreen = () => {
                                     className="recent-post-blog" 
                                     key={ id }
                                 >
-                                    <img src={ `./assets/blog/${ image }.jpg` } alt={ image } />
+                                    <img 
+                                        src={ `./assets/blog/${ image }.jpg` } alt={ image } 
+                                        onClick={ () => changeCurrentPost(id) }
+                                    />
                                     <div className="recent-post-info">
                                         <h2>{ tittle }</h2>
                                         <p>{ date }</p>

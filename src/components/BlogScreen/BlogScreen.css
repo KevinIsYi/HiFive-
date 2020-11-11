@@ -72,6 +72,11 @@
     margin: 25px 0;
 }
 
+.recent-post-blog img:hover {
+    cursor: pointer;
+    filter: opacity(0.5);
+}
+
 .recent-post-blog h2 {
     font-size: 20px;
 }

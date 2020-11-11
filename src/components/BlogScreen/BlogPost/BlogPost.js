@@ -6,14 +6,10 @@ import { FaComment } from 'react-icons/fa';
 
 import './BlogPost.css';
 
-export const BlogPost = ({ data, id }) => {
+export const BlogPost = ({ data, id, changeCurrentPost }) => {
     const { image, tittle, author, date, content } = data;
     const [ month, d ] = date.split(' ');
     const day = d.slice(0, 2);
-
-    const fuc = (clickedId) => {
-        console.log(`Entre con ${ clickedId }`);
-    }
 
     return (
         <div className="blog-post">
@@ -21,7 +17,7 @@ export const BlogPost = ({ data, id }) => {
                 <img 
                     src={ `./assets/blog/${ image }.jpg` } 
                     alt={ image }
-                    onClick={ () => fuc(id) }
+                    onClick={ () => changeCurrentPost(id) }
                 />
                 <div className="date-square">
                     <p>{ day }</p>
