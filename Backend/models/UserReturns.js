@@ -4,16 +4,20 @@ const UserReturnsSchema = Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User',
-        requred: true
+        required: true
     },
     item: {
         type: Schema.Types.ObjectId,
         ref: 'Item',
-        requred: true
+        required: true
+    },
+    date: {
+        type: Date,
+        required: true
     },
     quantity: {
         type: Number,
-        requred: true
+        required: true
     }
 });
 

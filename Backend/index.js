@@ -16,3 +16,5 @@ app.listen( process.env.PORT, () => {
 });
 
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/items', require('./routes/items'));
+app.use('/api/purchase', require('./routes/userPurchases'));
