@@ -4,6 +4,13 @@ const createUser = ( req, res ) => {
     });
 };
 
+const loginUser = ( req, res ) => {
+    return res.json({
+        ok: true
+    })
+}
+
 module.exports = {
-    createUser
+    createUser,
+    loginUser
 }

@@ -1,9 +1,11 @@
 const dotenv = require('dotenv');
 const express = require('express');
 const cors = require('cors');
+const dbConnection = require('./database/config');
 
 dotenv.config();
 const app = express();
+dbConnection();
 
 app.use( express.json() );
 app.use( cors() );
