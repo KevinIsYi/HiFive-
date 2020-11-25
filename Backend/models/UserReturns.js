@@ -1,14 +1,14 @@
 const { Schema, model } = require('mongoose');
 
 const UserReturnsSchema = Schema({
+    order: {
+        type: Schema.Types.ObjectId,
+        ref: 'UserPurchases',
+        required: true
+    },
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User',
-        required: true
-    },
-    item: {
-        type: Schema.Types.ObjectId,
-        ref: 'Item',
         required: true
     },
     date: {

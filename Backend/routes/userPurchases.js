@@ -5,7 +5,7 @@
 const { check } = require('express-validator');
 
 const { Router } = require('express');
-const { purchasedItems } = require('../controllers/userPurchases');
+const { purchasedItems, getOrders, returnItems, getReturns } = require('../controllers/userPurchases');
 
 const router = Router();
 
@@ -18,5 +18,23 @@ router.post(
     purchasedItems
 );
 
+router.get(
+    '/getorders',
+    getOrders
+);
+
+router.post(
+    '/return',
+    [
+        check('orderId', 'Filed: orderId is required').notEmpty(),
+        check('quantity', 'Field: quantity is required and it must be a number').isNumeric()
+    ],
+    returnItems
+);
+
+router.get(
+    '/getreturns',
+    getReturns
+)
 
 module.exports = router;
