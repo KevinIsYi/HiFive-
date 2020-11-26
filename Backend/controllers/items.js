@@ -24,6 +24,7 @@ const getAllItems = async ( req, res ) => {
 const getCartItems = async (req, res) => {
 
     const { headers:{ userid } } = req;
+    console.log("Productos en carrito de: ", userid);
     
     if (!userid || typeof userid !== 'string' || userid.length !== 24 || !await User.findById(userid)) {
         return res.status(400).json({
@@ -40,6 +41,7 @@ const getCartItems = async (req, res) => {
             const scItem = await Item.findById(item);
             items.push(scItem);
         }
+
 
         res.json({
             ok: true,
@@ -60,7 +62,6 @@ const setShoppingCart = async (req, res) => {
     const errors = validationResult(req);
     const { body:{ userId, cartItems } } = req;
 
-    console.log("Se recibe: ", req.body);
 
     if (!errors.isEmpty()) {
         return res.status(400).json({
@@ -89,7 +90,6 @@ const setShoppingCart = async (req, res) => {
     
         cartItems.forEach(async itemId => {
             const existItem = await ShoppingCart.find({ user: userId, item: itemId });
-            console.log(existItem.length);
             if (existItem.length === 0) {
                 const shoppingCart = new ShoppingCart({ user: userId, item: itemId });
                 await shoppingCart.save();

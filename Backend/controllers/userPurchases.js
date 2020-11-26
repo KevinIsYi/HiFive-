@@ -114,7 +114,6 @@ const returnItems = async ( req, res ) => {
             await UserPurchases.findOneAndUpdate({ _id: orderId }, purchase);
         }
 
-        console.log(purchase.user);
         const userReturn = new UserReturns({ user: purchase.user, order: orderId, date: new Date(), quantity });
         await userReturn.save();
 
