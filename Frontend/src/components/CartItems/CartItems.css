@@ -1,94 +1,96 @@
-.cart-container {
+.shopping-cart-section {
     font-family: var(--roboto);
+    margin: 25px auto;
+    text-align: center;
+}
+
+.div-total-description {
+    margin: auto;
+    font-size: 20px;
+    font-weight: lighter;
+    width: 50%;
+    max-width: 205px;
+}
+
+.total-section {
+    min-width: 335px;
+}
+
+.div-total-description h1 {
+    font-size: 50px;
     font-weight: bold;
-    margin: 50px auto;
-    text-align: center;
-    width: 95%;
+    margin: 10px 0;
 }
 
-.cart-container p {
-    font-size: 30px;
-    text-align: center;
+.btn-total {
+    background-color: var(--red-color);
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 15px 0;
+    transition: all ease-in 0.3s;
+    width: 90%;
 }
 
-.cart-item {
-    border-bottom: 3px solid;
-    margin: 30px 0;
-    padding: 30px;
+.btn-total:hover {
+    filter: opacity(0.75);
 }
 
-.cart-item:last-child {
-    border-bottom: none;
+.sc-icon {
+    margin-top: 5px;
 }
 
-.cart-item img {
-    max-width: 300px;
-    min-width: 275px;
-    width: 100%;
+.sc-icon:hover {
+    color: var(--orange-color);
 }
 
-.cart-item-description {
+.shopping-cart-item {
     align-items: center;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    padding: 30px 0;
+    text-align: left;   
 }
 
-.cart-item-description p {
-    font-size: 15px;
-}
-
-.price-breakdown span {
-    font-weight: bold;
-}
-
-.delete-icon {
+.shopping-cart-items img {
     margin: auto;
-    color: var(--red-color);
+    max-width: 100%;
 }
 
-.btn-checkout {
-    background-color: var(--red-color);
-    border-color: var(--red-color);
-    border-radius: 5px;
-    border-style: solid;
-    border-width: 3px;
-    color: white;
-    padding: 10px 20px;
-    transition: all ease-in 0.3s;
+.description-price h1 {
+    font-size: 20px;
 }
 
-.btn-checkout:hover {
-    background-color: white;
-    color: var(--red-color);
+.description-price p {
+    font-weight: lighter;
+    margin: 0;
+}
+
+.description-price p span {
+    font-weight: bold;
 }
 
 @media (min-width: 480px) {
-    .cart-item-description p {
-        font-size: 20px;
+    .shopping-cart-section {
+        width: 80%;
+    }
+    .shopping-cart-items img {
+        max-width: 250px;
     }
 }
 
 @media (min-width: 768px) {
-    .cart-item {
-        align-items: center;
-        display: grid;
-        grid-column-gap: 50px;
-        grid-template-columns: 1fr 2fr;
+    .shopping-cart-section {
+        width: 95%;
     }
-    .cart-item-description {
-        grid-template-columns: repeat(3, 1fr);
-        grid-column-gap: 50px;
-    }
-}
-
-@media (min-width: 900px) {
-    .cart-item-description p {
-        font-size: 25px;
+    .shopping-cart-section {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
     }
 }
 
 @media (min-width: 1024px) {
-    .cart-container {
-        width: 60%;
+    .shopping-cart-section {
+        width: 85%;
     }
 }
