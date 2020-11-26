@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 import { Items } from './Items/Items';
 import { UserCategory } from '../../hooks/useUserCategory';
@@ -11,15 +11,15 @@ import './DepartmentsFilter.css';
 export const DepartmentsFilter = () => {
 
     const { category, setCategory } = useContext(UserCategory);
-
+    const [ products, setProducts ] = useState([]);
     const [ selectedButton, setSelectedButton ] = useState(['sort-no-focus', 'sort-no-focus']);
+    const [ arrayItems, setArrayItems ] = useState([]);
     const [ ascendant, descendant ] = selectedButton;
     const [ values, setValues ] = useState({
         text: '',
         sliderValue: 3000,
         currentKey: category
     });
-    const [ arrayItems, setArrayItems ] = useState(getDataByCategory(values));
 
     const { text, sliderValue } = values;
 
@@ -28,7 +28,7 @@ export const DepartmentsFilter = () => {
             ...values,
             [ target.name ]: target.value
         });
-        setArrayItems(getDataByCategory({...values, [ target.name ]: target.value}))
+        setArrayItems(getDataByCategory({...values, [ target.name ]: target.value}, products))
     }
 
     const categoryClic = (id) => {
@@ -38,7 +38,7 @@ export const DepartmentsFilter = () => {
             currentKey: id,
         });
         setCategory(id);
-        setArrayItems(getDataByCategory({sliderValue, text: '', currentKey: id}));
+        setArrayItems(getDataByCategory({sliderValue, text: '', currentKey: id}, products));
         setSelectedButton(['sort-no-focus', 'sort-no-focus']);
     }
 
@@ -59,6 +59,21 @@ export const DepartmentsFilter = () => {
 
         setArrayItems(auxArray);
     }
+
+    const getItems = async () => {
+        const url = 'http://localhost:4000/api/items/';
+        const req = await fetch(url);
+        const { ok, items } = await req.json();
+
+        if (ok) {
+            setProducts(items);
+            setArrayItems(items);
+        }
+        
+    }
+    useEffect(() => {
+        getItems();
+    }, [  ])
 
     return (
         <section className="show-categories">

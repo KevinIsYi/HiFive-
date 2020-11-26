@@ -2,8 +2,6 @@ import React, { useContext, useState } from 'react';
 import { FaUser, FaLock, FaAt } from 'react-icons/fa';
 import { Link, Redirect } from 'react-router-dom';
 import { UserContext } from '../../hooks/useUserContext';
-
-import { isValidUser } from '../../helpers/IsValidUser';
 import { useForm } from '../../hooks/useForm';
 
 import './LogInScreen.css';
@@ -21,8 +19,8 @@ export const LogInScreen = ({ history }) => {
 
     const [ formValues, handleInputChange    ] = useForm({
         'userName': '',
-        'userEmail': '',
-        'userPassword': '',
+        'userEmail': 'kevin@kevin.com',
+        'userPassword': '12345678',
         'confirmPassword': ''
     });
 
@@ -36,13 +34,66 @@ export const LogInScreen = ({ history }) => {
         setPosition(newPos);
     }
 
-    const formSubmit = (e) => {
+    const saveShoppingCartItems = async (id) => {
+        const items = JSON.parse(localStorage.getItem('scitems'));
+        const cartItems = items.map(({ _id }) => _id);
+        const change = JSON.parse( localStorage.getItem('change'));
+        console.log(change);
+
+        if (change) {
+            localStorage.setItem('change', false);
+            const url = 'http://localhost:4000/api/items/setshoppingcart'
+            try {
+                const req = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        userId: id,
+                        cartItems
+                    })
+                });
+                const resp = await req.json();
+                console.log(resp);
+                localStorage.setItem('change', false);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    }
+
+    const formSubmit = async (e) => {
         e.preventDefault();
         if (signIn) {
-            const user = isValidUser(formValues);
-            if (user !== false) {
+            let url = 'http://localhost:4000/api/auth/login';
+            let req = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'email': userEmail,
+                    'password': userPassword
+                }
+            });
+            const { ok, id } = await req.json();
+
+            if (ok) {
+                setLogged(id);
+                url = 'http://localhost:4000/api/items/getshoppingcart'
+                req = await fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        'userid': id
+                    }
+                });
+                const resp = await req.json();
+
+                if (resp.ok) {
+                    localStorage.setItem('scitems', JSON.stringify(resp.items));
+                    localStorage.setItem('change', true);
+                }
+                document.addEventListener('visibilitychange', () => saveShoppingCartItems(id));
+                document.addEventListener('onblur', () => saveShoppingCartItems(id));
                 history.replace('/');
-                setLogged(user);
             }
             else {
 
@@ -70,12 +121,12 @@ export const LogInScreen = ({ history }) => {
                             (
                                 <>
                                     <div className="login-input">
-                                        <FaUser className="login-icon" />
+                                        <FaAt className="login-icon"/>
                                         <input 
                                             type="text" 
-                                            placeholder="Username" 
-                                            name="userName" 
-                                            value={ userName }
+                                            placeholder="Email" 
+                                            name="userEmail" 
+                                            value={ userEmail }
                                             onChange={ handleInputChange }  
                                         />
                                     </div>
@@ -107,7 +158,7 @@ export const LogInScreen = ({ history }) => {
                                     <div className="login-input">
                                         <FaAt className="login-icon"/>
                                         <input 
-                                            type="password" 
+                                            type="email" 
                                             placeholder="E-mail" 
                                             name="userEmail" 
                                             value={ userEmail }

@@ -51,18 +51,21 @@
     border-style: solid;
     border-width: 2px;
     padding: 5px 10px;
-    width: 30%;
 }
 
+
 .price-see p:last-child {
-    background-color: var(--red-color);
-    color: white;
+    background-color: white;
+    padding: 0;
     transition: all ease-in 0.3s;
 }
 
 .price-see p:last-child:hover {
-    filter: brightness(0.9);
     cursor: pointer;
+}
+
+.clicked-cart {
+    background-color: var(--red-color);
 }
 
 @media (min-width: 900px) {

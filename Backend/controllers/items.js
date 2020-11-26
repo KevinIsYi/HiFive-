@@ -60,6 +60,8 @@ const setShoppingCart = async (req, res) => {
     const errors = validationResult(req);
     const { body:{ userId, cartItems } } = req;
 
+    console.log("Se recibe: ", req.body);
+
     if (!errors.isEmpty()) {
         return res.status(400).json({
             ok: false,
@@ -86,8 +88,12 @@ const setShoppingCart = async (req, res) => {
         });
     
         cartItems.forEach(async itemId => {
-            const shoppingCart = new ShoppingCart({ user: userId, item: itemId });
-            shoppingCart.save();
+            const existItem = await ShoppingCart.find({ user: userId, item: itemId });
+            console.log(existItem.length);
+            if (existItem.length === 0) {
+                const shoppingCart = new ShoppingCart({ user: userId, item: itemId });
+                await shoppingCart.save();
+            }
         });
     
         res.status(201).json({
