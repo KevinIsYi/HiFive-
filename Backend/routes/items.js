@@ -15,7 +15,8 @@ router.post(
     '/setshoppingcart',
     [
         check('userId', 'Field: userId is required').notEmpty().isString(),
-        check('cartItems', 'Field: cartItems must be a non empty array').isArray({ min: 1 })
+        check('updateItems', 'Field: updateItems must be an array').isArray(),
+        check('deletedItems', 'Field: deletedItems must be an array').isArray()
     ],
     setShoppingCart
 );

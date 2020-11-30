@@ -1,7 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
+import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { AiFillMinusCircle, AiFillPlusCircle, AiFillDelete } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../hooks/useUserContext';
+import { CartItem } from './CartItem/CartItem';
 
 import './CartItems.css';
 
@@ -14,8 +15,8 @@ export const CartItems = () => {
     const getCartItems = async () => {
         const items = JSON.parse(localStorage.getItem('scitems'));
         let total = 0;
-        items.forEach(({ price }) => {
-            total += price;
+        items.forEach(({ price, quantity }) => {
+            total += (price * quantity);
         });
         setCartItems(items);
         setTotal(total);
@@ -24,17 +25,12 @@ export const CartItems = () => {
         getCartItems();
     }, [])
 
-    const clickedNumberItems = (id, quantity, value, index) => {
-        /*
-        const newQuantity = Math.max(0, quantity + value);
-        const { price } = cartItems[index];
-        const totalBefore = cartItems[index].quantity * price;
-        setCartItems(cartItems.map(item => item._id === id ? { ...item, quantity: newQuantity } : item));
-        const newTotal = newQuantity * price;
+    const editTotal = useCallback((num) => {
+        setTotal(total => total + num);
+    }, [ setTotal ]);
 
-        setTotal(total + (newTotal - totalBefore));
-        */
-    }
+
+    console.log("Se generatodo");
 
     return (
         <div className="shopping-cart-section">
@@ -49,14 +45,12 @@ export const CartItems = () => {
             </div>
             <div className="shopping-cart-items">
                 { 
-                    cartItems.map(({ _id, img, name, price }) => (
-                        <div className="shopping-cart-item" key={ _id }>
-                            <img src={`./assets/items/${ img }.jpg`} alt={ img } />
-                            <div className="description-price">
-                                <h1>{ name } </h1>
-                                <p><span>Price:</span> ${ price }</p>
-                            </div>
-                        </div>
+                    cartItems.map(item => (
+                        <CartItem 
+                            key={ item._id }
+                            item={ item } 
+                            editTotal={ editTotal }
+                        />
                     )) 
                 }
             </div>

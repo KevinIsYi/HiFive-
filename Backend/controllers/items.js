@@ -34,14 +34,15 @@ const getCartItems = async (req, res) => {
     }
     
     try {
-        const itemsId = await ShoppingCart.find({ user: userid });
+        const scItems = await ShoppingCart.find({ user: userid });
+        console.log("IDS: ", scItems);
         const items = [];
 
-        for (const { item } of itemsId) {
-            const scItem = await Item.findById(item);
-            items.push(scItem);
+        for (const { item, quantity } of scItems) {
+            const { _id, img, name, price } = await Item.findById(item);
+            //scItem.quantity = quantity;
+            items.push({ _id, img, name, price, quantity });
         }
-
 
         res.json({
             ok: true,
@@ -55,13 +56,19 @@ const getCartItems = async (req, res) => {
             message: 'Cannot fetch items from DB'
         });
     }
+}
 
+const deleteItems = (user, items) => {
+
+    items.forEach(async item => {
+        console.log("BUSCA: ", await ShoppingCart.findOne({ user, item }));
+        await ShoppingCart.findOneAndDelete({ user, item });
+    })
 }
 
 const setShoppingCart = async (req, res) => {
     const errors = validationResult(req);
-    const { body:{ userId, cartItems } } = req;
-
+    const { body:{ userId, updateItems, deletedItems } } = req;
 
     if (!errors.isEmpty()) {
         return res.status(400).json({
@@ -77,24 +84,20 @@ const setShoppingCart = async (req, res) => {
                 message: 'userId is not valid'
             });
         }
-    
-    
-        cartItems.forEach(async itemId => {
-            if (itemId.length !== 24 && !await Item.findById(itemId)) {
-                return res.status(400).json({
-                    ok: false,
-                    message: 'Items are not valid'
-                });
+
+        updateItems.forEach(async ({ itemId, quantity }) => {
+            const existInShoppinCart = await ShoppingCart.find({ user: userId, item: itemId });
+
+            if (existInShoppinCart.length === 0) {
+                const newItem = new ShoppingCart({ user: userId, item: itemId, quantity: quantity });
+                await newItem.save();
+            }
+            else {
+                await ShoppingCart.findByIdAndUpdate(existInShoppinCart[0]._id, { quantity: quantity }, { new: true });
             }
         });
-    
-        cartItems.forEach(async itemId => {
-            const existItem = await ShoppingCart.find({ user: userId, item: itemId });
-            if (existItem.length === 0) {
-                const shoppingCart = new ShoppingCart({ user: userId, item: itemId });
-                await shoppingCart.save();
-            }
-        });
+
+        deleteItems(userId, deletedItems);
     
         res.status(201).json({
             ok: true,

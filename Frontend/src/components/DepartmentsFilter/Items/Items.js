@@ -14,11 +14,21 @@ export const Items = ({ items = []}) => {
     const addToCart = (item) => {
         const cartItems = JSON.parse(localStorage.getItem('scitems'));
         const itemExist = cartItems.find(({ _id }) => _id === item._id);
+
+        let exist = false;
+        cartItems.forEach(currentCartItem => {
+            const { _id } = currentCartItem;
+            if (_id === item._id) {
+                exist = true;
+                currentCartItem.quantity = currentCartItem.quantity + 1;
+            }
+        });
         
         if (!itemExist) {
-            cartItems.push(item);
-            localStorage.setItem('change', true);
+            cartItems.push({...item, quantity: 1});
         }
+        
+        localStorage.setItem('change', true);
         localStorage.setItem('scitems', JSON.stringify(cartItems));
     }
 

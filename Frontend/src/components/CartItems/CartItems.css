@@ -39,8 +39,8 @@
     margin-top: 5px;
 }
 
-.sc-icon:hover {
-    color: var(--orange-color);
+.sc-delete-icon {
+    color: var(--red-color);
 }
 
 .shopping-cart-item {

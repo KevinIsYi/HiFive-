@@ -10,7 +10,12 @@ const ShoppingCartSchema = Schema({
         type: Schema.Types.ObjectId,
         ref: 'Item',
         required: true
+    },
+    quantity: {
+        type: Number,
+        required: true
     }
+    
 });
 
 module.exports = model( 'ShoppingCart', ShoppingCartSchema );

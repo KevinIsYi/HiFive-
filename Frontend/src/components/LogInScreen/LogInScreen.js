@@ -36,10 +36,11 @@ export const LogInScreen = ({ history }) => {
 
     const saveShoppingCartItems = async (id) => {
         const items = JSON.parse(localStorage.getItem('scitems'));
-        const cartItems = items.map(({ _id }) => _id);
+        const cartItems = items.map(({ _id, quantity }) => ({ itemId: _id, quantity }));
+        console.log("PRODUCTOS: ", cartItems);
         const change = JSON.parse( localStorage.getItem('change'));
-        console.log(change);
-
+        const deletedItems = JSON.parse(localStorage.getItem('sc-deleted-items'));
+        console.log("BORRAR:", deletedItems);
         if (change) {
             localStorage.setItem('change', false);
             const url = 'http://localhost:4000/api/items/setshoppingcart'
@@ -51,12 +52,14 @@ export const LogInScreen = ({ history }) => {
                     },
                     body: JSON.stringify({
                         userId: id,
-                        cartItems
+                        updateItems: cartItems,
+                        deletedItems
                     })
                 });
                 const resp = await req.json();
-                console.log(resp);
+                console.log("RESPUESTA: ", resp);
                 localStorage.setItem('change', false);
+                localStorage.setItem('sc-deleted-items', JSON.stringify([]));
             } catch (error) {
                 console.log(error);
             }
@@ -86,10 +89,12 @@ export const LogInScreen = ({ history }) => {
                     }
                 });
                 const resp = await req.json();
+                console.log(resp);
 
                 if (resp.ok) {
                     localStorage.setItem('scitems', JSON.stringify(resp.items));
-                    localStorage.setItem('change', true);
+                    localStorage.setItem('sc-deleted-items', JSON.stringify([]));
+                    localStorage.setItem('change', false);
                 }
                 document.addEventListener('visibilitychange', () => saveShoppingCartItems(id));
                 document.addEventListener('onblur', () => saveShoppingCartItems(id));
