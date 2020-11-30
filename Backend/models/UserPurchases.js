@@ -6,17 +6,8 @@ const UserPurchasesSchema = Schema({
         ref: 'User',
         required: true
     },
-    item: {
-        type: Schema.Types.ObjectId,
-        ref: 'Item',
-        required: true
-    },
     date: {
         type: Date,
-        required: true
-    },
-    quantity: {
-        type: Number,
         required: true
     }
 });

@@ -1,5 +1,6 @@
 const { validationResult } = require('express-validator');
 const Item = require('../models/Item');
+const PurchasedItem = require('../models/PurchasedItem');
 const User = require('../models/User');
 const UserPurchases = require('../models/UserPurchases');
 const UserReturns = require('../models/UserReturns');
@@ -17,6 +18,7 @@ const purchasedItems = async ( req, res ) => {
     try {
         const { body:{ items, user } } = req;
         
+        /*
         items.forEach(async ({ item, quantity }) => {
             const existItem = await Item.findById(item);
             
@@ -27,19 +29,23 @@ const purchasedItems = async ( req, res ) => {
                 });
             }
         });
+        */
 
         const currentDate = new Date();
         const currentItem = {
             user,
             date: currentDate
         };
-        items.forEach(async ({ item, quantity }) => {
-              currentItem.item = item;
-              currentItem.quantity = quantity;
 
-              const itemPurchased = new UserPurchases(currentItem);
-              await itemPurchased.save();
-        })
+        const order = new UserPurchases(currentItem);
+        await order.save();
+
+        items.forEach(async orderItems => {
+            const purchasedItems = new PurchasedItem(orderItems);
+            purchasedItems['order'] = order._id;
+            await purchasedItems.save();
+        });
+
        res.json({
            ok: true,
            message: 'The purchase was successfully processed'
