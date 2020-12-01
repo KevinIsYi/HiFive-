@@ -3,9 +3,9 @@
 */
 
 const { Router } = require('express');
-const { check } = require('express-validator');
+const { check, header } = require('express-validator');
 
-const { getAllItems, getCartItems, setShoppingCart } = require('../controllers/items');
+const { getAllItems, getCartItems, setShoppingCart, getPurchasedItemsDescriptions } = require('../controllers/items');
 
 const router = Router();
 
@@ -19,6 +19,11 @@ router.post(
         check('deletedItems', 'Field: deletedItems must be an array').isArray()
     ],
     setShoppingCart
+);
+router.post(
+    '/getpurchaseditems',
+    check('items', 'Field: items should be an array').isArray(),
+    getPurchasedItemsDescriptions
 );
 
 module.exports = router;

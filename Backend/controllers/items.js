@@ -113,8 +113,42 @@ const setShoppingCart = async (req, res) => {
 
 }
 
+const getPurchasedItemsDescriptions = async (req, res) => {
+    const errors = validationResult(req);
+    const { body:{ items } } = req;
+
+    if (!errors.isEmpty()) {
+        return res.status(400).json({
+            ok: false,
+            errors: errors.mapped()
+        });
+    }
+
+    try {
+        const allItems = [];
+        for (const item of items) {
+            const curr = await Item.findById(item);
+            allItems.push(curr);
+        }
+
+        res.json({
+            ok: true,
+            allItems
+        })
+
+        
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            ok: false,
+            message: 'Cannot fetch from DB'
+        })
+    }
+}
+
 module.exports = {
     getAllItems,
     getCartItems,
-    setShoppingCart
+    setShoppingCart,
+    getPurchasedItemsDescriptions
 }
