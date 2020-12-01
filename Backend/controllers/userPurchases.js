@@ -1,12 +1,56 @@
 const { validationResult } = require('express-validator');
-const Item = require('../models/Item');
 const PurchasedItem = require('../models/PurchasedItem');
 const User = require('../models/User');
 const UserPurchases = require('../models/UserPurchases');
 const UserReturns = require('../models/UserReturns');
 
+const getPurchasedItems = async ( req, res ) => {
+    const errors = validationResult(req);
+    const { headers:{ user } } = req;
+
+    console.log(user);
+    
+    if (!errors.isEmpty() || typeof user !== "string" || user.length != 24) {
+        return res.status(400).json({
+            ok: false,
+            errors: errors.mapped,
+            message: 'Data was not received as expected'
+        });
+    }
+
+    try {
+        const orders = await UserPurchases.find({ user });
+        console.log("Ordenes: ", orders);
+        const purchases = [];
+        for (const eachOrder of orders) {
+            const { _id, order, date } = eachOrder;
+            const boughtItems = await PurchasedItem.find({ order: _id });
+            purchases.push({
+                id: _id,
+                order,
+                date,
+                orders: boughtItems
+            });
+        }
+
+        res.status(200).json({
+            ok: true,
+            purchases
+        });
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            message: 'Cannot fetch from DB'
+        })
+    }
+}
+
 const purchasedItems = async ( req, res ) => {
     const errors = validationResult(req);
+
+    console.log(req.body);
     
     if (!errors.isEmpty()) {
         return res.status(400).json({
@@ -40,9 +84,8 @@ const purchasedItems = async ( req, res ) => {
         const order = new UserPurchases(currentItem);
         await order.save();
 
-        items.forEach(async orderItems => {
-            const purchasedItems = new PurchasedItem(orderItems);
-            purchasedItems['order'] = order._id;
+        items.forEach(async ({ _id, price, quantity }) => {
+            const purchasedItems = new PurchasedItem({ order: order._id, item: _id, quantity, unitPrice: price });
             await purchasedItems.save();
         });
 
@@ -165,6 +208,7 @@ const getReturns = async ( req, res ) => {
 }
 
 module.exports = {
+    getPurchasedItems,
     purchasedItems,
     getOrders,
     returnItems,

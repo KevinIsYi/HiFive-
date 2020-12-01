@@ -2,12 +2,18 @@
     host + api/purchase + route
 */
 
-const { check } = require('express-validator');
+const { check, header } = require('express-validator');
 
 const { Router } = require('express');
-const { purchasedItems, getOrders, returnItems, getReturns } = require('../controllers/userPurchases');
+const { getPurchasedItems, purchasedItems, getOrders, returnItems, getReturns } = require('../controllers/userPurchases');
 
 const router = Router();
+
+router.get(
+    '/getpurchases',
+    header('user', 'Filed: user is required').notEmpty(),
+    getPurchasedItems
+);
 
 router.post(
     '/',
