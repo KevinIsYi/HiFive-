@@ -98,7 +98,8 @@ export const LogInScreen = ({ history }) => {
                 }
                 document.addEventListener('visibilitychange', () => saveShoppingCartItems(id));
                 document.addEventListener('onblur', () => saveShoppingCartItems(id));
-                history.replace('/');
+                history.replace('/categories');
+                console.log(isLogged);
             }
             else {
 
@@ -110,115 +111,110 @@ export const LogInScreen = ({ history }) => {
     }
 
     return (
-        <>
-            {
-                isLogged && <Redirect to="/account" />
-            }
-            <fieldset className="login-container">
-                <Link to="/"><legend><img src="./assets/icons/hifive-logo.png" alt="hifive-logo"/></legend></Link>
-                
-                <label>{ text[position][0] } </label>
+        <fieldset className="login-container">
+            <Link to="/"><legend><img src="./assets/icons/hifive-logo.png" alt="hifive-logo"/></legend></Link>
+            
+            <label>{ text[position][0] } </label>
 
-                <div className="user-log-data">
-                    {
-                        signIn
-                        ?
-                            (
-                                <>
-                                    <div className="login-input">
-                                        <FaAt className="login-icon"/>
-                                        <input 
-                                            type="text" 
-                                            placeholder="Email" 
-                                            name="userEmail" 
-                                            value={ userEmail }
-                                            onChange={ handleInputChange }  
-                                        />
-                                    </div>
-                                    <div className="login-input">
-                                        <FaLock className="login-icon" />
-                                        <input 
-                                            type="password" 
-                                            placeholder="Password" 
-                                            name="userPassword" 
-                                            value={ userPassword }
-                                            onChange={ handleInputChange }
-                                        />
-                                    </div>
-                                </>
-                            )
-                        :
-                            (
-                                <>
-                                    <div className="login-input">
-                                        <FaUser className="login-icon"/>
-                                        <input 
-                                            type="text" 
-                                            placeholder="Username" 
-                                            name="userName" 
-                                            value={ userName }
-                                            onChange={ handleInputChange }
-                                        />
-                                    </div>
-                                    <div className="login-input">
-                                        <FaAt className="login-icon"/>
-                                        <input 
-                                            type="email" 
-                                            placeholder="E-mail" 
-                                            name="userEmail" 
-                                            value={ userEmail }
-                                            onChange={ handleInputChange }
-                                        />
-                                    </div>
-                                    <div className="login-input">
-                                        <FaLock className="login-icon"/>
-                                        <input 
-                                            type="password" 
-                                            placeholder="Password" 
-                                            name="userPassword" 
-                                            value={ userPassword }
-                                            onChange={ handleInputChange }
-                                        />
-                                    </div>
-                                    <div className="login-input">
-                                        <FaLock className="login-icon"/>
-                                        <input 
-                                            type="password" 
-                                            placeholder="Confirm Password" 
-                                            name="confirmPassword" 
-                                            value={ confirmPassword }
-                                            onChange={ handleInputChange }
-                                        />
-                                    </div>
-                                </>
-                            )
-                    }
-                </div>
-                <button className="btn btn-login" onClick={ formSubmit }>{ text[position][1] }</button>
+            <div className="user-log-data">
                 {
-                    signIn 
+                    signIn
                     ?
                         (
-                            <div className="extra-signin-options">
-                                <div className="sign-in-remember">
-                                    <input type="checkbox" />
-                                    <p>Remember Me</p>
+                            <>
+                                <div className="login-input">
+                                    <FaAt className="login-icon"/>
+                                    <input 
+                                        type="text" 
+                                        placeholder="Email" 
+                                        name="userEmail" 
+                                        value={ userEmail }
+                                        onChange={ handleInputChange }  
+                                    />
                                 </div>
-                                <p>Forgot Password?</p>
-                            </div>
+                                <div className="login-input">
+                                    <FaLock className="login-icon" />
+                                    <input 
+                                        type="password" 
+                                        placeholder="Password" 
+                                        name="userPassword" 
+                                        value={ userPassword }
+                                        onChange={ handleInputChange }
+                                    />
+                                </div>
+                            </>
                         )
                     :
                         (
                             <>
-                                <p className="terms-conditions">By creating an account, you agree to Lerma's
-                                    <span> Conditions of Use</span> and <span> Privacy Notice</span>
-                                </p>
+                                <div className="login-input">
+                                    <FaUser className="login-icon"/>
+                                    <input 
+                                        type="text" 
+                                        placeholder="Username" 
+                                        name="userName" 
+                                        value={ userName }
+                                        onChange={ handleInputChange }
+                                    />
+                                </div>
+                                <div className="login-input">
+                                    <FaAt className="login-icon"/>
+                                    <input 
+                                        type="email" 
+                                        placeholder="E-mail" 
+                                        name="userEmail" 
+                                        value={ userEmail }
+                                        onChange={ handleInputChange }
+                                    />
+                                </div>
+                                <div className="login-input">
+                                    <FaLock className="login-icon"/>
+                                    <input 
+                                        type="password" 
+                                        placeholder="Password" 
+                                        name="userPassword" 
+                                        value={ userPassword }
+                                        onChange={ handleInputChange }
+                                    />
+                                </div>
+                                <div className="login-input">
+                                    <FaLock className="login-icon"/>
+                                    <input 
+                                        type="password" 
+                                        placeholder="Confirm Password" 
+                                        name="confirmPassword" 
+                                        value={ confirmPassword }
+                                        onChange={ handleInputChange }
+                                    />
+                                </div>
                             </>
                         )
                 }
-                <div className='sign-in-line' />
-                <p className="sign-in-create-acc">{ text[position][2] } <span onClick={ changeLayout } >{ text[position][3] } </span></p>
-            </fieldset>
-        </>
+            </div>
+            <button className="btn btn-login" onClick={ formSubmit }>{ text[position][1] }</button>
+            {
+                signIn 
+                ?
+                    (
+                        <div className="extra-signin-options">
+                            <div className="sign-in-remember">
+                                <input type="checkbox" />
+                                <p>Remember Me</p>
+                            </div>
+                            <p>Forgot Password?</p>
+                        </div>
+                    )
+                :
+                    (
+                        <>
+                            <p className="terms-conditions">By creating an account, you agree to Lerma's
+                                <span> Conditions of Use</span> and <span> Privacy Notice</span>
+                            </p>
+                        </>
+                    )
+            }
+            <div className='sign-in-line' />
+            <p className="sign-in-create-acc">{ text[position][2] } <span onClick={ changeLayout } >{ text[position][3] } </span></p>
+        </fieldset>
     )
 }

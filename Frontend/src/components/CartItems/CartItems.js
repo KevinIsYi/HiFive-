@@ -1,5 +1,4 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { AiFillMinusCircle, AiFillPlusCircle, AiFillDelete } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../hooks/useUserContext';
 import { CartItem } from './CartItem/CartItem';
@@ -12,7 +11,7 @@ export const CartItems = () => {
     const { isLogged } = useContext(UserContext);
     const [ total, setTotal ] = useState(0);
 
-    const getCartItems = async () => {
+    const getCartItems = () => {
         const items = JSON.parse(localStorage.getItem('scitems'));
         let total = 0;
         items.forEach(({ price, quantity }) => {
@@ -30,7 +29,31 @@ export const CartItems = () => {
     }, [ setTotal ]);
 
 
-    console.log("Se generatodo");
+    const processPurchase = async () => {
+        const cartItems = JSON.parse(localStorage.getItem('scitems'));
+        const deletedItems = JSON.parse(localStorage.getItem('sc-deleted-items'));
+        
+        cartItems.forEach(item => {
+            deletedItems.push(item);
+        });
+        
+        const url = 'http://localhost:4000/api/purchase/';
+        const req = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                user: isLogged,
+                items: cartItems
+            })
+        });
+        
+
+        localStorage.setItem('scitems', JSON.stringify([]));
+        localStorage.setItem('sc-deleted-items', JSON.stringify(deletedItems));
+        localStorage.setItem('change', true);
+    }
 
     return (
         <div className="shopping-cart-section">
@@ -40,7 +63,12 @@ export const CartItems = () => {
                     <h1>${ total.toFixed(2) }</h1>
                 </div>
                 <Link to="/checkout">
-                    <button className="btn btn-total">Pay</button>
+                    <button 
+                        className="btn btn-total"
+                        onClick={ processPurchase }
+                    >
+                        Pay
+                    </button>
                 </Link>
             </div>
             <div className="shopping-cart-items">

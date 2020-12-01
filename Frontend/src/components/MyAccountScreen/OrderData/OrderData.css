@@ -1,7 +1,8 @@
 .order {
+    align-items: center;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 10px;
+    grid-column-gap: 5px;
 }
 
 .order p {

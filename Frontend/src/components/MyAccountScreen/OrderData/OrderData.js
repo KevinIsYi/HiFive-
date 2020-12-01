@@ -1,25 +1,28 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
 
 import './OrderData.css';
 
-export const OrderData = ({ orderData }) => {
+export const OrderData = ({ order }) => {
+
+    const { id, date, orders } = order;
+    const [ total, setTotal ] = useState(0);
+    const [ show, setShow ] = useState(false);
+
+    useEffect(() => {
+        let tot = 0;
+        orders.forEach(({ quantity, unitPrice }) => {
+            tot += (quantity * unitPrice);
+        });
+        setTotal(tot);
+    }, []);
 
     return (
         <>
-            {
-                orderData.map(({ id, total, date }) => (
-                    <div className="order" key={ id }>
-                        <p className="order-id">{ id }</p>
-                        <p>{ date }</p>
-                        <p>${ total.toFixed(2) }</p>
-                    </div>
-                ))
-            }
+            <div className="order">
+                <p className="order-id">{ id }</p>
+                <p>{ date.slice(0, 10) } </p>
+                <p>${ total.toFixed(2) }</p>
+            </div>
         </>
     )
-}
-
-OrderData.propTypes = {
-    orderData: PropTypes.array.isRequired
 }

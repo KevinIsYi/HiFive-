@@ -16,7 +16,8 @@ export const Header = () => {
         mobile: "(max-width: 900px)"
     }
     const { isLogged  } = useContext(UserContext);
-    const isAdmin = isLogged === 'a' ? true : false;
+    const linkCart = isLogged ? '/cart' : '/login';
+    const linkLogged = isLogged ? '/account' : '/login';
 
     return (
         <header className="header center">
@@ -47,17 +48,11 @@ export const Header = () => {
                 )}
             </Media>
 
-            {
-                isAdmin
-                ?   
-                    <Link to="/admin" className="admin-link">Admin</Link>
-                :
-                <div className="sign-in-section">
-                    <Link to="/cart"><HiOutlineShoppingBag className="icon" /></Link>
-                    <div className="division" />
-                    <Link to="/login"><BsPerson className="icon" /></Link>
-                </div>
-            }
+            <div className="sign-in-section">
+                <Link to={ linkCart }><HiOutlineShoppingBag className="icon" /></Link>
+                <div className="division" />
+                <Link to={ linkLogged }><BsPerson className="icon" /></Link>
+            </div>
             
         </header>
     )
