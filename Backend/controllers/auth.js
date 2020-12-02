@@ -6,6 +6,7 @@ const { response } = require('express');
 
 const createUser = async ( req, res ) => {
 
+    console.log(req.body);
     const errors = validationResult( req );
     
     if (!errors.isEmpty()) {
@@ -35,6 +36,7 @@ const createUser = async ( req, res ) => {
 
         return res.status(201).json({
             ok: true,
+            id: newUser._id,
             message: 'Created new user'
         });
 
