@@ -19,13 +19,14 @@ export const LogInScreen = ({ history }) => {
 
 
     const [ formValues, handleInputChange    ] = useForm({
-        'userName': '',
-        'userEmail': 'kevin@kevin.com',
-        'userPassword': '12345678',
-        'confirmPassword': ''
+        'name': '',
+        'lastName': '',
+        'email': 'kevin@kevin.com',
+        'password': '12345678',
+        'confirmPassword': '12345678'
     });
 
-    const { userName, userEmail, userPassword, confirmPassword } = formValues;
+    const { name, lastName, email, password, confirmPassword } = formValues;
     const [ signIn, setSignIn ] = useState(true);
     const [ position, setPosition ] = useState(0);
 
@@ -42,8 +43,8 @@ export const LogInScreen = ({ history }) => {
             let req = await fetch(url, {
                 method: 'GET',
                 headers: {
-                    'email': userEmail,
-                    'password': userPassword
+                    'email': email,
+                    'password': password
                 }
             });
             const { ok, id } = await req.json();
@@ -73,7 +74,29 @@ export const LogInScreen = ({ history }) => {
             }
         }
         else {
-            //email-validation, etc
+            if (password === confirmPassword) {
+                const url = 'http://localhost:4000/api/auth';
+                console.log(formValues);
+                
+                const req = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name,
+                        lastName,
+                        email,
+                        password
+                    })
+                })
+                const resp = await req.json();
+                console.log(resp);
+                if (resp.ok) {
+                    setLogged(resp.id);
+                    history.replace('/categories');
+                }
+            }
         }
     }
 
@@ -94,8 +117,8 @@ export const LogInScreen = ({ history }) => {
                                     <input 
                                         type="text" 
                                         placeholder="Email" 
-                                        name="userEmail" 
-                                        value={ userEmail }
+                                        name="email" 
+                                        value={ email }
                                         onChange={ handleInputChange }  
                                     />
                                 </div>
@@ -105,7 +128,7 @@ export const LogInScreen = ({ history }) => {
                                         type="password" 
                                         placeholder="Password" 
                                         name="userPassword" 
-                                        value={ userPassword }
+                                        value={ password }
                                         onChange={ handleInputChange }
                                     />
                                 </div>
@@ -118,9 +141,19 @@ export const LogInScreen = ({ history }) => {
                                     <FaUser className="login-icon"/>
                                     <input 
                                         type="text" 
-                                        placeholder="Username" 
-                                        name="userName" 
-                                        value={ userName }
+                                        placeholder="Name" 
+                                        name="name" 
+                                        value={ name }
+                                        onChange={ handleInputChange }
+                                    />
+                                </div>
+                                <div className="login-input">
+                                    <FaUser className="login-icon"/>
+                                    <input 
+                                        type="text" 
+                                        placeholder="Last Name" 
+                                        name="lastName" 
+                                        value={ lastName }
                                         onChange={ handleInputChange }
                                     />
                                 </div>
@@ -129,8 +162,8 @@ export const LogInScreen = ({ history }) => {
                                     <input 
                                         type="email" 
                                         placeholder="E-mail" 
-                                        name="userEmail" 
-                                        value={ userEmail }
+                                        name="email" 
+                                        value={ email }
                                         onChange={ handleInputChange }
                                     />
                                 </div>
@@ -139,8 +172,8 @@ export const LogInScreen = ({ history }) => {
                                     <input 
                                         type="password" 
                                         placeholder="Password" 
-                                        name="userPassword" 
-                                        value={ userPassword }
+                                        name="password" 
+                                        value={ password }
                                         onChange={ handleInputChange }
                                     />
                                 </div>
