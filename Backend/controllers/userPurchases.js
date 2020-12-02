@@ -1,6 +1,7 @@
 const { validationResult } = require('express-validator');
 const PurchasedItem = require('../models/PurchasedItem');
 const User = require('../models/User');
+const Item = require('../models/Item');
 const UserPurchases = require('../models/UserPurchases');
 const UserReturns = require('../models/UserReturns');
 
@@ -25,11 +26,28 @@ const getPurchasedItems = async ( req, res ) => {
         for (const eachOrder of orders) {
             const { _id, order, date } = eachOrder;
             const boughtItems = await PurchasedItem.find({ order: _id });
+            
+            let currentItem = {};
+            const orders = [];
+
+            for (const { _id, order, item, quantity, unitPrice } of boughtItems) {
+                const { name } = await Item.findById(item);
+                currentItem = {
+                    id: _id,
+                    order,
+                    item,
+                    quantity,
+                    unitPrice,
+                    name
+                }
+                orders.push(currentItem);
+            }
+
             purchases.push({
                 id: _id,
                 order,
                 date,
-                orders: boughtItems
+                orders
             });
         }
 
