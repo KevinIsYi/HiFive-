@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import './OrderData.css';
+import { OrderDetail } from './OrderDetail/OrderDetail';
 
 export const OrderData = ({ order }) => {
 
@@ -19,10 +20,21 @@ export const OrderData = ({ order }) => {
     return (
         <>
             <div className="order">
-                <p className="order-id">{ id }</p>
+                <p 
+                    className="order-id"
+                    onClick={ () => setShow(!show) }
+                >
+                    { id }
+                </p>
                 <p>{ date.slice(0, 10) } </p>
                 <p>${ total.toFixed(2) }</p>
             </div>
+            {
+                show && 
+                <div className="items-description-container">
+                    <OrderDetail order={ order } />
+                </div>
+            }
         </>
     )
 }

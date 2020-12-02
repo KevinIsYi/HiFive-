@@ -8,9 +8,12 @@ export const MyAccountScreen = () => {
 
     const [ purchases, setPurchases ] = useState([]);
     const { isLogged } = useContext(UserContext);
-    
+
+
     const getPurchases = async () => {
         const url = 'http://localhost:4000/api/purchase/getpurchases';
+
+        
         
         const req = await fetch(url, {
             method: 'GET',
@@ -19,8 +22,6 @@ export const MyAccountScreen = () => {
             }
         });
         const { ok, purchases } = await req.json();
-        console.log("OK," , ok);
-        console.log(purchases);
         if (ok) {
             setPurchases(purchases);
         }
