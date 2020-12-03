@@ -40,10 +40,13 @@ const getCartItems = async (req, res) => {
         const items = [];
 
         for (const { item, quantity } of scItems) {
-            const { _id, img, name, price } = await Item.findById(item);
+            const { _id, img, name, price, available } = await Item.findById(item);
+            
             //scItem.quantity = quantity;
-            items.push({ _id, img, name, price, quantity });
+            items.push({ _id, img, name, price, quantity, available });
         }
+
+        console.log("Se retorna_ ", items);
 
         res.json({
             ok: true,
