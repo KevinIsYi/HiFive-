@@ -105,6 +105,8 @@ const purchasedItems = async ( req, res ) => {
         items.forEach(async ({ _id, price, quantity }) => {
             const purchasedItems = new PurchasedItem({ order: order._id, item: _id, quantity, unitPrice: price });
             await purchasedItems.save();
+            const editItem = await Item.findById(_id);
+            await Item.findByIdAndUpdate(_id, { available: editItem.available - quantity });
         });
 
        res.json({
