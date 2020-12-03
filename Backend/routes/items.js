@@ -3,9 +3,9 @@
 */
 
 const { Router } = require('express');
-const { check, header } = require('express-validator');
+const { check } = require('express-validator');
 
-const { getAllItems, getCartItems, setShoppingCart, getPurchasedItemsDescriptions } = require('../controllers/items');
+const { getAllItems, getCartItems, setShoppingCart, getPurchasedItemsDescriptions, createItem } = require('../controllers/items');
 
 const router = Router();
 
@@ -25,5 +25,16 @@ router.post(
     check('items', 'Field: items should be an array').isArray(),
     getPurchasedItemsDescriptions
 );
+
+router.post(
+    '/createitem',
+    [    
+        check('img', 'Field: field img is required and it must be a non empty string').isString().notEmpty(),
+        check('name', 'Field name is required and it must be a non empty string').isString().notEmpty(),
+        check('price', 'Field price is required and it must be a number').isNumeric(),
+        check('available', 'Field available is required and it must be a number').isNumeric()
+    ],
+    createItem
+)
 
 module.exports = router;

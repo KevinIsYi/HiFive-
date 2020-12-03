@@ -146,9 +146,47 @@ const getPurchasedItemsDescriptions = async (req, res) => {
     }
 }
 
+const createItem = async (req, res) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        return res.status(400).json({
+            ok: false,
+            errors: errors.mapped()
+        });
+    }
+
+    try {
+        const { body:{ img } } = req;
+        
+        if (await Item.find({ img })) {
+            return res.status(400).json({
+                ok: false,
+                message: 'An item with this image already exist'
+            });
+        }
+
+        const newItem = new Item(body);
+        await newItem.save();
+
+        res.status(201).json({
+            ok: true,
+            message: 'Item was saved'
+        })
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            message: 'Failed at inserting in DB'
+        })
+    }
+}
+
 module.exports = {
     getAllItems,
     getCartItems,
     setShoppingCart,
-    getPurchasedItemsDescriptions
+    getPurchasedItemsDescriptions,
+    createItem
 }

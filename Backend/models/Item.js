@@ -13,6 +13,10 @@ const ItemSchema = Schema({
     price: {
         type: Number,
         required: true
+    },
+    available: {
+        type: Number,
+        required: true
     }
 });
 
