@@ -61,7 +61,8 @@ export const LogInScreen = ({ history }) => {
                 console.log(resp);
 
                 if (resp.ok) {
-                    localStorage.setItem('scitems', JSON.stringify(resp.items));
+
+                    localStorage.setItem('scitems', JSON.stringify(resp.items.filter(item => item.available > 0)));
                     localStorage.setItem('sc-deleted-items', JSON.stringify([]));
                     localStorage.setItem('change', false);
                 }

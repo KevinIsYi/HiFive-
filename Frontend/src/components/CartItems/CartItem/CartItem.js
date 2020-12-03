@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import { AiFillDelete, AiFillMinusCircle, AiFillPlusCircle } from 'react-icons/ai';
 
 export const CartItem = React.memo(({ item, editTotal }) => {
-    const { _id, img, name, price, quantity } = item;
+    const { _id, img, name, price, quantity, available } = item;
+    console.log(available);
 
-    const [ currentQuantity, setCurrentQuantity ] = useState(quantity);
+    const [ currentQuantity, setCurrentQuantity ] = useState(Math.min(quantity, available));
     const [ itemExist, setItemExist ] = useState(true);
     
     const deleteComponent = () => {
@@ -49,7 +50,7 @@ export const CartItem = React.memo(({ item, editTotal }) => {
                 <div className="shopping-cart-item">
                     <img src={`./assets/items/${ img }.jpg`} alt={ img } />
                     <div className="description-price">
-                        <h1>{ name } </h1>
+                        <h1>{ name } | In Stock: #{ available }</h1>
                         <p><span># Items:</span> { currentQuantity }</p>
                         <p><span>Unit Price:</span> ${ price }</p>
                         <p><span>Total:</span> ${ (quantity * price).toFixed(2) }</p>
@@ -57,10 +58,13 @@ export const CartItem = React.memo(({ item, editTotal }) => {
                             className="icon sc-icon sc-delete-icon" 
                             onClick={ deleteComponent }
                         />
-                        <AiFillPlusCircle 
-                            className="icon sc-icon" 
-                            onClick={ () => changeQuantity(1) }
-                        />
+                        {
+                            currentQuantity < available && 
+                            <AiFillPlusCircle 
+                                className="icon sc-icon" 
+                                onClick={ () => changeQuantity(1) }
+                            />
+                        }
                         {
                             currentQuantity > 1 && 
                             <AiFillMinusCircle 

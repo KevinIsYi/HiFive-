@@ -17,9 +17,9 @@ export const OrderDetail = ({ order = [] }) => {
                         className="each-item-description"
                    >
                         <h1> { name }</h1>
-                        <p><span>Price:</span> ${ unitPrice.toFixed(2) }</p>
-                        <p><span># Items:</span> { quantity }</p>
-                        <p><span>Total:</span> ${ (unitPrice * quantity).toFixed(2) }</p>
+                        <h5><span>Price:</span> ${ unitPrice.toFixed(2) }</h5>
+                        <h5><span># Items:</span> { quantity }</h5>
+                        <h5><span>Total:</span> ${ (unitPrice * quantity).toFixed(2) }</h5>
                     </div>
                 ))
             }
