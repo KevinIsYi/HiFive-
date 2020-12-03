@@ -38,7 +38,7 @@ export const CartItems = () => {
         });
         
         const url = 'http://localhost:4000/api/purchase/';
-        const req = await fetch(url, {
+        await fetch(url, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'

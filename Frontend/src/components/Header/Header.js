@@ -5,11 +5,12 @@ import { BsPerson } from 'react-icons/bs';
 import { GoThreeBars } from 'react-icons/go';
 import { HiOutlineShoppingBag } from 'react-icons/hi';
 import { AiOutlineLogout } from 'react-icons/ai';
-
-import './Header.css';
 import { Link } from 'react-router-dom';
+
 import { UserContext } from '../../hooks/useUserContext';
 import { updateShoppingCart } from '../../helpers/updateShoppingCart';
+
+import './Header.css';
 
 export const Header = () => {
 

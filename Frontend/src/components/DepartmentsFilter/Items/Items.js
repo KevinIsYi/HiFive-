@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { HiOutlineShoppingBag } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../../hooks/useUserContext';
@@ -8,18 +8,14 @@ import './Items.css';
 export const Items = ({ items = []}) => {
 
     const { isLogged } = useContext(UserContext);
-    const [ wasCartClicked, setWasCartClicked ] = useState(false);
-    const cartClass = wasCartClicked & 'clicked-cart' || '';
 
     const addToCart = (item) => {
         const cartItems = JSON.parse(localStorage.getItem('scitems'));
         const itemExist = cartItems.find(({ _id }) => _id === item._id);
 
-        let exist = false;
         cartItems.forEach(currentCartItem => {
             const { _id } = currentCartItem;
             if (_id === item._id) {
-                exist = true;
                 currentCartItem.quantity = currentCartItem.quantity + 1;
             }
         });
@@ -47,7 +43,6 @@ export const Items = ({ items = []}) => {
                                     <p><Link to='/login'><HiOutlineShoppingBag className="icon" /></Link></p>
                                 :
                                     <p 
-                                        className={ cartClass }
                                         onClick={ () => addToCart({ _id, img, name, price }) }
                                     >
                                         <HiOutlineShoppingBag className="icon" />

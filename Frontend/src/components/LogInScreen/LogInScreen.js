@@ -1,11 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { FaUser, FaLock, FaAt } from 'react-icons/fa';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { UserContext } from '../../hooks/useUserContext';
 import { useForm } from '../../hooks/useForm';
 
 import './LogInScreen.css';
-import { updateShoppingCart } from '../../helpers/updateShoppingCart';
 
 export const LogInScreen = ({ history }) => {
 

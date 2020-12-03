@@ -1,7 +1,8 @@
 const Item = require('../models/Item');
-const { validationResult } = require('express-validator');
 const User = require('../models/User');
 const ShoppingCart = require('../models/ShoppingCart');
+
+const { validationResult } = require('express-validator');
 
 const getAllItems = async ( req, res ) => {
 

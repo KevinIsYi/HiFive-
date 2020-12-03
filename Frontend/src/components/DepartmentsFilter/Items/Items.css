@@ -64,10 +64,6 @@
     cursor: pointer;
 }
 
-.clicked-cart {
-    background-color: var(--red-color);
-}
-
 @media (min-width: 900px) {
     .items-list {
         grid-template-columns: repeat(2, 1fr);

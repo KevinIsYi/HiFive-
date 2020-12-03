@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import './BannerImage.css';
-import { Link } from 'react-router-dom';
 
 export const BannerImage = ({ image, openingText, mainText, buttonText, height }) => {
     const backImage = (image === undefined) ? 'var(--red-color)' : require(`./${ image }.jpg`);

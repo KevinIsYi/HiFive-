@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { OrderDetail } from './OrderDetail/OrderDetail';
 
 import './OrderData.css';
-import { OrderDetail } from './OrderDetail/OrderDetail';
 
 export const OrderData = ({ order }) => {
 
@@ -15,7 +15,7 @@ export const OrderData = ({ order }) => {
             tot += (quantity * unitPrice);
         });
         setTotal(tot);
-    }, []);
+    }, [ orders ] );
 
     return (
         <>
