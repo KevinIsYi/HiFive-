@@ -63,6 +63,7 @@ const loginUser = async ( req, res ) => {
     try {
         const { headers:{ email, password } } = req;
         const user = await User.findOne({ email });
+        console.log(user);
 
         if (!user || !bcrypt.compareSync(password, user.password)) {
             return res.status(400).json({
@@ -71,10 +72,14 @@ const loginUser = async ( req, res ) => {
             });
         }
 
+        const { name, lastName } = user;
+
         return res.json({
             ok: true,
-            id: user._id
-        })
+            id: user._id,
+            name, 
+            lastName
+        });
 
     } catch(error) {
         console.log(error);
