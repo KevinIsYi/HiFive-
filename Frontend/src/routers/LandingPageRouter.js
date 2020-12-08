@@ -46,6 +46,7 @@ export const LandingPageRouter = () => {
                                 </>
                         }
 
+
                         <Redirect to="/ " />
                     </Switch>
                 </>

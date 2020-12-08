@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { FaUser, FaLock, FaAt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { UserContext } from '../../hooks/useUserContext';
 import { useForm } from '../../hooks/useForm';
 
@@ -46,7 +47,8 @@ export const LogInScreen = ({ history }) => {
                     'password': password
                 }
             });
-            const { ok, id } = await req.json();
+            const { ok, id, name, lastName, message } = await req.json();
+            console.log("OK INICIO: ", ok);
 
             if (ok) {
                 setLogged(id);
@@ -58,23 +60,32 @@ export const LogInScreen = ({ history }) => {
                     }
                 });
                 const resp = await req.json();
-                console.log(resp);
+                console.log("RES CARR", resp);
 
                 if (resp.ok) {
-
                     localStorage.setItem('scitems', JSON.stringify(resp.items.filter(item => item.available > 0)));
                     localStorage.setItem('sc-deleted-items', JSON.stringify([]));
                     localStorage.setItem('change', false);
                 }
+                Swal.fire('Welcome', `${name} ${lastName}`, 'success');
                 history.replace('/categories');
                 console.log(isLogged);
             }
             else {
-
+                Swal.fire('Error', message, 'error');
             }
         }
         else {
-            if (password === confirmPassword) {
+            const regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+            console.log("Entramos");
+
+            if (password === confirmPassword && 
+                name.length > 0 && 
+                lastName.length > 0 &&
+                password.length > 0 &&
+                regex.test(email)) {
+
                 const url = 'http://localhost:4000/api/auth';
                 console.log(formValues);
                 
@@ -94,8 +105,15 @@ export const LogInScreen = ({ history }) => {
                 console.log(resp);
                 if (resp.ok) {
                     setLogged(resp.id);
+                    Swal.fire('Welcome', 'Your account has been created', 'success');
                     history.replace('/categories');
                 }
+                else {
+                    Swal.fire('Error', 'Something is wrong with your information', 'error');
+                }
+            }
+            else {
+                Swal.fire('Error', 'Something is wrong with your information', 'error');
             }
         }
     }

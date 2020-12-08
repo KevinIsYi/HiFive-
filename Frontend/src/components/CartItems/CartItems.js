@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { UserContext } from '../../hooks/useUserContext';
 import { CartItem } from './CartItem/CartItem';
 
@@ -38,7 +38,7 @@ export const CartItems = () => {
         });
         
         const url = 'http://localhost:4000/api/purchase/';
-        await fetch(url, {
+        const req = await fetch(url, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
@@ -48,11 +48,19 @@ export const CartItems = () => {
                 items: cartItems
             })
         });
-        
 
-        localStorage.setItem('scitems', JSON.stringify([]));
-        localStorage.setItem('sc-deleted-items', JSON.stringify(deletedItems));
-        localStorage.setItem('change', true);
+        const resp = await req.json();
+        if (resp.ok) {
+            localStorage.setItem('scitems', JSON.stringify([]));
+            localStorage.setItem('sc-deleted-items', JSON.stringify(deletedItems));
+            localStorage.setItem('change', true);
+            setCartItems([]);
+            setTotal(0);
+            Swal.fire('Success', 'Your purchase has been processed', 'success');
+        }
+        else {
+            Swal.fire('Error', 'Your purchase cannot be processed, contact us to get more info', 'error');
+        }
     }
 
     return (
@@ -62,14 +70,12 @@ export const CartItems = () => {
                     <p>Total: </p>
                     <h1>${ total.toFixed(2) }</h1>
                 </div>
-                <Link to="/checkout">
-                    <button 
-                        className="btn btn-total"
-                        onClick={ processPurchase }
-                    >
-                        Pay
-                    </button>
-                </Link>
+                <button 
+                    className="btn btn-total"
+                    onClick={ processPurchase }
+                >
+                    Pay
+                </button>
             </div>
             <div className="shopping-cart-items">
                 { 
