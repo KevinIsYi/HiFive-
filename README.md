@@ -52,7 +52,7 @@
 12. Dar click en **connect**.
 13. Si se permite el acceso a la base de datos, ya se puede cerrar la página.
 
-## Connectar Backend a la Base de Datos
+## Conectar Backend a la Base de Datos
 1. Ir al archivo .env de la carpeta Backend, y escribir una nueva variable llama DB_CNN.
 2. El valor de la variable será la ruta de conexión haciendo algunas modificaciones.
 3. Quedará algo similar a lo siguiente: **DB_CNN=mongodb+srv://usuario:contraseña@cluster0.uyz6d.mongodb.net/nombre_de_la base_de_datos**
