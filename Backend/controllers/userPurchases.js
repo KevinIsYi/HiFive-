@@ -1,4 +1,3 @@
-const { validationResult } = require('express-validator');
 const PurchasedItem = require('../models/PurchasedItem');
 const User = require('../models/User');
 const Item = require('../models/Item');
@@ -6,16 +5,14 @@ const UserPurchases = require('../models/UserPurchases');
 const UserReturns = require('../models/UserReturns');
 
 const getPurchasedItems = async ( req, res ) => {
-    const errors = validationResult(req);
     const { headers:{ user } } = req;
 
     console.log(user);
     
-    if (!errors.isEmpty() || typeof user !== "string" || user.length != 24) {
+    if (typeof user !== "string" || user.length != 24) {
         return res.status(400).json({
             ok: false,
-            errors: errors.mapped,
-            message: 'Data was not received as expected'
+            message: 'UserID is not valid'
         });
     }
 
@@ -66,16 +63,6 @@ const getPurchasedItems = async ( req, res ) => {
 }
 
 const purchasedItems = async ( req, res ) => {
-    const errors = validationResult(req);
-
-    console.log(req.body);
-    
-    if (!errors.isEmpty()) {
-        return res.status(400).json({
-            ok: false,
-            errors: errors.mapped()
-        });
-    }
 
     try {
         const { body:{ items, user } } = req;
@@ -127,13 +114,6 @@ const purchasedItems = async ( req, res ) => {
 const getOrders = async ( req, res ) => {
     const { body:{ userId } } = req;
 
-    if (!userId || typeof userId !== "string" || userId.length !== 24 || !await User.findById(userId)) {
-        return res.status(400).json({
-            ok: false,
-            message: 'UserId was not received as expected'
-        })
-    }
-
     try {
         const orders = await UserPurchases.find({ user: userId });
     
@@ -152,14 +132,6 @@ const getOrders = async ( req, res ) => {
 }
 
 const returnItems = async ( req, res ) => {
-    const errors = validationResult(req);
-    
-    if (!errors.isEmpty()) {
-        return res.status(400).json({
-            ok: false,
-            errors: errors.mapped()
-        })
-    }
 
     try {
 

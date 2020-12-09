@@ -1,8 +1,5 @@
 const Item = require('../models/Item');
-const User = require('../models/User');
 const ShoppingCart = require('../models/ShoppingCart');
-
-const { validationResult } = require('express-validator');
 
 const getAllItems = async ( req, res ) => {
 
@@ -27,12 +24,6 @@ const getCartItems = async (req, res) => {
     const { headers:{ userid } } = req;
     console.log("Productos en carrito de: ", userid);
     
-    if (!userid || typeof userid !== 'string' || userid.length !== 24 || !await User.findById(userid)) {
-        return res.status(400).json({
-            ok: false,
-            message: 'Header: userid was not sent as needed'
-        });
-    }
     
     try {
         const scItems = await ShoppingCart.find({ user: userid });
@@ -71,23 +62,9 @@ const deleteItems = (user, items) => {
 }
 
 const setShoppingCart = async (req, res) => {
-    const errors = validationResult(req);
     const { body:{ userId, updateItems, deletedItems } } = req;
 
-    if (!errors.isEmpty()) {
-        return res.status(400).json({
-            ok: false,
-            errors: errors.mapped()
-        });
-    }
-
-    try {
-        if (userId.length !== 24 || !await User.findById(userId)) {
-            return res.status(400).json({
-                ok: false,
-                message: 'userId is not valid'
-            });
-        }
+    try { 
 
         updateItems.forEach(async ({ itemId, quantity }) => {
             const existInShoppinCart = await ShoppingCart.find({ user: userId, item: itemId });
@@ -118,15 +95,7 @@ const setShoppingCart = async (req, res) => {
 }
 
 const getPurchasedItemsDescriptions = async (req, res) => {
-    const errors = validationResult(req);
     const { body:{ items } } = req;
-
-    if (!errors.isEmpty()) {
-        return res.status(400).json({
-            ok: false,
-            errors: errors.mapped()
-        });
-    }
 
     try {
         const allItems = [];
@@ -151,24 +120,9 @@ const getPurchasedItemsDescriptions = async (req, res) => {
 }
 
 const createItem = async (req, res) => {
-    const errors = validationResult(req);
-
-    if (!errors.isEmpty()) {
-        return res.status(400).json({
-            ok: false,
-            errors: errors.mapped()
-        });
-    }
 
     try {
         const { body:{ img } } = req;
-        
-        if (await Item.find({ img })) {
-            return res.status(400).json({
-                ok: false,
-                message: 'An item with this image already exist'
-            });
-        }
 
         const newItem = new Item(body);
         await newItem.save();
