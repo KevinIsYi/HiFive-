@@ -21,9 +21,9 @@ export const LogInScreen = ({ history }) => {
     const [ formValues, handleInputChange    ] = useForm({
         'name': '',
         'lastName': '',
-        'email': 'kevin@kevin.com',
-        'password': '12345678',
-        'confirmPassword': '12345678'
+        'email': '',
+        'password': '',
+        'confirmPassword': ''
     });
 
     const { name, lastName, email, password, confirmPassword } = formValues;
@@ -145,7 +145,7 @@ export const LogInScreen = ({ history }) => {
                                     <input 
                                         type="password" 
                                         placeholder="Password" 
-                                        name="userPassword" 
+                                        name="password" 
                                         value={ password }
                                         onChange={ handleInputChange }
                                     />
