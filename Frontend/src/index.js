@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { AppRouter } from './routers/AppRouter';
 
 import './index.css';
-import './normalize.css';
+import './styles/style.scss';
 
 ReactDOM.render (
     <AppRouter />,
