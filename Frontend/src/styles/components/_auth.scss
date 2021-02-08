@@ -105,7 +105,6 @@
     align-items: center;
     justify-items: center;
     grid-template-columns: 20% 80%;
-    font-family: $roboto;
 }
 
 .auth__line {
@@ -119,7 +118,6 @@
 
 .auth__switch-auth,
 .auth__terms-conditions {
-    font-family: $roboto;
     text-align: center;
 
     span {
