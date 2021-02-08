@@ -1,30 +1,45 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 
 import { 
     BrowserRouter as Router,
     Switch,
-    Route
+    Route,
+    Redirect
 } from 'react-router-dom';
 
 import { LandingPageRouter } from './LandingPageRouter';
-import { UserContext } from '../hooks/useUserContext';
-import { LogInScreen } from '../components/LogInScreen/LogInScreen';
+import { AuthContext } from '../context/auth';
+import { LoginScreen } from '../screens/LoginScreen';
+import { RegisterScreen } from '../screens/RegisterScreen';
 
 export const AppRouter = () => {
 
-    const [ isLogged, setLogged ] = useState(false);
+    const { auth: { isLogged } } = useContext(AuthContext);
 
     return (
-        <UserContext.Provider value={{ isLogged, setLogged }}>
-            <Router>
-                <>
-                    <Switch>
-                        <Route exact path="/login" component={ LogInScreen } />
-
-                        <Route path="/" component={ LandingPageRouter }/>
-                    </Switch>
-                </>
-            </Router>
-        </UserContext.Provider>
+        <Router>
+            <Switch>
+                {
+                    (!isLogged) &&
+                    <>
+                        <Route
+                            exact
+                            path="/login"
+                            component={LoginScreen}
+                        />
+                        <Route 
+                            exact
+                            path="/register"
+                            component={RegisterScreen}
+                        />
+                    </>
+                }
+                <Route 
+                    path="/"
+                    component={LandingPageRouter} 
+                />
+                <Redirect to="/" />
+            </Switch>
+        </Router>
     )
 }

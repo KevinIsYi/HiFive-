@@ -2,13 +2,11 @@ import React, { useContext } from 'react';
 import { HiOutlineShoppingBag } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { UserContext } from '../../../hooks/useUserContext';
 
 import './Items.css';
 
 export const Items = ({ items = []}) => {
 
-    const { isLogged } = useContext(UserContext);
 
     const addToCart = (item) => {
         const cartItems = JSON.parse(localStorage.getItem('scitems'));
@@ -40,6 +38,7 @@ export const Items = ({ items = []}) => {
                         <div className="price-see">
                             <p>${ price.toFixed(2) }</p>
                             {
+                                /*
                                 !isLogged
                                 ?
                                     <p><Link to='/login'><HiOutlineShoppingBag className="icon" /></Link></p>
@@ -49,6 +48,7 @@ export const Items = ({ items = []}) => {
                                     >
                                         <HiOutlineShoppingBag className="icon" />
                                     </p>
+                                */
                             }
                         </div>
                     </div>

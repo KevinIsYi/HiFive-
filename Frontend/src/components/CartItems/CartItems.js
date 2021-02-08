@@ -1,6 +1,5 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
-import { UserContext } from '../../hooks/useUserContext';
 import { CartItem } from './CartItem/CartItem';
 
 import './CartItems.css';
@@ -8,7 +7,6 @@ import './CartItems.css';
 export const CartItems = () => {
 
     const [ cartItems, setCartItems ] = useState([]);
-    const { isLogged } = useContext(UserContext);
     const [ total, setTotal ] = useState(0);
 
     const getCartItems = () => {
@@ -37,6 +35,9 @@ export const CartItems = () => {
             deletedItems.push(item);
         });
         
+        const url = "si";
+        const req = "no";
+        /*
         const url = 'http://localhost:4000/api/purchase/';
         const req = await fetch(url, {
             method: 'POST',
@@ -48,6 +49,7 @@ export const CartItems = () => {
                 items: cartItems
             })
         });
+        */
 
         const resp = await req.json();
         if (resp.ok) {

@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { UserContext } from '../../hooks/useUserContext';
 
 import { OrderData } from './OrderData/OrderData';
 import './MyAccountScreen.css';
@@ -7,7 +6,7 @@ import './MyAccountScreen.css';
 export const MyAccountScreen = () => {
 
     const [ purchases, setPurchases ] = useState([]);
-    const { isLogged } = useContext(UserContext);
+    //const { isLogged } = useContext(UserContext);
     
     useEffect(() => {
         const getPurchases = async () => {
@@ -16,7 +15,7 @@ export const MyAccountScreen = () => {
             const req = await fetch(url, {
                 method: 'GET',
                 headers: {
-                    'user': isLogged
+                    'user': 'islogged'
                 }
             });
             const { ok, purchases } = await req.json();
@@ -25,7 +24,7 @@ export const MyAccountScreen = () => {
             }
         }
         getPurchases();
-    }, [ isLogged ]);
+    }, [ /*isLogged*/ ]);
 
     return (
         <div className="account-container center">

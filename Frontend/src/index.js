@@ -5,8 +5,9 @@ import { AppRouter } from './routers/AppRouter';
 
 import './index.css';
 import './styles/style.scss';
+import { HiFiveApp } from './HiFiveApp';
 
 ReactDOM.render (
-    <AppRouter />,
-  document.getElementById('root')
+    <HiFiveApp />,
+    document.getElementById('root')
 );

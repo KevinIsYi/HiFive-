@@ -26,6 +26,10 @@ ul {
 
 .btn {
     font-weight: bold;
+
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .center {

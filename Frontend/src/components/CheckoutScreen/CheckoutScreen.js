@@ -1,12 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import { UserContext } from '../../hooks/useUserContext';
 import { BannerImage } from '../BannerImage/BannerImage';
 import './CheckoutScreen.css';
 
 export const CheckoutScreen = () => {
 
-    const { isLogged } = useContext(UserContext);
 
     const [ formValues, setFormValues ] = useState({
         street: '',
@@ -38,9 +36,11 @@ export const CheckoutScreen = () => {
         e.preventDefault();
     }
     
+    /*
     if (!isLogged) {
         return <Redirect to="/login" />;
     }
+    */
 
     return (
         <>

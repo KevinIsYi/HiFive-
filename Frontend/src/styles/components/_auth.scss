@@ -1,0 +1,132 @@
+.auth__login-container {
+    border-style: none;
+    left: 50%;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 95%;
+
+    @include big-phone {
+        border-color: $red;
+        border-style: solid;
+        border-color: $red;
+        width: 500px;   
+    }
+
+    legend {
+        margin: 30px auto;
+
+        img {
+            @include big-phone {
+                width: 150px;
+            }
+        }
+    }
+
+    label {
+        color: $red;
+        font-family: $alfa;
+        font-size: 30px;
+    }
+}
+
+
+.auth__layout {
+    display: grid;
+    grid-row-gap: 20px;
+    justify-items: center;
+    margin: 15px 0;
+    padding: 20px 0;
+
+    @include tablet {
+        padding: 10px 0;
+    }
+
+}
+
+.auth__input-data {
+    align-items: center;
+    background-color: white;
+    border-color: $red;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    display: flex;
+    padding: 10px 20px;
+    width: 70%;
+
+    input {
+        border-style: none;
+        font-family: $roboto;
+        font-weight: bold;
+        opacity: 0.5;
+        outline: none;
+        width: 100%;
+    }
+}
+
+.auth__icon {
+    opacity: 0.5;
+    margin-right: 10px;
+}
+
+.auth__btn {
+    background-color: $white;
+    border-color: $red;
+    border-radius: 50px;
+    border-style: solid;
+    border-width: 1.5px;
+    color: $red;
+    font-family: $roboto;
+    font-size: 17.5px;
+    margin-bottom: 20px;
+    transition: all ease-in 0.3s;
+    padding: 10px;
+    width: 50%;
+
+    &:hover {
+        background-color: $red;
+        color: $white;
+    }
+}
+
+.auth__extra-options {
+    align-items: center;
+    display: grid;
+    grid-column-gap: 15px;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    margin: 5px auto;
+}
+
+.auth__sign-in-remember {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: 20% 80%;
+    font-family: $roboto;
+}
+
+.auth__line {
+    background-color: $red;
+    border-radius: 5px;
+    height: 5px;
+    margin: 15px auto;
+    opacity: 0.5;
+    width: 90%;
+}
+
+.auth__switch-auth,
+.auth__terms-conditions {
+    font-family: $roboto;
+    text-align: center;
+
+    span {
+        font-weight: bold;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

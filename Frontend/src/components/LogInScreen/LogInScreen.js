@@ -2,15 +2,14 @@ import React, { useContext, useState } from 'react';
 import { FaUser, FaLock, FaAt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { UserContext } from '../../hooks/useUserContext';
 import { useForm } from '../../hooks/useForm';
 
 import './LogInScreen.css';
 
 export const LogInScreen = ({ history }) => {
 
-    const { isLogged, setLogged } = useContext(UserContext);
-    console.log(`Is logged: ${ isLogged }`);
+    //const { isLogged, setLogged } = useContext(UserContext);
+    //console.log(`Is logged: ${ isLogged }`);
 
     const text = [ 
         [ "Log In", 'Log In', "Don't have Account?", 'REGISTER HERE'], 
@@ -51,7 +50,7 @@ export const LogInScreen = ({ history }) => {
             console.log("OK INICIO: ", ok);
 
             if (ok) {
-                setLogged(id);
+                //setLogged(id);
                 url = 'http://localhost:4000/api/items/getshoppingcart'
                 req = await fetch(url, {
                     method: 'GET',
@@ -69,7 +68,7 @@ export const LogInScreen = ({ history }) => {
                 }
                 Swal.fire('Welcome', `${name} ${lastName}`, 'success');
                 history.replace('/categories');
-                console.log(isLogged);
+                //console.log(isLogged);
             }
             else {
                 Swal.fire('Error', message, 'error');
@@ -104,7 +103,7 @@ export const LogInScreen = ({ history }) => {
                 const resp = await req.json();
                 console.log(resp);
                 if (resp.ok) {
-                    setLogged(resp.id);
+                    //setLogged(resp.id);
                     Swal.fire('Welcome', 'Your account has been created', 'success');
                     history.replace('/categories');
                 }
@@ -214,8 +213,8 @@ export const LogInScreen = ({ history }) => {
                 signIn 
                 ?
                     (
-                        <div className="extra-signin-options">
-                            <div className="sign-in-remember">
+                        <div className="auth__extra-options">
+                            <div className="auth__sign-in-remember">
                                 <input type="checkbox" />
                                 <p>Remember Me</p>
                             </div>

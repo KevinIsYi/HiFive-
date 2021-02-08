@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 
 import { 
     Switch,
@@ -15,43 +15,36 @@ import { LandingScreen } from '../components/LandingScreen/LandingScreen';
 import { Header } from '../components/Header/Header';
 import { Footer } from '../components/Footer/Footer';
 
-import { UserCategory } from '../hooks/useUserCategory';
 import { MyAccountScreen } from '../components/MyAccountScreen/MyAccountScreen';
 import { CheckoutScreen } from '../components/CheckoutScreen/CheckoutScreen';
 import { ContactScreen } from '../components/ContactScreen/ContactScreen';
-import { UserContext } from '../hooks/useUserContext';
+import { AuthContext } from '../context/auth';
 
 export const LandingPageRouter = () => {
 
-    const [ category, setCategory ] = useState('0');
-    const { isLogged } = useContext(UserContext);
+    const { auth: { isLogged } } = useContext(AuthContext);
     
     return (
-        <UserCategory.Provider value={{ category, setCategory }}>
+        <>
             <Header />
-                <>
-                    <Switch>
-                        <Route path="/ " component={ LandingScreen } />
-                        <Route exact path="/categories" component={ FilterCategoriesScreen } />
-                        <Route exact path="/blog" component={ BlogScreen } />
-                        <Route exact path="/about" component={ AboutUsScreen } />
-                        <Route exact path="/contact" component={ ContactScreen } />
+                <Switch>
+                    <Route exact path="/home" component={ LandingScreen } />
+                    <Route exact path="/categories" component={ FilterCategoriesScreen } />
+                    <Route exact path="/blog" component={ BlogScreen } />
+                    <Route exact path="/about" component={ AboutUsScreen } />
+                    <Route exact path="/contact" component={ ContactScreen } />
 
-                        {
-                            isLogged &&
-                                <>
-                                    <Route exact path="/cart" component={ CartScreen } />
-                                    <Route exact path="/account" component={ MyAccountScreen } />
-                                    <Route exact path="/checkout" component={ CheckoutScreen } />
-                                </>
-                        }
-
-
-                        <Redirect to="/ " />
-                    </Switch>
-                </>
-            
+                {
+                    (isLogged) && 
+                        <>
+                            <Route exact path="/cart" component={ CartScreen } />
+                            <Route exact path="/account" component={ MyAccountScreen } />
+                            <Route exact path="/checkout" component={CheckoutScreen} />
+                        </>
+                }
+                    <Redirect to="/home" />
+                </Switch>
             <Footer />
-        </UserCategory.Provider>
+        </>
     )
 }
