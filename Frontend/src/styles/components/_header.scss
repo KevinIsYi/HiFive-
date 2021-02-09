@@ -1,0 +1,77 @@
+.header__header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 0;
+    width: 95%;
+
+    @include tiny-desktop {
+        width: 90%;
+    }
+
+    @include desktop {
+        width: 80%;
+    }
+}
+
+.header__handbag_icon {
+    @include tiny-desktop {
+        display: none;
+    }
+}
+
+.header__hifive-logo {
+    height: 30px;
+}
+
+.header__nav-options {
+    display: none;
+    justify-content: space-around;
+    width: 50%;
+
+    a {
+    border-bottom-color: white;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    color: var(--gray-color);
+    font-family: var(--roboto);
+    font-size: 20px;
+    padding: 5px 10px;
+    text-align: center;
+    text-transform: capitalize;
+    transition: all ease-in 0.3s;
+
+        &:hover {
+            border-bottom-color: var(--red-color);
+            color: var(--red-color);
+            cursor: pointer;
+        }
+    }
+
+    @include tiny-desktop {
+        display: flex;
+    }
+}
+
+.header__sign-in-section {
+    align-items: center;
+    display: flex;
+}
+
+.header__division {
+    background-color: var(--gray-color);
+    border-radius: 5px;
+    height: 25px;
+    margin: 0 15px;
+    width: 3px;
+}
+
+.header__header-icon {
+    font-size: 35px;
+    transition: all ease-in 0.3s;
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+    }
+}
