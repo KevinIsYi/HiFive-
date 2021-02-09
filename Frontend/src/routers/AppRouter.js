@@ -11,6 +11,7 @@ import { LandingPageRouter } from './LandingPageRouter';
 import { AuthContext } from '../context/auth';
 import { LoginScreen } from '../screens/LoginScreen';
 import { RegisterScreen } from '../screens/RegisterScreen';
+import { PublicRoute } from './PublicRoute';
 
 export const AppRouter = () => {
 
@@ -18,28 +19,27 @@ export const AppRouter = () => {
 
     return (
         <Router>
-            <Switch>
-                {
-                    (!isLogged) &&
-                    <>
-                        <Route
-                            exact
-                            path="/login"
-                            component={LoginScreen}
-                        />
-                        <Route 
-                            exact
-                            path="/register"
-                            component={RegisterScreen}
-                        />
-                    </>
-                }
-                <Route 
-                    path="/"
-                    component={LandingPageRouter} 
-                />
-                <Redirect to="/" />
-            </Switch>
+            <>
+                <Switch> 
+                    <PublicRoute
+                        exact
+                        path="/login"
+                        isAuthenticated={isLogged}
+                        component={LoginScreen}
+                    />
+                    <PublicRoute
+                        exact
+                        path="/register"
+                        isAuthenticated={isLogged}
+                        component={RegisterScreen}
+                    />
+                    <Route 
+                        path="/"
+                        component={LandingPageRouter} 
+                    />
+                    <Redirect to="/" />
+                </Switch>
+                </>
         </Router>
     )
 }
