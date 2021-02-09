@@ -1,0 +1,38 @@
+.hifive-pros__hifive-pros {
+    display: grid;
+    grid-row-gap: 25px;
+    margin: 30px auto 50px auto;
+    text-align: center;
+    width: 90%;
+
+    @include tiny-desktop {
+        display: flex;
+    }
+}
+
+.hifive-pros__pros {
+    width: 100%;
+    font-family: $roboto;
+    color: $gray;
+
+    h1 {
+        margin: 0;
+    }
+
+    p {
+        text-align: center;
+    }
+}
+
+.hifive-pros__line-division {
+    background-color: $gray;
+    height: 2px;
+    width: 90%;
+    border-radius: 5px;
+    margin: auto;
+
+    @include tiny-desktop {
+        height: 50px;
+        width: 3px;
+    }
+}

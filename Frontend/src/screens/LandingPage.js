@@ -15,7 +15,7 @@ export const LandingPage = () => {
                 height={ 70 }
             />
             <Cards />
-            <BlogSection />
+            <BlogSection /> 
             <HiFivePros />
         </>
     )
