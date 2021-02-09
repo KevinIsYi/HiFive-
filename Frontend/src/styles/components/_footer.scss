@@ -1,0 +1,45 @@
+.footer__footer {
+    background-color: $light-gray;
+    padding: 50px 0;
+    width: 100%;
+}
+
+.footer__footer-container {
+    display: grid;
+    grid-row-gap: 10px;
+    grid-column-gap: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(158px, 1fr));
+    margin: auto;
+    width: 85%;
+}
+
+.footer__info-section {
+    color: $gray;
+
+    h1 {
+        color: $gray;
+        margin: 0 0 10px 0;
+        font-family: $roboto;
+        font-size: 25px;
+        font-weight: bold;
+        text-transform: capitalize;
+    }
+
+    p {
+        text-transform: capitalize;
+        margin-bottom: 10px;
+    }
+
+    img {
+       margin: 0 0 10px 0;
+    }
+}
+
+.footer__link a {
+    transition: all ease-in 0.3s;
+
+    &:hover {
+        color: $red;
+        cursor: pointer;
+    }
+}

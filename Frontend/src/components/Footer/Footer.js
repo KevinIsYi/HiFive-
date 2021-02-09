@@ -6,13 +6,12 @@ import { SocialMedia } from './SocialMedia/SocialMedia';
 
 import { footerInfo } from '../../data/footerInfo';
 
-import './Footer.css';
 
 export const Footer = () => {
 
     return (
-        <footer className="footer">
-            <div className="footer-container">
+        <footer className="footer__footer">
+            <div className="footer__footer-container">
                 <AboutUs />
                 <SocialMedia />
                 {

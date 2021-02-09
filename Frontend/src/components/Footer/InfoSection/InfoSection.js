@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const InfoSection = ({ h1, p }) => {
     return (
-        <div className="info-section link">
+        <div className="footer__info-section footer__link">
             <h1>{ h1 }</h1>
             {
                 p.map(([name, link]) => (

@@ -13,12 +13,12 @@ export const AboutUs = () => {
         },
         {
             p: 'Email',
-            span: 'lerma@lerma.com'
+            span: 'hifive@hifive.com'
         }
     ];
 
     return (
-        <div className='info-section'>
+        <div className='footer__info-section'>
             <img src={ './assets/icons/hifive-logo.png' } alt="hifive-logo"/>
             {
                 data.map(({ p, span }) => (

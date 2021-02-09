@@ -1,0 +1,11 @@
+.social-media__icon {
+    color: $gray;
+    font-size: 25px;
+    margin: 5px 25px 0 0;
+    transition: all ease-in 0.3s;
+
+    &:hover {
+        color: $red;
+        cursor: pointer;
+    }
+}
