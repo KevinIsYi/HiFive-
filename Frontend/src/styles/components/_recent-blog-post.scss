@@ -1,0 +1,25 @@
+.recent-blog-post__blog_post {
+    align-items: center;
+    display: grid;
+    grid-column-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    margin: 25px 0;
+
+    img {
+        max-width: 100%;
+        min-width: 110px;
+        
+        &:hover {
+            cursor: pointer;
+            filter: opacity(0.5);
+        }
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 15px;
+    }
+}

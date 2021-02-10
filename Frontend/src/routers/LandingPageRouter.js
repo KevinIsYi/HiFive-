@@ -6,7 +6,6 @@ import {
     Redirect
 } from 'react-router-dom';
 
-import { BlogScreen } from '../components/BlogScreen/BlogScreen';
 import { CartScreen } from '../components/CartScreen/CartScreen';
 import { FilterCategoriesScreen } from '../components/FilterCategoriesScreen/FilterCategoriesScreen';
 
@@ -20,6 +19,7 @@ import { AuthContext } from '../context/auth';
 import { PrivateRoute } from './PrivateRoute';
 import { LandingPage } from '../screens/LandingPage';
 import { AboutUsScreen } from '../screens/AboutUsScreen';
+import { BlogScreen } from '../screens/BlogScreen';
 
 export const LandingPageRouter = () => {
 

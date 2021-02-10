@@ -1,0 +1,44 @@
+.blog__blog-section {
+    margin: 60px auto;
+
+    @include tablet {
+        align-items: start;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        width: 80%;
+    }
+
+    @include tiny-desktop {
+        width: 70%;
+    }
+}
+
+.blog__blog-filters {
+    margin: auto;
+    width: 90%;
+
+    @include tablet {
+        margin: 45px 0 0 0;
+    }
+}
+
+.blog__blog-filter-section {
+    color: $gray;
+    font-family: $roboto;
+    margin: auto;
+    width: 95%;
+
+    h1 {
+        margin: 15px 0;
+    }
+
+    p {
+        margin: 10px 0;
+        transition: all ease-in 0.3s;
+
+        &:hover {
+            color: $red;
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,26 @@
+.blog-categories__search-blog {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    font-family: $roboto;
+
+    input {
+        border-color: $red;
+        border-style: solid;
+        margin-bottom: 10px;
+        outline: none;
+        padding: 10px 5px;
+    }
+
+    button {
+        background-color: $red;
+        color: white;
+        padding: 10px 5px;
+        transition: all ease-in 0.3s;
+
+        &:hover {
+            filter: brightness(1.5);
+        }
+    }
+}

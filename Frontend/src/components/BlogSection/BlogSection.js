@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
+import { blogData as bd } from '../../data/blogData'
 
-import { blogData as bd } from '../../data/blogData';
 
 export const BlogSection = () => {
 
@@ -12,8 +12,8 @@ export const BlogSection = () => {
             <ul className="blog-section__cards">
                 {
                     blogData.map(({ image, tittle, author, date, content }) => (
-                        <li className="blog-section__blog-card" key={ image }>
-                            <img src={ `./assets/blog/${ image }.jpg` } alt={ image } />
+                        <li className="blog-section__blog-card" key={image}>
+                            <img src={`./assets/blog/${image}.jpg`} alt={image} />
                             <div className="blog-section__blog-info">
                                 <h1>{ tittle }</h1>
                                 <h3>By <span>{ author }</span> on <span>{ date }</span></h3>
