@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 
-import { OrderData } from './OrderData/OrderData';
-import './MyAccountScreen.css';
+import { OrderData } from '../OrderData/OrderData';
 
 export const MyAccountScreen = () => {
 
@@ -27,14 +26,14 @@ export const MyAccountScreen = () => {
     }, [ /*isLogged*/ ]);
 
     return (
-        <div className="account-container center">
-            <fieldset className="account-fieldset"> 
+        <div className="my-account__account-container center">
+            <fieldset className="my-account__account-fieldset"> 
                 <legend>Your Orders</legend>
                 <p>Orders</p>
 
-                <div className="line-division-orders" />
+                <div className="my-account__line-division-orders" />
 
-                <div className="order-info">
+                <div className="my-account__order-info">
                     <h1>Order ID</h1>
                     <h1>Date</h1>
                     <h1>Total</h1>

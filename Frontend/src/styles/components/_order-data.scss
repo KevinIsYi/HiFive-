@@ -1,0 +1,40 @@
+.order-data__order {
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 5px;
+
+    p {
+        text-align: center;
+        font-size: 12.5px;
+        margin-bottom: 10px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        @include big-phone {
+            font-size: 15px;
+        }
+
+        @include tablet {
+            font-size: 20px;
+        } 
+    }
+}
+
+.order-data__order-id {
+    transition: all ease-in 0.3s;
+
+    &:hover {
+        filter: opacity(0.5);
+        cursor: pointer;
+    }
+}
+
+.order-data__items-description-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(33%, 33%));
+    margin: auto;
+    width: 95%;   
+}

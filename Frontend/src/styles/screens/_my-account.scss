@@ -1,0 +1,55 @@
+.my-account__account-container {
+    width: 95%;
+}
+
+.my-account__account-fieldset {
+    box-shadow: 5px 0 5px $gray, 
+                -5px 0 5px $gray, 
+                0 5px 5px $gray, 
+                0 -5px 5px $gray;
+    border-style: none;
+    border-width: 3px;
+    margin: 50px auto;
+
+    @include big-desktop {
+        width: 70%;
+    }
+
+    legend {
+        background-color: $red;
+        border-radius: 5px;
+        color: white;
+        font-family: $alfa;
+        font-size: 30px;
+        padding: 10px 30px;
+    }
+
+    p {
+        color: $red;
+        font-family: $roboto;
+        font-size: 25px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+}
+
+.my-account__line-division-orders {
+    background-color: $gray;
+    border-radius: 5px;
+    height: 3px;
+    margin: 25px auto 15px auto;
+    width: 90%;
+}
+
+.my-account__order-info {
+    display: flex;
+    justify-content: space-around;
+
+    h1 {
+        text-align: center;
+        font-family: $roboto;
+        font-size: 20px;
+        width: 100%;
+    }
+}

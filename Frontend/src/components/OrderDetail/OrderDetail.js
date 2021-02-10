@@ -1,12 +1,8 @@
 import React from 'react';
 
-import './OrderDetail.css';
-
 export const OrderDetail = ({ order = [] }) => {
     
     const { orders } = order;
-
-    console.log(orders);
 
     return (
         <>
@@ -14,7 +10,7 @@ export const OrderDetail = ({ order = [] }) => {
                 orders.map(({ id, name, quantity, unitPrice }) => (
                     <div 
                         key={ id }
-                        className="each-item-description"
+                        className="order-detail__each-item-description"
                    >
                         <h1> { name }</h1>
                         <h5><span>Price:</span> ${ unitPrice.toFixed(2) }</h5>

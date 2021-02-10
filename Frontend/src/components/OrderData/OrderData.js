@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { OrderDetail } from './OrderDetail/OrderDetail';
-
-import './OrderData.css';
+import { OrderDetail } from '../OrderDetail/OrderDetail';
 
 export const OrderData = ({ order }) => {
 
@@ -19,9 +17,9 @@ export const OrderData = ({ order }) => {
 
     return (
         <>
-            <div className="order">
+            <div className="order-data__order">
                 <p 
-                    className="order-id"
+                    className="order-data__order-id"
                     onClick={ () => setShow(!show) }
                 >
                     { id }
@@ -31,7 +29,7 @@ export const OrderData = ({ order }) => {
             </div>
             {
                 show && 
-                <div className="items-description-container">
+                <div className="order-data__items-description-container">
                     <OrderDetail order={ order } />
                 </div>
             }
