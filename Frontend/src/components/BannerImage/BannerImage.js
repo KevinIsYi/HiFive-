@@ -3,15 +3,13 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 export const BannerImage = ({ image, openingText, mainText, buttonText, height }) => {
-    const backImage = (image === undefined) ? 'var(--red-color)' : require(`./${ image }.jpg`);
+    const backImage =  require(`./${ image }.jpg`);
 
     const imgSection = {
         backgroundColor: backImage,
-        backgroundImage: `url(${ backImage })`, // Won't be valid css if url is undefined, so it won't be applied
+        backgroundImage: `url(${ backImage })`,
         height: `${ height }vh`,
     };
-
-    //OpeningText will be shown only if it is provided when calling the component
 
     return (
         <div style={ imgSection } className="banner-image__img-section">
@@ -25,6 +23,7 @@ export const BannerImage = ({ image, openingText, mainText, buttonText, height }
 }
 
 BannerImage.propTypes = {
+    image: PropTypes.string.isRequired,
     mainText: PropTypes.string.isRequired,
     height: PropTypes.number.isRequired
 }

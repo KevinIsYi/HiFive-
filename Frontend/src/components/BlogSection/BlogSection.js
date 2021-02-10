@@ -1,7 +1,6 @@
 import React from 'react'
 import { blogData as bd } from '../../data/blogData'
 
-
 export const BlogSection = () => {
 
     const blogData = bd.slice(0, 3);

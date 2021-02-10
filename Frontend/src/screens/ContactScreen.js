@@ -1,6 +1,6 @@
 import React from 'react';
-import { useForm } from '../hooks/useForm';
 import { BannerImage } from '../components/BannerImage/BannerImage';
+import { useForm } from '../hooks/useForm';
 
 export const ContactScreen = () => {
 

@@ -1,29 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react';
-
+import React, { useState } from 'react';
 import { OrderData } from '../OrderData/OrderData';
 
 export const MyAccountScreen = () => {
 
-    const [ purchases, setPurchases ] = useState([]);
-    //const { isLogged } = useContext(UserContext);
-    
-    useEffect(() => {
-        const getPurchases = async () => {
-            const url = 'http://localhost:4000/api/purchase/getpurchases';
-    
-            const req = await fetch(url, {
-                method: 'GET',
-                headers: {
-                    'user': 'islogged'
-                }
-            });
-            const { ok, purchases } = await req.json();
-            if (ok) {
-                setPurchases(purchases);
-            }
-        }
-        getPurchases();
-    }, [ /*isLogged*/ ]);
+    const [ purchases ] = useState([]);
 
     return (
         <div className="my-account__account-container center">

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { BsPerson } from 'react-icons/bs';
 import { GoThreeBars } from 'react-icons/go';
 import { HiOutlineShoppingBag } from 'react-icons/hi';
@@ -26,11 +25,11 @@ export const Header = () => {
             </nav>
 
             <div className="header__sign-in-section">
-                <Link>
+                <Link to="/cart">
                     <HiOutlineShoppingBag className="header__header-icon" />
                 </Link>
                 <div className="header__division" />
-                <Link>
+                <Link to="/account">
                     <BsPerson className="header__header-icon" />
                 </Link>
             </div>

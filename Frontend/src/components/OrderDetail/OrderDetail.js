@@ -1,8 +1,8 @@
 import React from 'react';
 
-export const OrderDetail = ({ order = [] }) => {
+export const OrderDetail = () => {
     
-    const { orders } = order;
+    const orders = [];
 
     return (
         <>

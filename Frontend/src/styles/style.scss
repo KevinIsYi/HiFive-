@@ -4,26 +4,26 @@
 @import 'base/variables';
 @import 'base/globals';
 
-@import 'screens/auth';
 @import 'screens/about-us';
+@import 'screens/auth';
 @import 'screens/blog';
 @import 'screens/contact';
 @import 'screens/my-account';
 
 @import 'components/banner-image';
+@import 'components/blog-categories';
 @import 'components/blog-section';
 @import 'components/card';
 @import 'components/cards';
+@import 'components/cart-item';
+@import 'components/cart-items';
+@import 'components/departments-filter';
 @import 'components/header';
 @import 'components/hifive-pros';
-@import 'components/footer';
-@import 'components/social-media';
-@import 'components/blog-categories';
-@import 'components/recent-blog-post';
-@import 'components/post';
-@import 'components/departments-filter';
 @import 'components/items';
-@import 'components/cart-items';
-@import 'components/cart-item';
+@import 'components/footer';
 @import 'components/order-data';
 @import 'components/order-detail';
+@import 'components/post';
+@import 'components/recent-blog-post';
+@import 'components/social-media';

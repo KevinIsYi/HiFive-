@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { BsPerson } from 'react-icons/bs';
 import { FaComment } from 'react-icons/fa';
 

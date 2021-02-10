@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BannerImage } from '../components/BannerImage/BannerImage';
 import { BlogCategories } from '../components/BlogCategories/BlogCategories';
 import { BlogPost } from '../components/BlogPost/BlogPost';

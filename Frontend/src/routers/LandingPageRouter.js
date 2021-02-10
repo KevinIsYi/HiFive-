@@ -1,24 +1,22 @@
 import React, { useContext } from 'react';
-
 import { 
     Switch,
     Route,
     Redirect
 } from 'react-router-dom';
+import { AuthContext } from '../context/auth';
+import { AboutUsScreen } from '../screens/AboutUsScreen';
+import { CheckoutScreen } from '../components/CheckoutScreen/CheckoutScreen';
+import { FilterCategoriesScreen } from '../screens/FilterCategoriesScreen';
+import { MyAccountScreen } from '../components/MyAccountScreen/MyAccountScreen';
 
+import { BlogScreen } from '../screens/BlogScreen';
+import { CartScreen } from '../screens/CartScreen';
+import { ContactScreen } from '../screens/ContactScreen';
 import { Header } from '../components/Header/Header';
 import { Footer } from '../components/Footer/Footer';
-
-import { MyAccountScreen } from '../components/MyAccountScreen/MyAccountScreen';
-import { CheckoutScreen } from '../components/CheckoutScreen/CheckoutScreen';
-import { AuthContext } from '../context/auth';
-import { PrivateRoute } from './PrivateRoute';
 import { LandingPage } from '../screens/LandingPage';
-import { AboutUsScreen } from '../screens/AboutUsScreen';
-import { BlogScreen } from '../screens/BlogScreen';
-import { FilterCategoriesScreen } from '../screens/FilterCategoriesScreen';
-import { ContactScreen } from '../screens/ContactScreen';
-import { CartScreen } from '../screens/CartScreen';
+import { PrivateRoute } from './PrivateRoute';
 
 export const LandingPageRouter = () => {
 

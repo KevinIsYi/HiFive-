@@ -1,7 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { HiOutlineShoppingBag } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
-import Swal from 'sweetalert2';
 
 export const Items = ( ) => {
     const items = [{
@@ -10,60 +9,9 @@ export const Items = ( ) => {
         name: "Ropita del Pollo Pepe",
         price: 20.23,
         available: 20,
-    },
-    {
-        _id: "AB02",
-        img: "AB02",
-        name: "Ropita del Pollo Pepe",
-        price: 20.23,
-        available: 20,
-    },
-    {
-        _id: "AB03",
-        img: "AB03",
-        name: "Ropita del Pollo Pepe",
-        price: 20.23,
-        available: 20,
-    },
-    {
-        _id: "AB04",
-        img: "AB04",
-        name: "Ropita del Pollo Pepe",
-        price: 20.23,
-        available: 20,
-    },
-    {
-        _id: "AB05",
-        img: "AB05",
-        name: "Ropita del Pollo Pepe",
-        price: 20.23,
-        available: 20,
-    },
-    {
-        _id: "AB06",
-        img: "AB06",
-        name: "Ropita del Pollo Pepe",
-        price: 20.23,
-        available: 20,
-    },
-    {
-        _id: "AB07",
-        img: "AB07",
-        name: "Ropita del Pollo Pepe",
-        price: 20.23,
-        available: 20,
-    },
-    {
-        _id: "AB08",
-        img: "AB08",
-        name: "Ropita del Pollo Pepe",
-        price: 20.23,
-        available: 20,
-    },
-    ];
+    }];
 
     const isLogged = false;
-    console.log(items);
 
     return (
         <div className="items__items-list">

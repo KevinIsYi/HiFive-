@@ -1,5 +1,4 @@
-import React, { useContext, useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import React, { useState } from 'react';
 import { BannerImage } from '../BannerImage/BannerImage';
 import './CheckoutScreen.css';
 

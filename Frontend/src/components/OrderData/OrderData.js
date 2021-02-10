@@ -1,38 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { OrderDetail } from '../OrderDetail/OrderDetail';
 
-export const OrderData = ({ order }) => {
-
-    const { id, date, orders } = order;
-    const [ total, setTotal ] = useState(0);
-    const [ show, setShow ] = useState(false);
-
-    useEffect(() => {
-        let tot = 0;
-        orders.forEach(({ quantity, unitPrice }) => {
-            tot += (quantity * unitPrice);
-        });
-        setTotal(tot);
-    }, [ orders ] );
+export const OrderData = () => {
 
     return (
         <>
             <div className="order-data__order">
                 <p 
                     className="order-data__order-id"
-                    onClick={ () => setShow(!show) }
                 >
-                    { id }
+                    123
                 </p>
-                <p>{ date.slice(0, 10) } </p>
-                <p>${ total.toFixed(2) }</p>
+                <p>10-feb-2020 </p>
+                <p>15836</p>
             </div>
-            {
-                show && 
-                <div className="order-data__items-description-container">
-                    <OrderDetail order={ order } />
-                </div>
-            }
+            <div className="order-data__items-description-container">
+                <OrderDetail />
+            </div>
+            
         </>
     )
 }

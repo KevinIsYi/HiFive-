@@ -8,7 +8,7 @@ const initialState = {
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-    const [auth, setAuth] = useState(initialState);
+    const [auth] = useState(initialState);
  
     return (
         <AuthContext.Provider value={{
