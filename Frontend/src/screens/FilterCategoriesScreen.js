@@ -1,7 +1,7 @@
 import React from 'react';
+import { BannerImage } from '../components/BannerImage/BannerImage';
+import { DepartmentsFilter } from '../components/DepartmentsFilter/DepartmentsFilter';
 
-import { BannerImage } from '../BannerImage/BannerImage';
-import { DepartmentsFilter } from '../DepartmentsFilter/DepartmentsFilter';
 
 export const FilterCategoriesScreen = () => {
 

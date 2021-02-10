@@ -1,18 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react'
 
-import { Items } from './Items/Items';
+import { Items } from '../Items/Items';
 import { UserCategory } from '../../hooks/useUserCategory';
 
 import { getDataByCategory } from '../../selectors/getDataByCategory';
 import { categories } from '../../data/categories';
 
-import './DepartmentsFilter.css';
 
 export const DepartmentsFilter = () => {
 
     const { category, setCategory } = useContext(UserCategory);
     const [ products, setProducts ] = useState([]);
-    const [ selectedButton, setSelectedButton ] = useState(['sort-no-focus', 'sort-no-focus']);
+    const [ selectedButton, setSelectedButton ] = useState(['departments-filter__sort-no-focus', 'departments-filter__sort-no-focus']);
     const [ arrayItems, setArrayItems ] = useState([]);
     const [ ascendant, descendant ] = selectedButton;
     const [ values, setValues ] = useState({
@@ -39,7 +38,7 @@ export const DepartmentsFilter = () => {
         });
         setCategory(id);
         setArrayItems(getDataByCategory({sliderValue, text: '', currentKey: id}, products));
-        setSelectedButton(['sort-no-focus', 'sort-no-focus']);
+        setSelectedButton(['departments-filter__sort-no-focus', 'departments-filter__sort-no-focus']);
     }
 
     const selectButton = (newButtonClasses, sortBy) => {
@@ -76,9 +75,9 @@ export const DepartmentsFilter = () => {
     }, [  ])
 
     return (
-        <section className="show-categories">
-            <div className="filters">
-                <div className="filter-section">
+        <section className="departments-filter__show-categories">
+            <div>
+                <div className="departments-filter__filter-section">
                     <h1>Categories</h1>
                     {
                         categories.map(({ id, category }) => (
@@ -86,34 +85,34 @@ export const DepartmentsFilter = () => {
                         ))
                     }
                 </div>
-                <div className="filter-section">
+                <div className="departments-filter__filter-section">
                     <h1>Filter by Price</h1>
-                    <input className="slider" type="range" min="0" max="3000" name="sliderValue" value={ sliderValue } onChange={ changeInput }/>
-                    <div className="filter-price-slider-options">
+                    <input className="departments-filter__slider" type="range" min="0" max="3000" name="sliderValue" value={ sliderValue } onChange={ changeInput }/>
+                    <div className="departments-filter__filter-price-slider-options">
                         <p>Range: $0 - ${ sliderValue }</p>
                     </div>
                 </div>
-                <div className="filter-section">
+                <div className="departments-filter__filter-section">
                     <h1>Sort by Price</h1>
-                    <div className="sort-buttons">
+                    <div className="departments-filter__sort-buttons">
                         <button 
-                            className={ `btn-sort ${ ascendant }` } 
-                            onClick={ () => selectButton(['sort-focus', 'sort-no-focus'], 'A') }
+                            className={ `btn departments-filter__btn-sort ${ ascendant }` } 
+                            onClick={ () => selectButton(['departments-filter__sort-focus', 'departments-filter__sort-no-focus'], 'A') }
                         >
                             Ascendant
                         </button>
                         <button 
-                            className={ `btn-sort ${ descendant }` }
-                            onClick={ () => selectButton(['sort-no-focus', 'sort-focus'], 'D') }
+                            className={ `btn departments-filter__btn-sort ${ descendant }` }
+                            onClick={ () => selectButton(['departments-filter__sort-no-focus', 'departments-filter__sort-focus'], 'D') }
                         >
                             Descendant
                         </button>
                     </div>
                 </div>
-                <div className="filter-section">
+                <div className="departments-filter__filter-section">
                     <h1>Find by Name</h1>
                     <input 
-                        className="filter-by-name"
+                        className="departments-filter__filter-by-name"
                         type="text" 
                         placeholder="Love HiFive!"
                         name="text"
@@ -122,7 +121,7 @@ export const DepartmentsFilter = () => {
                     />
                 </div>
             </div>
-            <div className="results-section">
+            <div className="departments-filter__results-section">
                 <h2>Results</h2>
                 <Items items={ arrayItems }/>
             </div>

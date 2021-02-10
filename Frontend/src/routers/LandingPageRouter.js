@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom';
 
 import { CartScreen } from '../components/CartScreen/CartScreen';
-import { FilterCategoriesScreen } from '../components/FilterCategoriesScreen/FilterCategoriesScreen';
 
 import { Header } from '../components/Header/Header';
 import { Footer } from '../components/Footer/Footer';
@@ -20,6 +19,7 @@ import { PrivateRoute } from './PrivateRoute';
 import { LandingPage } from '../screens/LandingPage';
 import { AboutUsScreen } from '../screens/AboutUsScreen';
 import { BlogScreen } from '../screens/BlogScreen';
+import { FilterCategoriesScreen } from '../screens/FilterCategoriesScreen';
 
 export const LandingPageRouter = () => {
 
@@ -29,11 +29,11 @@ export const LandingPageRouter = () => {
         <>
             <Header />
             <Switch>
-                <Route exact path="/home" component={ LandingPage } />
-                <Route exact path="/categories" component={ FilterCategoriesScreen } />
-                <Route exact path="/blog" component={ BlogScreen } />
-                <Route exact path="/about" component={ AboutUsScreen } />
-                <Route exact path="/contact" component={ ContactScreen } />
+                <Route exact path="/home" component={LandingPage} />
+                <Route exact path="/categories" component={FilterCategoriesScreen} />
+                <Route exact path="/blog" component={BlogScreen} />
+                <Route exact path="/about" component={AboutUsScreen} />
+                <Route exact path="/contact" component={ContactScreen} />
 
                 <PrivateRoute
                     exact
