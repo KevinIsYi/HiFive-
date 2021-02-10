@@ -1,0 +1,67 @@
+.cart-items__shoppig-cart-section {
+    font-family: $roboto;
+    margin: 25px auto;
+    text-align: center;
+
+    @include big-phone {
+        width: 80%;
+    }
+
+    @include tablet {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        width: 95%;
+    }
+
+    @include tiny-desktop {
+        width: 80%;
+    }
+
+    @include big-desktop {
+        width: 65%;
+    }
+}
+
+.cart-items__total-description {
+    margin: auto;
+    font-size: 20px;
+    font-weight: lighter;
+    width: 50%;
+    max-width: 205px;
+
+    h1 {
+        font-size: 50px;
+        font-weight: bold;
+        margin: 10px 0;
+    }
+}
+
+.cart-items__total-section {
+    min-width: 335px;
+}
+
+.cart-items__btn-total {
+    background-color: $red;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 15px 0;
+    transition: all ease-in 0.3s;
+    width: 90%;
+
+    &:hover {
+        filter: opacity(0.75);
+    }
+}
+
+.cart-items__shopping-cart-items {
+    img {
+        margin: auto;
+        max-width: 100%;
+
+        @include big-phone {
+            max-width: 250px;
+        }
+    }
+}
+

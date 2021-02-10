@@ -47,28 +47,28 @@ export const CartItem = React.memo(({ item, editTotal }) => {
         {
             itemExist
             ?
-                <div className="shopping-cart-item">
+                <div className="cart-item__shopping-cart-item">
                     <img src={`./assets/items/${ img }.jpg`} alt={ img } />
-                    <div className="description-price">
+                    <div className="cart-item__description-price">
                         <h1>{ name } | In Stock: #{ available }</h1>
                         <p><span># Items:</span> { currentQuantity }</p>
                         <p><span>Unit Price:</span> ${ price }</p>
                         <p><span>Total:</span> ${ (quantity * price).toFixed(2) }</p>
                         <AiFillDelete 
-                            className="icon sc-icon sc-delete-icon" 
+                            className="cart-item__icon cart-item__sc-icon cart-item__sc-delete-icon" 
                             onClick={ deleteComponent }
                         />
                         {
                             currentQuantity < available && 
                             <AiFillPlusCircle 
-                                className="icon sc-icon" 
+                                className="cart-item__icon cart-item__sc-icon" 
                                 onClick={ () => changeQuantity(1) }
                             />
                         }
                         {
                             currentQuantity > 1 && 
                             <AiFillMinusCircle 
-                                className="icon sc-icon" 
+                                className="cart-item__icon cart-item__sc-icon" 
                                 onClick={ () => changeQuantity(-1) }
                             />
                         }
@@ -98,7 +98,7 @@ export const CartItem = React.memo(({ item, editTotal }) => {
                     onClick={ () => changeQuantity(1) }
                 />
                 <AiFillDelete 
-                    className="icon sc-icon sc-delete-icon" 
+                    className="icon sc-icon cart-item__sc-delete-icon" 
                     onClick={ deleteComponent }
                 />
             </div>

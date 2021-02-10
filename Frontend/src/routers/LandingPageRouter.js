@@ -6,8 +6,6 @@ import {
     Redirect
 } from 'react-router-dom';
 
-import { CartScreen } from '../components/CartScreen/CartScreen';
-
 import { Header } from '../components/Header/Header';
 import { Footer } from '../components/Footer/Footer';
 
@@ -20,6 +18,7 @@ import { AboutUsScreen } from '../screens/AboutUsScreen';
 import { BlogScreen } from '../screens/BlogScreen';
 import { FilterCategoriesScreen } from '../screens/FilterCategoriesScreen';
 import { ContactScreen } from '../screens/ContactScreen';
+import { CartScreen } from '../screens/CartScreen';
 
 export const LandingPageRouter = () => {
 

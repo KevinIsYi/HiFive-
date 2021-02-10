@@ -1,91 +1,48 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
-import { CartItem } from './CartItem/CartItem';
-
-import './CartItems.css';
+import { CartItem } from '../CartItem/CartItem';
 
 export const CartItems = () => {
 
-    const [ cartItems, setCartItems ] = useState([]);
-    const [ total, setTotal ] = useState(0);
-
-    const getCartItems = () => {
-        const items = JSON.parse(localStorage.getItem('scitems'));
-        let total = 0;
-        items.forEach(({ price, quantity }) => {
-            total += (price * quantity);
-        });
-        setCartItems(items);
-        setTotal(total);
-    }
-    useEffect( () => {
-        getCartItems();
-    }, [])
-
-    const editTotal = useCallback((num) => {
-        setTotal(total => total + num);
-    }, [ setTotal ]);
-
-
-    const processPurchase = async () => {
-        const cartItems = JSON.parse(localStorage.getItem('scitems'));
-        const deletedItems = JSON.parse(localStorage.getItem('sc-deleted-items'));
-        
-        cartItems.forEach(item => {
-            deletedItems.push(item);
-        });
-        
-        const url = "si";
-        const req = "no";
-        /*
-        const url = 'http://localhost:4000/api/purchase/';
-        const req = await fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify({
-                user: isLogged,
-                items: cartItems
-            })
-        });
-        */
-
-        const resp = await req.json();
-        if (resp.ok) {
-            localStorage.setItem('scitems', JSON.stringify([]));
-            localStorage.setItem('sc-deleted-items', JSON.stringify(deletedItems));
-            localStorage.setItem('change', true);
-            setCartItems([]);
-            setTotal(0);
-            Swal.fire('Success', 'Your purchase has been processed', 'success');
-        }
-        else {
-            Swal.fire('Error', 'Your purchase cannot be processed, contact us to get more info', 'error');
-        }
-    }
+    const cartItems = [
+        {
+            _id: 1,
+            img: "AB01",
+            name: "El pollo pepe",
+            price: 153.12,
+            quantity: 25,
+            available: 10
+        },
+        {
+            _id: 2,
+            img: "AB02",
+            name: "El pollo pepe",
+            price: 153.12,
+            quantity: 25,
+            available: 10
+        },
+    ];
+    const total = 100;
 
     return (
-        <div className="shopping-cart-section">
-            <div className="total-section">
-                <div className="div-total-description">
+        <div className="cart-items__shoppig-cart-section">
+            <div className="cart-items__total-section">
+                <div className="cart-items__total-description">
                     <p>Total: </p>
                     <h1>${ total.toFixed(2) }</h1>
                 </div>
                 <button 
-                    className="btn btn-total"
-                    onClick={ processPurchase }
+                    className="btn cart-items__btn-total"
                 >
                     Pay
                 </button>
             </div>
-            <div className="shopping-cart-items">
+            <div className="cart-items__shopping-cart-items">
                 { 
                     cartItems.map(item => (
-                        <CartItem 
+                        <CartItem
                             key={ item._id }
                             item={ item } 
-                            editTotal={ editTotal }
                         />
                     )) 
                 }
