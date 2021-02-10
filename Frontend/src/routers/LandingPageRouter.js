@@ -13,13 +13,13 @@ import { Footer } from '../components/Footer/Footer';
 
 import { MyAccountScreen } from '../components/MyAccountScreen/MyAccountScreen';
 import { CheckoutScreen } from '../components/CheckoutScreen/CheckoutScreen';
-import { ContactScreen } from '../components/ContactScreen/ContactScreen';
 import { AuthContext } from '../context/auth';
 import { PrivateRoute } from './PrivateRoute';
 import { LandingPage } from '../screens/LandingPage';
 import { AboutUsScreen } from '../screens/AboutUsScreen';
 import { BlogScreen } from '../screens/BlogScreen';
 import { FilterCategoriesScreen } from '../screens/FilterCategoriesScreen';
+import { ContactScreen } from '../screens/ContactScreen';
 
 export const LandingPageRouter = () => {
 

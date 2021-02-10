@@ -1,8 +1,6 @@
 import React from 'react';
-import { useForm } from '../../hooks/useForm';
-import { BannerImage } from '../BannerImage/BannerImage';
-
-import './ContactScreen.css';
+import { useForm } from '../hooks/useForm';
+import { BannerImage } from '../components/BannerImage/BannerImage';
 
 export const ContactScreen = () => {
 
@@ -12,7 +10,7 @@ export const ContactScreen = () => {
 
     const [ formValues, handleInputChange ] = useForm({
         title: '',
-        bodyMessage:''
+        bodyMessage: ''
     });
 
     const { title, bodyMessage } = formValues;
@@ -25,10 +23,10 @@ export const ContactScreen = () => {
                 mainText="Contact"
             />
             <form 
-                className="contact-form"
+                className="contact__contact-form"
                 onSubmit={ contactSubmit }
             >
-                <fieldset className="contact">
+                <fieldset className="contact__contact">
                     <legend>Contact Us</legend>
                     <h1>Title</h1>
                     <input

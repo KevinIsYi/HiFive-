@@ -1,0 +1,40 @@
+.contact__contact-form {
+    font-family: $roboto;
+    margin: 50px auto;
+    text-align: center;
+    width: 95%;
+
+    @include tablet {
+        width: 50%;
+    }
+}
+
+.contact__contact {
+    border: solid $red 3px;
+    padding-bottom: 50px;
+
+    legend {
+        color: $red;
+        font-family: $alfa;
+        font-size: 40px;
+        margin: 0;
+    }
+
+    h1 {
+        color: $gray;
+        font-size: 30px;
+    }
+
+    input, textarea {
+        border-color: $gray;
+        border-width: 2px;
+        outline: none;
+        padding: 10px;
+        width: 90%;
+    }
+
+    textarea {
+        height: 50vh;
+        resize: none;
+    }
+}
