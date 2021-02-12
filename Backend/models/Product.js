@@ -1,10 +1,14 @@
 const { Schema, model } = require('mongoose');
 
-const ItemSchema = Schema({
-    img: {
+const ProductSchema = Schema({
+    image: {
         type: String,
         required: true,
         unique: true
+    },
+    category: {
+        type: String,
+        required: true
     },
     name: {
         type: String,
@@ -20,4 +24,11 @@ const ItemSchema = Schema({
     }
 });
 
-module.exports = model( 'Item', ItemSchema );
+ProductSchema.method('toJSON', function () {
+    const { __v, id, ...object } = this.toObject(); 
+
+    return object;
+});
+
+module.exports = model('Product', ProductSchema);
+
