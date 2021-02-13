@@ -2,18 +2,34 @@ import React, { useEffect, useState } from 'react'
 import { Items } from '../Items/Items';
 import { categories } from '../../data/categories';
 import { fetchData } from '../../helpers/fetch';
+import { sortProducts } from '../../helpers/sortProducts';
 
 export const DepartmentsFilter = () => {
 
+    const [allProducts, setAllProducts] = useState([]);
     const [products, setProducts] = useState([]);
+    const [buttonsClasses, setButtonsClasses] = useState({
+        ascendant: 'departments-filter__sort-no-focus',
+        descendant: 'departments-filter__sort-no-focus'
+    });
+    const { ascendant, descendant } = buttonsClasses;
 
     const fetchProducts = async () => {
         const data = await fetchData('api/items');
         
         if (data.ok) {
-            setProducts(data.products);   
+            const { products } = data;
+            setAllProducts(products);
+            setProducts(products);
         }
-    }; 
+    };
+
+    const sort = (key) => {
+        const { sortedProducts, buttonClasses } = sortProducts(key, products);
+
+        setProducts(sortedProducts);
+        setButtonsClasses(buttonClasses);
+    }
 
     useEffect(() => {
         fetchProducts();
@@ -48,12 +64,14 @@ export const DepartmentsFilter = () => {
                     <h1>Sort by Price</h1>
                     <div className="departments-filter__sort-buttons">
                         <button 
-                            className={ `btn departments-filter__btn-sort departments-filter__sort-focus` } 
+                            className={`btn departments-filter__btn-sort ${ascendant}`} 
+                            onClick={() => sort('A')}
                         >
                             Ascendant
                         </button>
                         <button 
-                            className={ `btn departments-filter__btn-sort departments-filter__sort-no-focus` }
+                            className={`btn departments-filter__btn-sort ${descendant}`}
+                            onClick={() => sort('D')}
                         >
                             Descendant
                         </button>
