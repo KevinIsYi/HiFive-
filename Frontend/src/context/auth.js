@@ -2,7 +2,7 @@ import React, { createContext, useState } from 'react';
 
 const initialState = {
     id: null,
-    isLogged: true
+    isLogged: false
 }
 
 export const AuthContext = createContext();

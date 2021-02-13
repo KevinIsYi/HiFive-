@@ -1,8 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Items } from '../Items/Items';
 import { categories } from '../../data/categories';
+import { fetchData } from '../../helpers/fetch';
 
 export const DepartmentsFilter = () => {
+
+    const [products, setProducts] = useState([]);
+
+    const fetchProducts = async () => {
+        const data = await fetchData('api/items');
+        
+        if (data.ok) {
+            setProducts(data.products);   
+        }
+    }; 
+
+    useEffect(() => {
+        fetchProducts();
+    }, []);
 
     return (
         <section className="departments-filter__show-categories">
@@ -56,7 +71,7 @@ export const DepartmentsFilter = () => {
             </div>
             <div className="departments-filter__results-section">
                 <h2>Results</h2>
-                <Items />
+                <Items products={products}/>
             </div>
         </section>
     )
