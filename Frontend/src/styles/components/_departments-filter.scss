@@ -23,7 +23,7 @@
     font-family: $roboto;
 
     h1 {
-        font-family: var(--anton);
+        font-family: $alfa;
         font-size: 25px;
         margin-bottom: 15px;
     }
@@ -31,6 +31,7 @@
     p {
         margin: 15px 0;
         transition: all ease-in 0.3s;
+        text-transform: capitalize;
         
         &:hover {
             color: $red;

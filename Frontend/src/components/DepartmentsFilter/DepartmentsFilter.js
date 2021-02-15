@@ -1,50 +1,37 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Items } from '../Items/Items';
-import { categories } from '../../data/categories';
-import { fetchData } from '../../helpers/fetch';
-import { sortProducts } from '../../helpers/sortProducts';
+import { ProductsContext } from '../../context/products';
+import { fetchProducts, filterByPrice } from '../../actions/actions';
+import { useFilters } from '../../hooks/useFilters';
+import { Categories } from '../Categories/Categories';
 
 export const DepartmentsFilter = () => {
 
-    const [allProducts, setAllProducts] = useState([]);
-    const [products, setProducts] = useState([]);
-    const [buttonsClasses, setButtonsClasses] = useState({
-        ascendant: 'departments-filter__sort-no-focus',
-        descendant: 'departments-filter__sort-no-focus'
-    });
-    const { ascendant, descendant } = buttonsClasses;
+    const { 
+        ascendant, descendant, textFilter, sliderValue,
+        sortAscendant, sortDescendant, changeTextFilter,
+        changeSliderValue, resetButtonsClasses
+    } = useFilters();
 
-    const fetchProducts = async () => {
-        const data = await fetchData('api/items');
-        
-        if (data.ok) {
-            const { products } = data;
-            setAllProducts(products);
-            setProducts(products);
-        }
-    };
+    const { productsState, dispatch } = useContext(ProductsContext);
+    const { allProducts, selectedProducts, selectedCategory } = productsState;
 
-    const sort = (key) => {
-        const { sortedProducts, buttonClasses } = sortProducts(key, products);
-
-        setProducts(sortedProducts);
-        setButtonsClasses(buttonClasses);
+    const changeSliderInputValue = (e) => {
+        changeSliderValue(e);
+        filterByPrice(sliderValue, dispatch);
     }
 
     useEffect(() => {
-        fetchProducts();
-    }, []);
+        if (allProducts.length === 0) {
+            fetchProducts('api/items', dispatch);
+        }
+    }, [allProducts, dispatch]);
 
     return (
         <section className="departments-filter__show-categories">
             <div>
                 <div className="departments-filter__filter-section">
-                    <h1>Categories</h1>
-                    {
-                        categories.map(({ id, category }) => (
-                            <p key={ id } >{ category } </p>
-                        ))
-                    }
+                    <Categories slider={sliderValue} />
                 </div>
                 <div className="departments-filter__filter-section">
                     <h1>Filter by Price</h1>
@@ -54,10 +41,11 @@ export const DepartmentsFilter = () => {
                         min="0"
                         max="3000"
                         name="sliderValue"
-                        value={3000}
+                        value={sliderValue}
+                        onChange={changeSliderInputValue}
                     />
                     <div className="departments-filter__filter-price-slider-options">
-                        <p>Range: $0 - $3000</p>
+                        <p>Range: $0 - ${sliderValue}</p>
                     </div>
                 </div>
                 <div className="departments-filter__filter-section">
@@ -65,13 +53,13 @@ export const DepartmentsFilter = () => {
                     <div className="departments-filter__sort-buttons">
                         <button 
                             className={`btn departments-filter__btn-sort ${ascendant}`} 
-                            onClick={() => sort('A')}
+                            onClick={sortAscendant}
                         >
                             Ascendant
                         </button>
                         <button 
                             className={`btn departments-filter__btn-sort ${descendant}`}
-                            onClick={() => sort('D')}
+                            onClick={sortDescendant}
                         >
                             Descendant
                         </button>
@@ -84,12 +72,14 @@ export const DepartmentsFilter = () => {
                         type="text" 
                         placeholder="Love HiFive!"
                         name="text"
+                        value={textFilter}
+                        onChange={changeTextFilter}
                     />
                 </div>
             </div>
             <div className="departments-filter__results-section">
                 <h2>Results</h2>
-                <Items products={products}/>
+                <Items products={selectedProducts}/>
             </div>
         </section>
     )
