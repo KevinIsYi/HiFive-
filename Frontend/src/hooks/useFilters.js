@@ -9,13 +9,13 @@ export const useFilters = () => {
     });
     const { ascendant, descendant } = buttonClasses;
 
-    const sortAscendant = () => {
+    const sortAsc = () => {
         setButtonClasses({
             ascendant: 'departments-filter__sort-focus',
             descendant: 'departments-filter__sort-no-focus'
         });
     }
-    const sortDescendant = () => {
+    const sortDesc = () => {
         setButtonClasses({
             ascendant: 'departments-filter__sort-no-focus',
             descendant: 'departments-filter__sort-focus'
@@ -28,6 +28,7 @@ export const useFilters = () => {
 
     const changeSliderValue = ({ target }) => {
         setSliderValue(target.value);
+        resetButtonsClasses();
     }
 
     const resetButtonsClasses = () => {
@@ -42,8 +43,8 @@ export const useFilters = () => {
         descendant,
         textFilter,
         sliderValue,
-        sortAscendant,
-        sortDescendant,
+        sortAsc,
+        sortDesc,
         changeTextFilter,
         changeSliderValue,
         resetButtonsClasses

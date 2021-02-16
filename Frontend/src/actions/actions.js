@@ -26,5 +26,17 @@ export const changeCategory = (newCategory, sliderValue, dispatch) => {
             category: newCategory,
             value: sliderValue
         }
-    })
+    });
+}
+
+export const sortAscendant = (dispatch) => {
+    dispatch({
+        type: types.sortAscendant
+    });
+};
+
+export const sortDescendant = (dispatch) => {
+    dispatch({
+        type: types.sortDescendant
+    });
 }

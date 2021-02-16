@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { Items } from '../Items/Items';
 import { ProductsContext } from '../../context/products';
-import { fetchProducts, filterByPrice } from '../../actions/actions';
+import { fetchProducts, filterByPrice, sortAscendant, sortDescendant } from '../../actions/actions';
 import { useFilters } from '../../hooks/useFilters';
 import { Categories } from '../Categories/Categories';
 
@@ -9,7 +9,7 @@ export const DepartmentsFilter = () => {
 
     const { 
         ascendant, descendant, textFilter, sliderValue,
-        sortAscendant, sortDescendant, changeTextFilter,
+        sortAsc, sortDesc, changeTextFilter,
         changeSliderValue, resetButtonsClasses
     } = useFilters();
 
@@ -19,6 +19,16 @@ export const DepartmentsFilter = () => {
     const changeSliderInputValue = (e) => {
         changeSliderValue(e);
         filterByPrice(sliderValue, dispatch);
+    }
+
+    const sortProducts = (key) => {
+        if (key === 'a') {
+            sortAscendant(dispatch);
+            sortAsc();
+        } else {
+            sortDescendant(dispatch);
+            sortDesc();
+        }
     }
 
     useEffect(() => {
@@ -53,13 +63,13 @@ export const DepartmentsFilter = () => {
                     <div className="departments-filter__sort-buttons">
                         <button 
                             className={`btn departments-filter__btn-sort ${ascendant}`} 
-                            onClick={sortAscendant}
+                            onClick={() => sortProducts('a')}
                         >
                             Ascendant
                         </button>
                         <button 
                             className={`btn departments-filter__btn-sort ${descendant}`}
-                            onClick={sortDescendant}
+                            onClick={() => sortProducts('d')}
                         >
                             Descendant
                         </button>

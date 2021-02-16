@@ -1,10 +1,8 @@
+import { sortAscendant, sortDescendant } from "../../helpers/sortProducts";
 import { types } from "../../types/types";
 
 export const productsReducer = (state, action) => {
     const { payload } = action;
-
-    console.log(action);
-    console.log(payload);
 
     switch (action.type) {
         case types.fillProducts:
@@ -26,6 +24,16 @@ export const productsReducer = (state, action) => {
                 selectedProducts: state.allProducts.filter(product =>
                     ((product.category === payload.category) && (product.price <= payload.value))),
                 selectedCategory: payload.category
+            }
+        case types.sortAscendant:
+            return {
+                ...state,
+                selectedProducts: sortAscendant(state.selectedProducts)
+            }
+        case types.sortDescendant: 
+            return {
+                ...state,
+                selectedProducts: sortDescendant(state.selectedProducts)
             }
         default:
             return state;
