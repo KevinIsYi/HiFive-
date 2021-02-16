@@ -40,3 +40,13 @@ export const sortDescendant = (dispatch) => {
         type: types.sortDescendant
     });
 }
+
+export const filterByName = (text, sliderValue, dispatch) => {
+    dispatch({
+        type: types.filterByName,
+        payload: {
+            text,
+            sliderValue
+        }
+    });
+}

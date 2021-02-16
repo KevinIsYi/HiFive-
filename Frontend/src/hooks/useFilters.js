@@ -24,6 +24,7 @@ export const useFilters = () => {
 
     const changeTextFilter = ({ target }) => {
         setTextFilter(target.value);
+        resetButtonsClasses();
     }
 
     const changeSliderValue = ({ target }) => {

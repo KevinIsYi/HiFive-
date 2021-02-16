@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { Items } from '../Items/Items';
 import { ProductsContext } from '../../context/products';
-import { fetchProducts, filterByPrice, sortAscendant, sortDescendant } from '../../actions/actions';
+import { fetchProducts, filterByName, filterByPrice, sortAscendant, sortDescendant } from '../../actions/actions';
 import { useFilters } from '../../hooks/useFilters';
 import { Categories } from '../Categories/Categories';
 
@@ -10,11 +10,11 @@ export const DepartmentsFilter = () => {
     const { 
         ascendant, descendant, textFilter, sliderValue,
         sortAsc, sortDesc, changeTextFilter,
-        changeSliderValue, resetButtonsClasses
+        changeSliderValue
     } = useFilters();
 
     const { productsState, dispatch } = useContext(ProductsContext);
-    const { allProducts, selectedProducts, selectedCategory } = productsState;
+    const { allProducts, selectedProducts } = productsState;
 
     const changeSliderInputValue = (e) => {
         changeSliderValue(e);
@@ -30,6 +30,12 @@ export const DepartmentsFilter = () => {
             sortDesc();
         }
     }
+
+    const textChange = (e) => {
+        changeTextFilter(e);
+        filterByName(textFilter, sliderValue, dispatch);
+
+    } 
 
     useEffect(() => {
         if (allProducts.length === 0) {
@@ -83,7 +89,7 @@ export const DepartmentsFilter = () => {
                         placeholder="Love HiFive!"
                         name="text"
                         value={textFilter}
-                        onChange={changeTextFilter}
+                        onChange={textChange}
                     />
                 </div>
             </div>

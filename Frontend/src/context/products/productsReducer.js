@@ -22,7 +22,8 @@ export const productsReducer = (state, action) => {
             return {
                 ...state,
                 selectedProducts: state.allProducts.filter(product =>
-                    ((product.category === payload.category) && (product.price <= payload.value))),
+                ((product.category === payload.category || payload.category === 'all')
+                    && (product.price <= payload.value))),
                 selectedCategory: payload.category
             }
         case types.sortAscendant:
@@ -34,6 +35,14 @@ export const productsReducer = (state, action) => {
             return {
                 ...state,
                 selectedProducts: sortDescendant(state.selectedProducts)
+            }
+        case types.filterByName:
+            return {
+                ...state,
+                selectedProducts: state.allProducts.filter(product => 
+                    ((product.category === state.selectedCategory || state.selectedCategory === 'all')) &&
+                    (product.name.includes(payload.text)) &&
+                    (product.price <= payload.sliderValue))
             }
         default:
             return state;

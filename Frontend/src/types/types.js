@@ -3,5 +3,6 @@ export const types = {
     changeSelectedProducts: 2,
     changeCategory: 3,
     sortAscendant: 4,
-    sortDescendant: 5
+    sortDescendant: 5,
+    filterByName: 6
 }
