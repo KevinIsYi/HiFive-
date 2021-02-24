@@ -6,16 +6,29 @@ const router = Router();
 
 router.get('/', async (req, res) => {
     try {
-        const products = await Product.find();
+        const { category, slider, nameFilter } = req.query;
+        const products = await Product.find({
+            name: {
+                "$regex": nameFilter || ''
+            },
+            category: {
+                "$regex": category || ''
+            },
+            price: {
+                $lte: slider ? Number(slider) : 3000
+            }
+        });
 
         res.json({
             ok: true,
             products
         });
+        
     } catch (error) {
+        console.log(error);
         return res.status(500).json({
             ok: false,
-            message: 'Internal error'
+            message: 'Internal server error'
         })
     }
 });
